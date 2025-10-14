@@ -69,10 +69,10 @@ export default {
 				},
 				// Custom crypto colors
 				crypto: {
-					blue: '#1A1F2C',
-					purple: '#9b87f5',
-					'light-purple': '#D6BCFA',
-					'dark-purple': '#6E59A5',
+					blue: '#4096EE',
+					purple: '#4096EE',
+					'light-purple': '#7ABCFF',
+					'dark-purple': '#60ABF8',
 					accent: '#F97316',
 				}
 			},
