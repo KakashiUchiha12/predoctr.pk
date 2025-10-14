@@ -82,6 +82,10 @@
     @apply bg-gradient-to-r from-crypto-purple to-crypto-light-purple bg-clip-text text-transparent;
   }
 
+  .bg-gradient-blue {
+    background: linear-gradient(to bottom, #7ABCFF 0%, #60ABF8 32%, #60ABF8 32%, #4096EE 100%);
+  }
+
   .bg-gradient-hero {
     @apply bg-gradient-to-br from-crypto-blue via-[#252A3C] to-[#1E2233];
   }
@@ -115,7 +119,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(155, 135, 245, 0.15), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(64, 150, 238, 0.15), transparent 70%);
     pointer-events: none;
   }
 
@@ -123,7 +127,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(64, 150, 238, 0.08), transparent 70%);
     pointer-events: none;
   }
 }
