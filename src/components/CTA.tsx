@@ -9,7 +9,7 @@ const CTA = () => {
   return (
     <section className={`py-24 relative overflow-hidden transition-all duration-500 ${
       theme === 'dark'
-        ? 'bg-gradient-to-b from-crypto-blue to-[#12141C]'
+        ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
         : 'bg-gradient-cta-light'
     }`}>
       {/* Background Elements */}

@@ -42,7 +42,7 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className={`py-24 transition-all duration-500 ${
       theme === 'dark'
-        ? 'bg-gradient-to-b from-crypto-blue to-[#12141C]'
+        ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
         : 'bg-gradient-testimonials-light'
     }`}>
       <div className="container mx-auto px-4">

@@ -87,7 +87,7 @@
   }
 
   .bg-gradient-hero {
-    @apply bg-gradient-to-br from-crypto-blue via-[#252A3C] to-[#1E2233];
+    @apply bg-gradient-to-br from-[#2A3A5C] via-[#1F2937] to-[#111827];
   }
 
   .bg-gradient-hero-light {
