@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <h1 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-            Crypto<span className="text-crypto-purple">Flow</span>
+            <span className="text-crypto-purple">pre</span>Doctr.pk
           </h1>
         </div>
 
