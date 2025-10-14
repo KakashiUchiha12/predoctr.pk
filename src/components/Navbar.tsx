@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <img
-            src="/favicon/copied-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+            src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
             alt="preDoctr.pk"
             className="hidden lg:block h-8 w-auto mr-2"
           />
