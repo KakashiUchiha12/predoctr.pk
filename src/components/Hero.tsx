@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, ChevronRight, Play, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useTheme } from '@/contexts/ThemeContext';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -218,24 +219,26 @@ const Hero = () => {
               Our Students don't just prepare for MDCAT - they get into medical colleges with admissions to Top Medical colleges across the country
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6 relative overflow-hidden group/btn shadow-lg hover:shadow-xl transition-all duration-300"
-                style={{
-                  animation: showButtonAnimation ? (theme === 'dark' ? 'pulse-subtle 2s infinite' : 'blue-pulse 2s infinite') : 'none',
-                  boxShadow: showButtonAnimation
-                    ? (theme === 'dark'
-                        ? '0 0 0 0 rgba(255, 255, 255, 0.4), 0 4px 15px rgba(255, 255, 255, 0.1)'
-                        : '0 0 0 0 rgba(37, 99, 235, 1), 0 0 20px rgba(37, 99, 235, 0.8), 0 8px 32px rgba(37, 99, 235, 0.6)')
-                    : 'none'
-                }}
-              >
-                <span className="relative z-10 flex items-center">
-                  Start Your MDCAT Journey
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-              </Button>
+              <Link to="/cryptoflow/registration">
+                <Button
+                  size="lg"
+                  className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6 relative overflow-hidden group/btn shadow-lg hover:shadow-xl transition-all duration-300"
+                  style={{
+                    animation: showButtonAnimation ? (theme === 'dark' ? 'pulse-subtle 2s infinite' : 'blue-pulse 2s infinite') : 'none',
+                    boxShadow: showButtonAnimation
+                      ? (theme === 'dark'
+                          ? '0 0 0 0 rgba(255, 255, 255, 0.4), 0 4px 15px rgba(255, 255, 255, 0.1)'
+                          : '0 0 0 0 rgba(37, 99, 235, 1), 0 0 20px rgba(37, 99, 235, 0.8), 0 8px 32px rgba(37, 99, 235, 0.6)')
+                      : 'none'
+                  }}
+                >
+                  <span className="relative z-10 flex items-center">
+                    Start Your MDCAT Journey
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" className={`py-6 ${
                 theme === 'dark'
                   ? 'border-gray-700 text-white hover:bg-white/5'

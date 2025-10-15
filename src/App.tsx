@@ -10,6 +10,7 @@ import Careers from "./pages/Careers";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
+import Registration from "./pages/Registration";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/cryptoflow/careers" element={<Careers />} />
             <Route path="/cryptoflow/press" element={<Press />} />
             <Route path="/cryptoflow/contact" element={<Contact />} />
+            <Route path="/cryptoflow/registration" element={<Registration />} />
             <Route path="/cryptoflow/legal" element={<Legal />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
