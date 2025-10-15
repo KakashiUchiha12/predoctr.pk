@@ -6,10 +6,13 @@ import { useTheme } from '../contexts/ThemeContext';
 
 interface PricingPlan {
   name: string;
+  subtitle?: string;
   price: { monthly: string; annual: string };
   description: string;
   features: string[];
   highlighted?: boolean;
+  badge?: string;
+  badgeExtra?: string;
   buttonText: string;
 }
 
@@ -17,7 +20,6 @@ import { pricingPlans } from '@/data/pricingData'; // Adjust the import path as 
 
 
 const Pricing = () => {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const { theme } = useTheme();
 
   return (
@@ -29,42 +31,11 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
-            Simple, Transparent Pricing
+            Choose Your MDCAT Package
           </h2>
-          <p className={`text-gray-400 max-w-2xl mx-auto mb-8 ${theme === 'light' ? 'text-slate-600' : ''}`}>
-            Choose the plan that best fits your trading needs. All plans include our core platform features.
+          <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
+            Select the perfect package to ace your MDCAT 2026 preparation
           </p>
-
-          <div className={`inline-flex p-1 backdrop-blur-sm border rounded-full ${
-            theme === 'dark'
-              ? 'bg-white/5 border-white/10'
-              : 'bg-white/80 border-gray-300'
-          }`}>
-            <button
-              className={`px-4 py-2 rounded-full transition-colors ${
-                billingCycle === 'monthly'
-                  ? 'bg-crypto-purple text-white'
-                  : theme === 'dark'
-                    ? 'text-gray-400'
-                    : 'text-slate-600'
-              }`}
-              onClick={() => setBillingCycle('monthly')}
-            >
-              Monthly
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full transition-colors ${
-                billingCycle === 'annual'
-                  ? 'bg-crypto-purple text-white'
-                  : theme === 'dark'
-                    ? 'text-gray-400'
-                    : 'text-slate-600'
-              }`}
-              onClick={() => setBillingCycle('annual')}
-            >
-              Annual <span className="text-xs font-medium">Save 20%</span>
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -82,7 +53,7 @@ const Pricing = () => {
             >
               {plan.highlighted && (
                 <div className="bg-crypto-purple text-white text-center py-1 text-sm font-medium">
-                  Most Popular
+                  {plan.badgeExtra || "Most Popular"}
                 </div>
               )}
               <div className={`p-8 ${
@@ -90,16 +61,30 @@ const Pricing = () => {
                   ? 'bg-white/5'
                   : 'bg-white'
               }`}>
+                <div className={`text-center mb-4 ${plan.badge ? '' : 'invisible'}`}>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                    theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
+                  }`}>
+                    {plan.badge}
+                  </span>
+                </div>
                 <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                   {plan.name}
                 </h3>
+                {plan.subtitle && (
+                  <p className={`text-sm mb-2 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+                    {plan.subtitle}
+                  </p>
+                )}
                 <div className="mb-4">
                   <span className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                    {billingCycle === 'monthly' ? plan.price.monthly : plan.price.annual}
+                    {plan.price.monthly}
                   </span>
-                  <span className={`ml-1 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
-                    {plan.price.monthly !== "$0" ? "/month" : ""}
-                  </span>
+                  {plan.name !== "Free" && (
+                    <span className={`ml-1 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'} text-sm`}>
+                      PKR
+                    </span>
+                  )}
                 </div>
                 <p className={`mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
                   {plan.description}

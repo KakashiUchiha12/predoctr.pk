@@ -16,7 +16,7 @@ const FAQ = () => {
   return (
     <section id="faq" className={`py-24 transition-all duration-500 ${
       theme === 'dark'
-        ? 'bg-gradient-to-b from-[#12141C] to-crypto-blue'
+        ? 'bg-gradient-to-b from-[#12141C] to-[#1a1f2e]'
         : 'bg-gradient-faq-light'
     }`}>
       <div className="container mx-auto px-4">
@@ -25,7 +25,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
-            Got questions about CryptoFlow? We've got answers. If you don't see what you're looking for, reach out to our support team.
+            Got questions about preDoctr.pk? We've got answers. If you don't see what you're looking for, reach out to our support team.
           </p>
         </div>
 

@@ -192,3 +192,35 @@
 .navbar-link-hover-dark:hover::before {
   left: 100%;
 }
+
+/* Subtle pulse animation for CTA button */
+@keyframes pulse-subtle {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes white-flash {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4), 0 4px 15px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0), 0 6px 20px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes blue-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4), 0 4px 15px rgba(37, 99, 235, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0), 0 6px 20px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: white-flash 2s infinite;
+}
