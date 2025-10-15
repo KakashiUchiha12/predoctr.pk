@@ -110,15 +110,11 @@ const Registration = () => {
 - *Father's Name:* ${formData.fatherName}  
 - *WhatsApp Number:* ${formData.whatsappNumber}  
 - *Email Address:* ${formData.email}
-
 ---
-
 *Academic Details:*  
 - *Current Class:* ${formData.currentClass}  
 - *College Name:* ${formData.collegeName}
-
 ---
-
 *MDCAT Status:*  
 - *MDCAT Status:* ${formData.mdcatStatus === 'fresher' ? 'Fresher' : 'Repeater'}${formData.mdcatStatus === 'repeater' ? `
   *(If Repeater, please include the following)*  
@@ -126,16 +122,12 @@ const Registration = () => {
 - *Past Year Marks:* ${formData.pastYearMarks}
 - *FSc Part 1 Marks:* ${formData.fscPart1Marks}
 - *FSc Part 2 Marks:* ${formData.fscPart2Marks}` : ''}
-
 ---
-
 *Additional Info:*  
 - *Location (City):* ${formData.location}  
 - *Preferred Study Mode:* ${formData.preferredStudyMode === 'online' ? 'Online' : 'Offline'}  
 - *Province:* ${formData.province}
-
 ---
-
 Looking forward to your response. Thanks!`;
 
     return encodeURIComponent(baseMessage);
@@ -175,7 +167,7 @@ Looking forward to your response. Thanks!`;
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => navigate('/cryptoflow')}
+                onClick={() => navigate('/cryptoflow/')}
                 className={`flex items-center gap-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -209,7 +201,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
                       placeholder="Enter your full name"
-                      className={errors.fullName ? 'border-red-500' : ''}
+                      className={`${errors.fullName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                     />
                     {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
                   </div>
@@ -223,7 +215,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.fatherName}
                       onChange={(e) => handleInputChange('fatherName', e.target.value)}
                       placeholder="Enter your father's name"
-                      className={errors.fatherName ? 'border-red-500' : ''}
+                      className={`${errors.fatherName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                     />
                     {errors.fatherName && <p className="text-red-500 text-sm mt-1">{errors.fatherName}</p>}
                   </div>
@@ -237,7 +229,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.whatsappNumber}
                       onChange={(e) => handleInputChange('whatsappNumber', e.target.value)}
                       placeholder="03001234567"
-                      className={errors.whatsappNumber ? 'border-red-500' : ''}
+                      className={`${errors.whatsappNumber ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                     />
                     {errors.whatsappNumber && <p className="text-red-500 text-sm mt-1">{errors.whatsappNumber}</p>}
                   </div>
@@ -252,7 +244,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="your.email@example.com"
-                      className={errors.email ? 'border-red-500' : ''}
+                      className={`${errors.email ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                   </div>
@@ -293,7 +285,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.collegeName}
                       onChange={(e) => handleInputChange('collegeName', e.target.value)}
                       placeholder="Enter your college name"
-                      className={errors.collegeName ? 'border-red-500' : ''}
+                      className={`${errors.collegeName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                     />
                     {errors.collegeName && <p className="text-red-500 text-sm mt-1">{errors.collegeName}</p>}
                   </div>
@@ -335,7 +327,7 @@ Looking forward to your response. Thanks!`;
                           value={formData.previousMdcattScore}
                           onChange={(e) => handleInputChange('previousMdcattScore', e.target.value)}
                           placeholder="e.g., 180/200"
-                          className={errors.previousMdcattScore ? 'border-red-500' : ''}
+                          className={`${errors.previousMdcattScore ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                         />
                         {errors.previousMdcattScore && <p className="text-red-500 text-sm mt-1">{errors.previousMdcattScore}</p>}
                       </div>
@@ -349,7 +341,7 @@ Looking forward to your response. Thanks!`;
                           value={formData.pastYearMarks}
                           onChange={(e) => handleInputChange('pastYearMarks', e.target.value)}
                           placeholder="e.g., 1020/1100"
-                          className={errors.pastYearMarks ? 'border-red-500' : ''}
+                          className={`${errors.pastYearMarks ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                         />
                         {errors.pastYearMarks && <p className="text-red-500 text-sm mt-1">{errors.pastYearMarks}</p>}
                       </div>
@@ -363,7 +355,7 @@ Looking forward to your response. Thanks!`;
                           value={formData.fscPart1Marks}
                           onChange={(e) => handleInputChange('fscPart1Marks', e.target.value)}
                           placeholder="e.g., 480/550"
-                          className={errors.fscPart1Marks ? 'border-red-500' : ''}
+                          className={`${errors.fscPart1Marks ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                         />
                         {errors.fscPart1Marks && <p className="text-red-500 text-sm mt-1">{errors.fscPart1Marks}</p>}
                       </div>
@@ -377,7 +369,7 @@ Looking forward to your response. Thanks!`;
                           value={formData.fscPart2Marks}
                           onChange={(e) => handleInputChange('fscPart2Marks', e.target.value)}
                           placeholder="e.g., 510/550"
-                          className={errors.fscPart2Marks ? 'border-red-500' : ''}
+                          className={`${errors.fscPart2Marks ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
                         />
                         {errors.fscPart2Marks && <p className="text-red-500 text-sm mt-1">{errors.fscPart2Marks}</p>}
                       </div>
@@ -399,13 +391,13 @@ Looking forward to your response. Thanks!`;
                       <Label htmlFor="location" className={theme === 'dark' ? 'text-white' : 'text-slate-900'}>
                         Location (City) *
                       </Label>
-                      <Input
-                        id="location"
-                        value={formData.location}
-                        onChange={(e) => handleInputChange('location', e.target.value)}
-                        placeholder="e.g., Lahore"
-                        className={errors.location ? 'border-red-500' : ''}
-                      />
+                    <Input
+                      id="location"
+                      value={formData.location}
+                      onChange={(e) => handleInputChange('location', e.target.value)}
+                      placeholder="e.g., Lahore"
+                      className={`${errors.location ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                    />
                       {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
                     </div>
 
