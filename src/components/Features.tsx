@@ -3,7 +3,6 @@ import { Activity, Lock, Zap, Compass, LineChart, Shield } from 'lucide-react';
 import { features } from '../data/featuresData';
 import { useTheme } from '../contexts/ThemeContext';
 
-
 const Features = () => {
   const { theme } = useTheme();
 
