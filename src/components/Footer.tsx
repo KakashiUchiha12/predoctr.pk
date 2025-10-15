@@ -1,5 +1,6 @@
 
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
@@ -15,11 +16,20 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-8">
           <div className="lg:col-span-2">
-            <h2 className={`text-2xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-              Crypto<span className="text-crypto-purple">Flow</span>
-            </h2>
+            <div className="flex items-center mb-4">
+              <Link to="/cryptoflow/" className="flex items-center">
+                <img
+                  src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+                  alt="preDoctr.pk"
+                  className="h-10 w-auto mr-2 animate-float"
+                />
+                <h2 className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                  pre<span className="text-crypto-purple">Doctr.pk</span>
+                </h2>
+              </Link>
+            </div>
             <p className={`text-gray-400 mb-6 max-w-xs ${theme === 'light' ? 'text-slate-600' : ''}`}>
-              The most trusted cryptocurrency platform, empowering traders with innovative tools and unparalleled security.
+              The most trusted MDCAT preparation platform, empowering medical students with comprehensive resources and expert guidance.
             </p>
             <div className="flex space-x-4">
               <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
@@ -46,35 +56,35 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Products</h3>
+            <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>resources</h3>
             <ul className="space-y-2">
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Exchange</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Wallet</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>API</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Institutional</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>DeFi Platform</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>MCQs Practice</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Video Lectures</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Mock Tests</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Materials</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Resources</h3>
+            <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Blog & Support</h3>
             <ul className="space-y-2">
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Blog</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Tutorials</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Market Data</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Documentation</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Help Center</a></li>
+              <li><a href="https://freemdcat.com" target="_blank" rel="noopener noreferrer" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Free MDCAT</a></li>
+              <li><a href="#faq" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Guides</a></li>
+              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
+              <li><a href="#faq" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Support</a></li>
+              <li><a href="#contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Company</h3>
             <ul className="space-y-2">
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>About</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Careers</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Press</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Legal & Privacy</a></li>
-              <li><a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</a></li>
+              <li><Link to="/cryptoflow/about" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>About</Link></li>
+              <li><Link to="/cryptoflow/careers" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Careers</Link></li>
+              <li><Link to="/cryptoflow/press" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Press</Link></li>
+              <li><Link to="/cryptoflow/legal" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Legal & Privacy</Link></li>
+              <li><Link to="/cryptoflow/contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -82,8 +92,7 @@ const Footer = () => {
         <div className={`border-t border-white/10 pt-8 ${theme === 'light' ? 'border-gray-300' : ''}`}>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className={`text-sm mb-4 md:mb-0 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
-              &copy; {currentYear} CryptoFlow. All rights reserved.
-              ~ Distributed By <a href="https://themewagon.com/" target="_blank" className="text-crypto-purple hover:underline">ThemeWagon</a>
+              &copy; {currentYear} preDoctr.pk. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#!" className={`text-sm hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Terms of Service</a>

@@ -10,7 +10,7 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className={`py-24 transition-all duration-500 ${
       theme === 'dark'
-        ? 'bg-gradient-to-b from-[#12141C] to-crypto-blue'
+        ? 'bg-gradient-to-b from-[#12141C] to-[#1a1f2e]'
         : 'bg-gradient-howitworks-light'
     }`}>
       <div className="container mx-auto px-4">

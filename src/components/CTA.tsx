@@ -27,30 +27,30 @@ const CTA = () => {
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 animate-fade-in ${
             theme === 'dark' ? 'text-white' : 'text-slate-900'
           }`}>
-            Ready to revolutionize your <span className="text-gradient">crypto trading</span>?
+            Ready to ace your <span className="text-gradient">MDCAT 2026</span>?
           </h2>
           <p className={`text-lg mb-8 max-w-2xl mx-auto animate-fade-in ${
             theme === 'dark' ? 'text-gray-300' : 'text-slate-600'
           }`} style={{ animationDelay: '0.2s' }}>
-            Join thousands of traders who have already upgraded their crypto experience with CryptoFlow. Start today with zero risk.
+            Join thousands of successful medical students who have achieved their dreams with preDoctr.pk. Start your journey today with zero risk.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button size="lg" className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6">
-              Get Started for Free
+              Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg" className={`py-6 ${
               theme === 'dark'
                 ? 'border-white/20 text-white hover:bg-white/5'
-                : 'border-gray-300 text-white hover:bg-gray-50'
+                : 'border-gray-300 text-slate-700 hover:bg-gray-50'
             }`}>
-              Schedule Demo
+              View Our Packages
             </Button>
           </div>
           <p className={`mt-6 text-sm animate-fade-in ${
             theme === 'dark' ? 'text-gray-400' : 'text-slate-500'
           }`} style={{ animationDelay: '0.6s' }}>
-            No credit card required. Cancel anytime.
+            No credit card required. Explore our resources freely.
           </p>
         </div>
       </div>
