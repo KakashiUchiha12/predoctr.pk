@@ -16,14 +16,14 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
-            How It Works
+            Your MDCAT Journey
           </h2>
           <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
-            Getting started with CryptoFlow is easy. Follow these simple steps to begin your crypto journey.
+            Getting ready for MDCAT 2026 is simple with our proven, personalized approach that sets you up for success.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -42,6 +42,14 @@ const HowItWorks = () => {
               <div className="bg-crypto-purple/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-crypto-purple">
                 {step.icon}
               </div>
+              <img
+                src={step.image}
+                alt={step.title}
+                className="w-full h-32 object-cover rounded-lg mb-4"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&h=200';
+                }}
+              />
               <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{step.title}</h3>
               <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>{step.description}</p>
             </div>
@@ -50,7 +58,7 @@ const HowItWorks = () => {
         
         <div className="mt-16 text-center">
           <Button size="lg" className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8">
-            Create Free Account
+            Try Free Today
           </Button>
         </div>
       </div>

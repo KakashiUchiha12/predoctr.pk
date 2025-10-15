@@ -48,10 +48,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
-            What Our Users Say
+            First Impressions, Our Students
           </h2>
           <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
-            Join thousands of satisfied traders who have transformed their trading experience with CryptoFlow.
+            Discover what our successful MDCAT toppers have to say about their journey with preDoctr.pk
           </p>
         </div>
 
@@ -86,7 +86,12 @@ const Testimonials = () => {
                       />
                       <div className="ml-4">
                         <p className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{testimonial.author}</p>
-                        <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>{testimonial.role}</p>
+                        <div>
+                          <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>{testimonial.role}</p>
+                          {testimonial.location && (
+                            <p className={`text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-slate-500'}`}>{testimonial.location}</p>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

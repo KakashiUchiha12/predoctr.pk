@@ -29,9 +29,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <img
-            src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+            src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
             alt="preDoctr.pk"
-            className="hidden lg:block h-8 w-auto mr-2"
+            className="hidden lg:block h-10 w-auto mr-2 animate-float"
           />
           <h1 className="text-2xl font-bold">
             <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>

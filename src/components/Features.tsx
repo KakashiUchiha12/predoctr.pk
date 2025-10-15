@@ -16,10 +16,10 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
-            Powerful Features
+            Complete MDCAT Preparation Suite
           </h2>
           <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
-            CryptoFlow gives you the edge with advanced tools designed for both beginners and professional traders.
+            preDoctr.pk provides everything you need to ace MDCAT 2026 with our comprehensive study platform.
           </p>
         </div>
 
@@ -37,6 +37,11 @@ const Features = () => {
               <div className="bg-crypto-purple/20 rounded-lg w-12 h-12 flex items-center justify-center mb-5 text-crypto-purple group-hover:bg-crypto-purple/30 transition-colors duration-300">
                 {feature.icon}
               </div>
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="w-full h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
+              />
               <h3 className={`text-xl font-semibold mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{feature.title}</h3>
               <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>{feature.description}</p>
             </div>
