@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Check, X, Star, Award, Users, TrendingUp } from 'lucide-react';
 import { comparisonData, uniqueSellingPoints } from '../data/comparisonData';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Comparison = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'comparison' | 'usp'>('comparison');
 
   const renderComparisonValue = (value: string | boolean | number) => {
@@ -71,8 +73,15 @@ const Comparison = () => {
             {/* Desktop Table View */}
             <div className={`hidden md:block rounded-2xl overflow-hidden shadow-2xl ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}>
               <div className={`p-6 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>
-                <h3 className={`text-xl md:text-2xl font-bold text-center ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                  preDoctr.pk vs. Traditional MDCAT Prep
+                <h3 className={`text-xl md:text-2xl font-bold text-center flex items-center justify-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                  <div className="flex items-center gap-2">
+                    <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-8 h-8 object-contain" />
+                    <span className="font-bold">
+                      <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+                    </span>
+                  </div>
+                  <span className="text-gray-400">vs.</span>
+                  <span className="font-medium">Academies</span>
                 </h3>
               </div>
 
@@ -85,13 +94,15 @@ const Comparison = () => {
                       </th>
                       <th className={`px-4 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                         <div className="flex items-center justify-center gap-2">
-                          <span className="hidden md:inline">preDoctr.pk</span>
-                          <Award className="w-4 h-4 md:w-5 md:h-5 text-crypto-purple" />
+                          <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
+                          <span className="hidden md:inline font-bold">
+                            <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+                          </span>
                         </div>
                       </th>
                       <th className={`px-4 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                         <div className="flex items-center justify-center gap-2">
-                          <span className="hidden md:inline">Competitors</span>
+                          <span className="hidden md:inline">Academies</span>
                           <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
                         </div>
                       </th>
@@ -138,8 +149,15 @@ const Comparison = () => {
 
             {/* Mobile Card View */}
             <div className="md:hidden space-y-4">
-              <h3 className={`text-lg md:text-xl font-bold text-center mb-6 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                preDoctr.pk vs. Traditional MDCAT Prep
+              <h3 className={`text-lg md:text-xl font-bold text-center mb-6 flex flex-col sm:flex-row items-center justify-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                <div className="flex items-center gap-2">
+                  <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
+                  <span className="font-bold">
+                    <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+                  </span>
+                </div>
+                <span className="text-gray-400 text-sm">vs.</span>
+                <span className="font-medium text-sm">Academies</span>
               </h3>
 
               {comparisonData.map((item, index) => (
@@ -164,10 +182,10 @@ const Comparison = () => {
                     <div className={`text-center p-2 rounded ${
                       theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
                     }`}>
-                      <div className="flex items-center justify-center gap-1 mb-1">
-                        <Award className="w-3 h-3 text-crypto-purple" />
-                        <span className={`text-xs font-medium ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                          preDoctr.pk
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                        <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-5 h-5 object-contain" />
+                        <span className="text-xs font-bold">
+                          <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
                         </span>
                       </div>
                       {renderComparisonValue(item.preDoctr)}
@@ -179,7 +197,7 @@ const Comparison = () => {
                       <div className="flex items-center justify-center gap-1 mb-1">
                         <Users className="w-3 h-3 text-gray-400" />
                         <span className={`text-xs font-medium ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                          Competitors
+                          Academies
                         </span>
                       </div>
                       {renderComparisonValue(item.competitors)}
@@ -226,10 +244,21 @@ const Comparison = () => {
             Join thousands of successful MDCAT students who chose preDoctr.pk
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-            <button className="bg-crypto-purple hover:bg-crypto-purple/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105">
+            <button
+              onClick={() => navigate('/cryptoflow/registration')}
+              className="bg-crypto-purple hover:bg-crypto-purple/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105"
+            >
               Start Free Trial
             </button>
-            <button className={`border-2 border-crypto-purple ${theme === 'dark' ? 'text-crypto-purple' : 'text-crypto-purple'} px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105`}>
+            <button
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`border-2 border-crypto-purple ${theme === 'dark' ? 'text-crypto-purple' : 'text-crypto-purple'} px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105`}
+            >
               View Pricing
             </button>
           </div>

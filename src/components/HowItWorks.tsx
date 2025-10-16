@@ -2,10 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { steps } from "../data/howItWorks";
 import { useTheme } from '../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const HowItWorks = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <section id="how-it-works" className={`py-24 transition-all duration-500 ${
@@ -57,7 +59,11 @@ const HowItWorks = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Button size="lg" className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8">
+          <Button
+            size="lg"
+            className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8"
+            onClick={() => navigate('/registration')}
+          >
             Try Free Today
           </Button>
         </div>

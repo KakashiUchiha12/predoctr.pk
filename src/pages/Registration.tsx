@@ -201,7 +201,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
                       placeholder="Enter your full name"
-                      className={`${errors.fullName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.fullName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                     {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
                   </div>
@@ -215,7 +215,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.fatherName}
                       onChange={(e) => handleInputChange('fatherName', e.target.value)}
                       placeholder="Enter your father's name"
-                      className={`${errors.fatherName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.fatherName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                     {errors.fatherName && <p className="text-red-500 text-sm mt-1">{errors.fatherName}</p>}
                   </div>
@@ -229,7 +229,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.whatsappNumber}
                       onChange={(e) => handleInputChange('whatsappNumber', e.target.value)}
                       placeholder="03001234567"
-                      className={`${errors.whatsappNumber ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.whatsappNumber ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                     {errors.whatsappNumber && <p className="text-red-500 text-sm mt-1">{errors.whatsappNumber}</p>}
                   </div>
@@ -244,7 +244,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       placeholder="your.email@example.com"
-                      className={`${errors.email ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.email ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                   </div>
@@ -264,7 +264,7 @@ Looking forward to your response. Thanks!`;
                       Current Class *
                     </Label>
                     <Select onValueChange={(value) => handleInputChange('currentClass', value)}>
-                      <SelectTrigger className={errors.currentClass ? 'border-red-500' : ''}>
+                      <SelectTrigger className={`${errors.currentClass ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}>
                         <SelectValue placeholder="Select your current class" />
                       </SelectTrigger>
                       <SelectContent>
@@ -285,7 +285,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.collegeName}
                       onChange={(e) => handleInputChange('collegeName', e.target.value)}
                       placeholder="Enter your college name"
-                      className={`${errors.collegeName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.collegeName ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                     {errors.collegeName && <p className="text-red-500 text-sm mt-1">{errors.collegeName}</p>}
                   </div>
@@ -295,7 +295,7 @@ Looking forward to your response. Thanks!`;
                       MDCAT Status *
                     </Label>
                     <Select onValueChange={(value) => handleInputChange('mdcatStatus', value)}>
-                      <SelectTrigger className={errors.mdcatStatus ? 'border-red-500' : ''}>
+                      <SelectTrigger className={`${errors.mdcatStatus ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}>
                         <SelectValue placeholder="Are you a fresher or repeater?" />
                       </SelectTrigger>
                       <SelectContent>
@@ -396,7 +396,7 @@ Looking forward to your response. Thanks!`;
                       value={formData.location}
                       onChange={(e) => handleInputChange('location', e.target.value)}
                       placeholder="e.g., Lahore"
-                      className={`${errors.location ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? 'bg-slate-800' : 'bg-white'}`}
+                      className={`${errors.location ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}
                     />
                       {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
                     </div>
@@ -406,7 +406,7 @@ Looking forward to your response. Thanks!`;
                         Preferred Study Mode *
                       </Label>
                       <Select onValueChange={(value) => handleInputChange('preferredStudyMode', value)}>
-                        <SelectTrigger className={errors.preferredStudyMode ? 'border-red-500' : ''}>
+                        <SelectTrigger className={`${errors.preferredStudyMode ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}>
                           <SelectValue placeholder="Select study mode" />
                         </SelectTrigger>
                         <SelectContent>
@@ -422,7 +422,7 @@ Looking forward to your response. Thanks!`;
                         Province *
                       </Label>
                       <Select onValueChange={(value) => handleInputChange('province', value)}>
-                        <SelectTrigger className={errors.province ? 'border-red-500' : ''}>
+                        <SelectTrigger className={`${errors.province ? 'border-red-500' : ''} text-slate-500 ${theme === 'dark' ? '' : 'bg-white'}`}>
                           <SelectValue placeholder="Select your province" />
                         </SelectTrigger>
                         <SelectContent>

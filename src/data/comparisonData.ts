@@ -8,7 +8,7 @@ export interface ComparisonItem {
 export const comparisonData: ComparisonItem[] = [
   {
     category: "MCQ Bank Size",
-    preDoctr: "55,000+ Questions",
+    preDoctr: "65,000+ Questions",
     competitors: "5,000-15,000 Questions",
     description: "Comprehensive question bank covering all MDCAT topics"
   },
@@ -32,7 +32,7 @@ export const comparisonData: ComparisonItem[] = [
   },
   {
     category: "Progress Analytics",
-    preDoctr: "✅ Advanced AI Analytics",
+    preDoctr: "✅ Advanced Analytics",
     competitors: "❌ Basic Tracking",
     description: "Personalized study recommendations and weak area identification"
   },
@@ -44,7 +44,7 @@ export const comparisonData: ComparisonItem[] = [
   },
   {
     category: "Past Papers",
-    preDoctr: "✅ 2010-2025 Complete",
+    preDoctr: "✅ 2020-2025 Complete",
     competitors: "❌ Limited Years",
     description: "Complete archive with detailed solutions"
   },
@@ -58,7 +58,7 @@ export const comparisonData: ComparisonItem[] = [
     category: "Study Plans",
     preDoctr: "✅ Personalized",
     competitors: "❌ Generic Plans",
-    description: "AI-powered study schedules based on your performance"
+    description: "Custom study schedules based on your progress and performance"
   },
   {
     category: "Support",
@@ -97,9 +97,9 @@ export const uniqueSellingPoints = [
     icon: "👨‍⚕️"
   },
   {
-    title: "AI-Powered Learning",
-    description: "Advanced algorithms that adapt to your learning style and predict weak areas",
-    icon: "🤖"
+    title: "Lower Price Point",
+    description: "We charge only 6,000 PKR for complete MDCAT preparation, while academies charge up to 30,000 PKR",
+    icon: "💰"
   },
   {
     title: "Mobile-First Design",

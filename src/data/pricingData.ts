@@ -18,7 +18,7 @@ export const pricingPlans = [
   {
     name: "Only MCQs",
     subtitle: "Good for Practice",
-    price: { monthly: "₨2000", annual: "₨2000" },
+    price: { monthly: "₨3000", annual: "₨3000" },
     description: "",
     badge: "Instant Access",
     features: [
