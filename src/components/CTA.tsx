@@ -2,9 +2,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <section className={`py-24 relative overflow-hidden transition-all duration-500 ${
@@ -35,15 +37,29 @@ const CTA = () => {
             Join thousands of successful medical students who have achieved their dreams with preDoctr.pk. Start your journey today with zero risk.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <Button size="lg" className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6"
+              onClick={() => navigate('/cryptoflow/registration')}
+            >
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" className={`py-6 ${
-              theme === 'dark'
-                ? 'border-white/20 text-white hover:bg-white/5'
-                : 'border-gray-300 text-slate-700 hover:bg-gray-50'
-            }`}>
+            <Button
+              variant="outline"
+              size="lg"
+              className={`py-6 ${
+                theme === 'dark'
+                  ? 'border-white/20 text-white hover:bg-white/5'
+                  : 'border-gray-300 text-slate-700 hover:bg-gray-50'
+              }`}
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               View Our Packages
             </Button>
           </div>

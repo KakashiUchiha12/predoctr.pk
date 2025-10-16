@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 interface PricingPlan {
   name: string;
@@ -21,6 +22,7 @@ import { pricingPlans } from '@/data/pricingData'; // Adjust the import path as 
 
 const Pricing = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate();
 
   return (
     <section id="pricing" className={`py-24 transition-all duration-500 ${
@@ -91,6 +93,7 @@ const Pricing = () => {
                 </p>
 
                 <Button
+                  onClick={() => navigate('/cryptoflow/registration')}
                   className={`w-full mb-6 ${
                     plan.highlighted
                       ? 'bg-crypto-purple hover:bg-crypto-dark-purple'

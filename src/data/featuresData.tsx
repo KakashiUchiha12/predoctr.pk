@@ -4,20 +4,20 @@ import { FileQuestion, Book, Archive, ClipboardList, BarChart3, PlayCircle } fro
 export const features = [
   {
     icon: <FileQuestion className="h-6 w-6" />,
-    title: "55,000+ MCQ Bank",
+    title: "65,000+ MCQ Bank",
     description: "Master MDCAT with our extensive question bank featuring all subjects with instant detailed explanations.",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&h=300"
+    image: "Question Bank.png"
   },
   {
     icon: <Book className="h-6 w-6" />,
     title: "Comprehensive Notes",
     description: "Complete study materials covering Biology, Chemistry, Physics, and English with clear explanations.",
-    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&h=300"
+    image: "Notes.png"
   },
   {
     icon: <Archive className="h-6 w-6" />,
     title: "Past Paper Archive",
-    description: "Access complete collection of previous MDCAT papers from 2010-2025 with detailed solutions.",
+    description: "Access complete collection of previous MDCAT papers from 2020-2025 with detailed solutions.",
     image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&h=300"
   },
   {

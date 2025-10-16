@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+/* Font display optimization for performance */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -223,4 +238,61 @@
 
 .animate-pulse-subtle {
   animation: white-flash 2s infinite;
+}
+
+/* WhatsApp Button Styles */
+.whatsapp-glow {
+  box-shadow:
+    0 0 0 0 rgba(34, 197, 94, 0.7),
+    0 0 0 0 rgba(34, 197, 94, 0.4);
+  animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0.7),
+      0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  70% {
+    box-shadow:
+      0 0 0 10px rgba(34, 197, 94, 0),
+      0 0 0 20px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(34, 197, 94, 0),
+      0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Bluish glow effect for WhatsApp button */
+.whatsapp-blush-glow {
+  position: relative;
+}
+
+.whatsapp-blush-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6);
+  background-size: 400% 400%;
+  animation: blush-glow 3s ease-in-out infinite;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes blush-glow {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.8;
+  }
 }

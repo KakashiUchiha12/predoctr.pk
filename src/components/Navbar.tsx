@@ -43,49 +43,89 @@ const Navbar = () => {
         {/* Desktop menu */}
         <ul className="hidden lg:flex items-center space-x-8">
           <li>
-            <a href="#features" className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-              theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-            }`}>
+            <button
+              onClick={() => {
+                const featuresSection = document.getElementById('features');
+                if (featuresSection) {
+                  featuresSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
               Features
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#how-it-works" className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-              theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-            }`}>
+            <button
+              onClick={() => {
+                const howItWorksSection = document.getElementById('how-it-works');
+                if (howItWorksSection) {
+                  howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
               How it works
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#testimonials" className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-              theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-            }`}>
+            <button
+              onClick={() => {
+                const testimonialsSection = document.getElementById('testimonials');
+                if (testimonialsSection) {
+                  testimonialsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
               Testimonials
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#pricing" className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-              theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-            }`}>
+            <button
+              onClick={() => {
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
               Pricing
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#faq" className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-              theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-            }`}>
+            <button
+              onClick={() => {
+                const faqSection = document.getElementById('faq');
+                if (faqSection) {
+                  faqSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
               FAQ
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -110,8 +150,8 @@ const Navbar = () => {
           }`}>
             Login
           </Button>
-          <Link to="#!">
-            <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Buy Now</Button>
+          <Link to="/cryptoflow/registration">
+            <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
           </Link>
         </div>
 
@@ -131,29 +171,74 @@ const Navbar = () => {
           <div className="container mx-auto px-4">
             <ul className="flex flex-col space-y-4">
               <li>
-                <a href="#features" className={`transition-colors block py-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`} onClick={() => setIsMobileMenuOpen(false)}>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const featuresSection = document.getElementById('features');
+                    if (featuresSection) {
+                      featuresSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   Features
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#how-it-works" className={`transition-colors block py-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`} onClick={() => setIsMobileMenuOpen(false)}>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const howItWorksSection = document.getElementById('how-it-works');
+                    if (howItWorksSection) {
+                      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   How it works
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#testimonials" className={`transition-colors block py-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`} onClick={() => setIsMobileMenuOpen(false)}>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const testimonialsSection = document.getElementById('testimonials');
+                    if (testimonialsSection) {
+                      testimonialsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   Testimonials
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#pricing" className={`transition-colors block py-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`} onClick={() => setIsMobileMenuOpen(false)}>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const pricingSection = document.getElementById('pricing');
+                    if (pricingSection) {
+                      pricingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   Pricing
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#faq" className={`transition-colors block py-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`} onClick={() => setIsMobileMenuOpen(false)}>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const faqSection = document.getElementById('faq');
+                    if (faqSection) {
+                      faqSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
                   FAQ
-                </a>
+                </button>
               </li>
               <li className="pt-4 flex flex-col space-y-3">
                 <Button
@@ -171,8 +256,8 @@ const Navbar = () => {
                 <Button variant="ghost" className={`w-full justify-start ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
                   Login
                 </Button>
-                <Link to="#!">
-                  <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Buy Now</Button>
+                <Link to="/cryptoflow/registration">
+                  <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
                 </Link>
               </li>
             </ul>

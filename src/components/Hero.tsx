@@ -159,7 +159,7 @@ const Hero = () => {
       theme === 'dark'
         ? 'bg-gradient-hero hero-glow'
         : 'bg-gradient-hero-light hero-glow-light'
-    }`}>
+    }`} itemScope itemType="https://schema.org/Organization">
       {/* Video Popup Modal */}
       {isVideoOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
@@ -362,8 +362,8 @@ const Hero = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Video Lectures</p>
-                    <p className="text-lg font-bold text-white">100+</p>
+                    <p className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-white'} animate-pulse`}>Watch Demo Video</p>
+                    <p className={`text-lg font-bold ${theme === 'dark' ? 'text-white' : 'text-white'} animate-pulse`}>Click to Watch</p>
                   </div>
                 </div>
               </div>

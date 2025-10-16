@@ -11,15 +11,20 @@ import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import WhatsappContact from '@/components/WhatsappContact';
 import useScrollAnimation from '@/utils/useScrollAnimation';
 
 const Index = () => {
   // Initialize scroll animations
   useScrollAnimation();
 
-  // Set page title
+  // Set page title and meta description
   useEffect(() => {
-    document.title = "preDoctr.pk - Where future Doctors Start!";
+    document.title = "preDoctr.pk - MDCAT Preparation Platform for Medical Students";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Master MDCAT preparation with preDoctr.pk - Pakistan's premier platform for medical students. Practice MCQs, learn clinical knowledge, and excel in medical licensing exams.");
+    }
   }, []);
   
   return (
@@ -35,6 +40,7 @@ const Index = () => {
       <CTA />
       <Footer />
       <ScrollToTop />
+      <WhatsappContact />
     </div>
   );
 };
