@@ -296,8 +296,6 @@
     opacity: 0.8;
   }
 }
-<<<<<<< Updated upstream
-=======
 
 /* Scroll-triggered Animation Styles for Scrollytelling */
 .feature-section {
@@ -451,4 +449,3 @@ html {
 .dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
 }
->>>>>>> Stashed changes

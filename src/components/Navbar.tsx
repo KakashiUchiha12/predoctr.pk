@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+
+  // Determine if we're on LMS pages
+  const isLMSPage = location.pathname.startsWith('/dashboard') ||
+                   location.pathname.startsWith('/subjects') ||
+                   location.pathname.startsWith('/results') ||
+                   location.pathname.startsWith('/topic');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +43,7 @@ const Navbar = () => {
             />
             <h1 className="text-2xl font-bold">
               <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+              {isLMSPage && <span className="text-lg ml-2 opacity-75">LMS</span>}
             </h1>
           </Link>
         </div>
