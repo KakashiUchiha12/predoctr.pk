@@ -13,6 +13,13 @@ import Legal from "./pages/Legal";
 import Registration from "./pages/Registration";
 import NotFound from "./pages/NotFound";
 
+// LMS Pages
+import LMSDashboard from "./pages/LMSDashboard";
+import SubjectSelection from "./pages/SubjectSelection";
+import BiologyTopics from "./pages/BiologyTopics";
+import MCQTest from "./pages/MCQTest";
+import TestResults from "./pages/TestResults";
+
 // Performance-optimized QueryClient with better defaults
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,13 +46,33 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Main Landing Page */}
+            <Route path="/" element={<Index />} />
             <Route path="/cryptoflow" element={<Index />} />
+
+            {/* Educational Platform Pages */}
             <Route path="/cryptoflow/about" element={<About />} />
             <Route path="/cryptoflow/careers" element={<Careers />} />
             <Route path="/cryptoflow/press" element={<Press />} />
             <Route path="/cryptoflow/contact" element={<Contact />} />
             <Route path="/cryptoflow/registration" element={<Registration />} />
             <Route path="/cryptoflow/legal" element={<Legal />} />
+
+            {/* LMS Routes */}
+            <Route path="/cryptoflow/dashboard" element={<LMSDashboard />} />
+            <Route path="/cryptoflow/subjects" element={<SubjectSelection />} />
+            <Route path="/cryptoflow/subjects/biology" element={<BiologyTopics />} />
+            <Route path="/cryptoflow/subjects/biology/:topicId/:testId" element={<MCQTest />} />
+            <Route path="/cryptoflow/testresults" element={<TestResults />} />
+
+            {/* Legacy Routes */}
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/legal" element={<Legal />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
