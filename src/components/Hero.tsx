@@ -155,16 +155,13 @@ const Hero = () => {
   };
 
   const handleDemoClick = () => {
-    // Scroll to hero section and start playing video
-    const heroSection = document.querySelector('section[class*="hero"]') || document.querySelector('section');
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll to top of page (hero section) and start playing video
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Start playing video after scroll animation
-      setTimeout(() => {
-        setIsVideoOpen(true);
-      }, 500);
-    }
+    // Start playing video after scroll animation
+    setTimeout(() => {
+      setIsVideoOpen(true);
+    }, 800);
   };
 
   return (
@@ -259,7 +256,7 @@ const Hero = () => {
                 className={`py-6 ${
                   theme === 'dark'
                     ? 'border-gray-700 text-white hover:bg-white/5'
-                    : 'border-gray-400 text-white hover:bg-slate-100'
+                    : 'border-gray-400 text-gray-800 hover:bg-gray-50'
                 }`}
               >
                 Watch Demo
