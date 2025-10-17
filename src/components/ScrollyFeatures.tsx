@@ -110,6 +110,14 @@ const ScrollyFeatures = () => {
     }
   };
 
+  // Scroll to pricing section function
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
 
 
 
@@ -155,11 +163,11 @@ const ScrollyFeatures = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${
-            theme === 'light' ? 'text-slate-900' : ''
+            theme === 'light' ? 'text-gray-900' : ''
           }`}>
             Complete MDCAT Preparation Suite
           </h2>
-          <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-slate-600' : ''}`}>
+          <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-gray-700' : ''}`}>
             An immersive journey through preDoctr.pk's revolutionary features. Scroll to explore each capability in detail.
           </p>
         </div>
@@ -307,7 +315,9 @@ const ScrollyFeatures = () => {
                         index === activeFeature ? 'scale-150 opacity-20' : 'scale-100 opacity-10'
                       } bg-${feature.color}/30 blur-3xl`}
                     />
-                    <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-3 bg-${feature.color}/20 text-${feature.color} transition-all duration-50 transform ${
+                    <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-3 bg-${feature.color}/20 ${
+                      theme === 'dark' ? `text-${feature.color}` : 'text-gray-900'
+                    } transition-all duration-50 transform ${
                       index === activeFeature ? 'scale-110 rotate-0' : 'scale-100 rotate-12'
                     }`}>
                       {feature.icon}
@@ -316,7 +326,7 @@ const ScrollyFeatures = () => {
 
                   {/* Animated Title with Fade-in Effect */}
                   <h3 className={`text-4xl md:text-5xl font-bold mb-3 transition-all duration-50 ${
-                    theme === 'dark' ? 'text-white' : 'text-slate-900'
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
                   } ${
                     index === activeFeature
                       ? 'opacity-100 translate-y-0'
@@ -327,7 +337,7 @@ const ScrollyFeatures = () => {
 
                   {/* Subtitle Animation */}
                   <p className={`text-xl font-medium mb-3 transition-all duration-50 ${
-                    feature.color
+                    theme === 'dark' ? feature.color : 'text-gray-800'
                   } ${
                     index === activeFeature
                       ? 'opacity-100 translate-y-0'
@@ -338,8 +348,8 @@ const ScrollyFeatures = () => {
 
                   {/* Description with Stagger Animation */}
                   <p className={`${
-                    theme === 'dark' ? 'text-gray-400' : 'text-slate-600'
-                  } text-lg mb-4 leading-relaxed transition-all duration-50 ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
+                  } text-lg mb-6 leading-relaxed transition-all duration-50 ${
                     index === activeFeature
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
@@ -347,10 +357,63 @@ const ScrollyFeatures = () => {
                     {feature.description}
                   </p>
 
+                  {/* Detailed Sub-Features with Bullet Points */}
+                  <div className={`mb-6 transition-all duration-50 ${
+                    index === activeFeature
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-4'
+                  }`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl mx-auto">
+                      {feature.subFeatures.map((subFeature, subIndex) => (
+                        <div
+                          key={subIndex}
+                          className={`text-left p-3 rounded-lg transition-all duration-300 ${
+                            theme === 'dark'
+                              ? 'bg-white/5 border border-white/10'
+                              : 'bg-gray-50 border border-gray-200'
+                          }`}
+                          style={{
+                            animationDelay: `${subIndex * 100}ms`
+                          }}
+                        >
+                          <div className="flex items-start space-x-3">
+                            <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 ${
+                              theme === 'dark' ? 'bg-white/10' : 'bg-gray-200'
+                            }`}>
+                              <div className={`w-2 h-2 rounded-full ${
+                                theme === 'dark' ? 'bg-white/60' : 'bg-gray-600'
+                              }`} />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className={`font-semibold text-sm mb-1 ${
+                                theme === 'dark' ? 'text-white' : 'text-gray-900'
+                              }`}>
+                                {subFeature.title}
+                              </h4>
+                              <p className={`text-xs leading-relaxed ${
+                                theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                              }`}>
+                                {subFeature.description}
+                              </p>
+                              {subFeature.metric && (
+                                <span className={`inline-block mt-1 text-xs font-medium ${
+                                  theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                                }`}>
+                                  {subFeature.metric}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Call to Action with Hover Effects */}
                   <div className="flex justify-center gap-2 md:gap-4 transition-all duration-50">
                     <button
-                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 hover:shadow-lg bg-${feature.color} text-white font-medium text-sm md:text-base transform ${
+                      onClick={scrollToPricing}
+                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 hover:shadow-lg bg-crypto-purple text-white font-medium text-sm md:text-base transform ${
                         index === activeFeature
                           ? 'opacity-100 translate-x-0'
                           : 'opacity-0 -translate-x-4'
@@ -361,11 +424,7 @@ const ScrollyFeatures = () => {
                       <span className="sm:hidden">Explore</span>
                     </button>
                     <button
-                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 border-2 hover:shadow-lg font-medium text-sm md:text-base transform ${
-                        theme === 'dark'
-                          ? 'border-white/20 text-white hover:bg-white/10'
-                          : 'border-gray-300 text-slate-900 hover:bg-gray-50'
-                      } ${
+                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 border-2 border-gray-300 hover:shadow-lg hover:bg-gray-50 font-medium text-sm md:text-base transform text-gray-800 ${
                         index === activeFeature
                           ? 'opacity-100 translate-x-0'
                           : 'opacity-0 translate-x-4'
