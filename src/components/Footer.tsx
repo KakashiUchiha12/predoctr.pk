@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-8">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <Link to="/cryptoflow/" className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <img
                   src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
                   alt="preDoctr.pk"
@@ -58,11 +58,11 @@ const Footer = () => {
           <div>
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>resources</h3>
             <ul className="space-y-2">
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>MCQs Practice</a></li>
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Video Lectures</a></li>
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Mock Tests</a></li>
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Materials</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>MCQs Practice</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Video Lectures</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Mock Tests</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Materials</a></li>
             </ul>
           </div>
 
@@ -70,21 +70,21 @@ const Footer = () => {
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Blog & Support</h3>
             <ul className="space-y-2">
               <li><a href="https://freemdcat.com" target="_blank" rel="noopener noreferrer" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Free MDCAT</a></li>
-              <li><a href="#faq" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Guides</a></li>
-              <li><a href="#pricing" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
-              <li><a href="#faq" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Support</a></li>
-              <li><a href="#contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Study Guides</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Past Papers</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Support</a></li>
+              <li><a href="#features" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Company</h3>
             <ul className="space-y-2">
-              <li><Link to="/cryptoflow/about" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>About</Link></li>
-              <li><Link to="/cryptoflow/careers" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Careers</Link></li>
-              <li><Link to="/cryptoflow/press" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Press</Link></li>
-              <li><Link to="/cryptoflow/legal" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Legal & Privacy</Link></li>
-              <li><Link to="/cryptoflow/contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</Link></li>
+              <li><Link to="/about" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>About</Link></li>
+              <li><Link to="/careers" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Careers</Link></li>
+              <li><Link to="/press" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Press</Link></li>
+              <li><Link to="/legal" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Legal & Privacy</Link></li>
+              <li><Link to="/contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</Link></li>
             </ul>
           </div>
         </div>

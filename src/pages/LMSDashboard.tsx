@@ -57,7 +57,7 @@ const LMSDashboard = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed">
                 Explore MDCAT biology topics with comprehensive test preparation
               </p>
-              <Link to="/cryptoflow/subjects">
+              <Link to="/subjects">
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                   <Play className="w-4 h-4 mr-2" />
                   Choose Subject
@@ -91,7 +91,7 @@ const LMSDashboard = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed">
                 Take timed practice tests to improve your MDCAT performance
               </p>
-              <Link to="/cryptoflow/subjects/biology">
+              <Link to="/subjects/biology">
                 <Button variant="outline" className="w-full py-3 px-6 rounded-lg border-2 border-purple-300 dark:border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950 transition-all duration-300">
                   <Target className="w-4 h-4 mr-2" />
                   Start Biology Test

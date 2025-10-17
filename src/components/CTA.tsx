@@ -40,7 +40,7 @@ const CTA = () => {
             <Button
               size="lg"
               className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6"
-              onClick={() => navigate('/cryptoflow/registration')}
+              onClick={() => navigate('/registration')}
             >
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />

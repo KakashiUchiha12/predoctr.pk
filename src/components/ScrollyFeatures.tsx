@@ -298,7 +298,7 @@ const ScrollyFeatures = () => {
                 ref={(el) => (contentRefs.current[index] = el)}
                 className="feature-section min-h-screen flex items-center justify-center p-8 py-16 transition-all duration-500 ease-out"
                 style={{
-                  minHeight: '150vh',
+                  minHeight: '300vh',
                   opacity: index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.8 : 0.3),
                   transform: `translate3d(0, ${index === activeFeature ? 0 : (index - activeFeature) * 20}px, 0) scale(${index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.95 : 0.9)})`,
                   willChange: 'transform, opacity',

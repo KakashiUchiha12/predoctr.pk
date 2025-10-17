@@ -93,7 +93,7 @@ const Pricing = () => {
                 </p>
 
                 <Button
-                  onClick={() => navigate('/cryptoflow/registration')}
+                  onClick={() => navigate('/registration')}
                   className={`w-full mb-6 ${
                     plan.highlighted
                       ? 'bg-crypto-purple hover:bg-crypto-dark-purple'
