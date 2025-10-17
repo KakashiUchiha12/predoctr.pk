@@ -2,7 +2,11 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+<<<<<<< Updated upstream
 import Features from '@/components/Features';
+=======
+import ScrollyFeatures from '@/components/ScrollyFeatures';
+>>>>>>> Stashed changes
 import Comparison from '@/components/Comparison';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
@@ -31,7 +35,11 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+<<<<<<< Updated upstream
       <Features />
+=======
+      <ScrollyFeatures />
+>>>>>>> Stashed changes
       <Comparison />
       <HowItWorks />
       <Testimonials />
