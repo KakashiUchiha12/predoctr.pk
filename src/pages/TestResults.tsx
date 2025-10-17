@@ -102,14 +102,14 @@ const TestResults = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => navigate('/cryptoflow/subjects/biology')}
+                onClick={() => navigate('/subjects/biology')}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Biology Topics
               </Button>
               <Button
-                onClick={() => navigate('/cryptoflow/dashboard')}
+                onClick={() => navigate('/dashboard')}
                 className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Home className="w-4 h-4 mr-2" />

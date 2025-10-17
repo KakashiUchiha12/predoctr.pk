@@ -49,7 +49,7 @@ const SubjectSelection = () => {
 
   const handleSubjectClick = (subjectId: string, available: boolean) => {
     if (!available) return;
-    navigate(`/cryptoflow/subjects/${subjectId}`);
+    navigate(`/subjects/${subjectId}`);
   };
 
 
