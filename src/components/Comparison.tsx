@@ -245,7 +245,7 @@ const Comparison = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <button
-              onClick={() => navigate('/cryptoflow/registration')}
+              onClick={() => navigate('/registration')}
               className="bg-crypto-purple hover:bg-crypto-purple/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105"
             >
               Start Free Trial

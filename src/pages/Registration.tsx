@@ -127,7 +127,7 @@ const Registration = () => {
 - *Location (City):* ${formData.location}  
 - *Preferred Study Mode:* ${formData.preferredStudyMode === 'online' ? 'Online' : 'Offline'}  
 - *Province:* ${formData.province}
----
+---t
 Looking forward to your response. Thanks!`;
 
     return encodeURIComponent(baseMessage);
@@ -152,7 +152,7 @@ Looking forward to your response. Thanks!`;
 
     // Navigate back to home after a brief delay
     setTimeout(() => {
-      navigate('/cryptoflow');
+      navigate('/');
     }, 1000);
   };
 
@@ -167,7 +167,7 @@ Looking forward to your response. Thanks!`;
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => navigate('/cryptoflow/')}
+                onClick={() => navigate('/')}
                 className={`flex items-center gap-2 ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
               >
                 <ArrowLeft className="h-4 w-4" />

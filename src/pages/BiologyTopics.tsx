@@ -219,11 +219,11 @@ const BiologyTopics = () => {
   const navigate = useNavigate();
 
   const handleTopicClick = (topicId: string) => {
-    navigate(`/cryptoflow/subjects/biology/${topicId}/1`);
+    navigate(`/subjects/biology/${topicId}/1`);
   };
 
   const handleTestClick = (topicId: string, testNumber: number) => {
-    navigate(`/cryptoflow/subjects/biology/${topicId}/${testNumber}`);
+    navigate(`/subjects/biology/${topicId}/${testNumber}`);
   };
 
   return (

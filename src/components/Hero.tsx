@@ -242,7 +242,7 @@ const Hero = () => {
               Our Students don't just prepare for MDCAT - they get into medical colleges with admissions to Top Medical colleges across the country
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/cryptoflow/registration">
+              <Link to="/registration">
                 <Button
                   size="lg"
                   className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6 relative overflow-hidden group/btn shadow-lg hover:shadow-xl transition-all duration-300"

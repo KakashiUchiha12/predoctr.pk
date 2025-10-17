@@ -129,7 +129,7 @@ const MCQTest = () => {
       timeSpent: timerEnabled ? (600 - timer) : null
     };
     localStorage.setItem('lmsProgress', JSON.stringify(existingData));
-    navigate(`/cryptoflow/testresults`);
+    navigate(`/testresults`);
   };
 
   const currentQ = questions[currentQuestion];
@@ -190,14 +190,14 @@ const MCQTest = () => {
 
             <div className="flex gap-4 justify-center">
               <Button
-                onClick={() => navigate('/cryptoflow/subjects/biology')}
+                onClick={() => navigate('/subjects/biology')}
                 className="bg-blue-600 hover:bg-blue-700"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Topics
               </Button>
               <Button
-                onClick={() => navigate('/cryptoflow/dashboard')}
+                onClick={() => navigate('/dashboard')}
               >
                 <Home className="w-4 h-4 mr-2" />
                 Dashboard

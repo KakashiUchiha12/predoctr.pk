@@ -20,21 +20,21 @@ const LMSNavigation = () => {
   const navItems = [
     {
       name: 'Dashboard',
-      href: '/cryptoflow/dashboard',
+      href: '/dashboard',
       icon: Home,
-      current: location.pathname === '/cryptoflow/dashboard'
+      current: location.pathname === '/dashboard'
     },
     {
       name: 'Subjects',
-      href: '/cryptoflow/subjects',
+      href: '/subjects',
       icon: BookOpen,
-      current: location.pathname === '/cryptoflow/subjects'
+      current: location.pathname === '/subjects'
     },
     {
       name: 'Biology Topics',
-      href: '/cryptoflow/subjects/biology',
+      href: '/subjects/biology',
       icon: Target,
-      current: location.pathname === '/cryptoflow/subjects/biology'
+      current: location.pathname === '/subjects/biology'
     }
   ];
 
@@ -42,21 +42,21 @@ const LMSNavigation = () => {
   const getBreadcrumb = () => {
     const path = location.pathname;
 
-    if (path === '/cryptoflow/dashboard') {
+    if (path === '/dashboard') {
       return [{ name: 'LMS Dashboard', current: true }];
     }
 
-    if (path === '/cryptoflow/subjects') {
+    if (path === '/subjects') {
       return [
-        { name: 'Dashboard', href: '/cryptoflow/dashboard' },
+        { name: 'Dashboard', href: '/dashboard' },
         { name: 'Subject Selection', current: true }
       ];
     }
 
-    if (path === '/cryptoflow/subjects/biology') {
+    if (path === '/subjects/biology') {
       return [
-        { name: 'Dashboard', href: '/cryptoflow/dashboard' },
-        { name: 'Subjects', href: '/cryptoflow/subjects' },
+        { name: 'Dashboard', href: '/dashboard' },
+        { name: 'Subjects', href: '/subjects' },
         { name: 'Biology Topics', current: true }
       ];
     }
@@ -67,16 +67,16 @@ const LMSNavigation = () => {
       const topicId = parts[parts.length - 2];
 
       return [
-        { name: 'Dashboard', href: '/cryptoflow/dashboard' },
-        { name: 'Subjects', href: '/cryptoflow/subjects' },
-        { name: 'Biology', href: '/cryptoflow/subjects/biology' },
+        { name: 'Dashboard', href: '/dashboard' },
+        { name: 'Subjects', href: '/subjects' },
+        { name: 'Biology', href: '/subjects/biology' },
         { name: `${topicId} Test ${testId}`, current: true }
       ];
     }
 
-    if (path === '/cryptoflow/testresults') {
+    if (path === '/testresults') {
       return [
-        { name: 'Dashboard', href: '/cryptoflow/dashboard' },
+        { name: 'Dashboard', href: '/dashboard' },
         { name: 'Test Results', current: true }
       ];
     }
@@ -100,7 +100,7 @@ const LMSNavigation = () => {
         <div className="flex justify-between h-20">
           {/* Brand */}
           <div className="flex items-center">
-            <Link to="/cryptoflow/" className="flex items-center group">
+            <Link to="/" className="flex items-center group">
               <img
                 src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
                 alt="preDoctr.pk"
