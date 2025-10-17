@@ -39,6 +39,19 @@ const Hero = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Listen for custom event from ScrollyFeatures component
+  useEffect(() => {
+    const handlePlayVideoEvent = () => {
+      setIsVideoOpen(true);
+    };
+
+    window.addEventListener('playDemoVideo', handlePlayVideoEvent);
+
+    return () => {
+      window.removeEventListener('playDemoVideo', handlePlayVideoEvent);
+    };
+  }, []);
+
   useEffect(() => {
     if (!isVisible) return;
 
