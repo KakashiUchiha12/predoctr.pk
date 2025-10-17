@@ -35,7 +35,7 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <Link to="/cryptoflow/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
               src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
               alt="preDoctr.pk"
@@ -158,7 +158,7 @@ const Navbar = () => {
           }`}>
             Login
           </Button>
-          <Link to="/cryptoflow/registration">
+          <Link to="/registration">
             <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
           </Link>
         </div>
@@ -264,7 +264,7 @@ const Navbar = () => {
                 <Button variant="ghost" className={`w-full justify-start ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
                   Login
                 </Button>
-                <Link to="/cryptoflow/registration">
+                <Link to="/registration">
                   <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
                 </Link>
               </li>

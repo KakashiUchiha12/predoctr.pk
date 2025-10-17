@@ -48,30 +48,22 @@ const App = () => (
           <Routes>
             {/* Main Landing Page */}
             <Route path="/" element={<Index />} />
-            <Route path="/cryptoflow" element={<Index />} />
+            <Route path="/" element={<Index />} />
 
             {/* Educational Platform Pages */}
-            <Route path="/cryptoflow/about" element={<About />} />
-            <Route path="/cryptoflow/careers" element={<Careers />} />
-            <Route path="/cryptoflow/press" element={<Press />} />
-            <Route path="/cryptoflow/contact" element={<Contact />} />
-            <Route path="/cryptoflow/registration" element={<Registration />} />
-            <Route path="/cryptoflow/legal" element={<Legal />} />
-
-            {/* LMS Routes */}
-            <Route path="/cryptoflow/dashboard" element={<LMSDashboard />} />
-            <Route path="/cryptoflow/subjects" element={<SubjectSelection />} />
-            <Route path="/cryptoflow/subjects/biology" element={<BiologyTopics />} />
-            <Route path="/cryptoflow/subjects/biology/:topicId/:testId" element={<MCQTest />} />
-            <Route path="/cryptoflow/testresults" element={<TestResults />} />
-
-            {/* Legacy Routes */}
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/press" element={<Press />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/legal" element={<Legal />} />
+
+            {/* LMS Routes */}
+            <Route path="/dashboard" element={<LMSDashboard />} />
+            <Route path="/subjects" element={<SubjectSelection />} />
+            <Route path="/subjects/biology" element={<BiologyTopics />} />
+            <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
+            <Route path="/testresults" element={<TestResults />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
