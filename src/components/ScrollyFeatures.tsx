@@ -118,6 +118,19 @@ const ScrollyFeatures = () => {
     }
   };
 
+  // Scroll to hero section and play demo video function
+  const scrollToHeroAndPlayVideo = () => {
+    // Scroll to top of page (hero section)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // After scroll animation completes, trigger video modal
+    setTimeout(() => {
+      // Create and dispatch a custom event that the Hero component can listen for
+      const playVideoEvent = new CustomEvent('playDemoVideo');
+      window.dispatchEvent(playVideoEvent);
+    }, 800);
+  };
+
 
 
 
@@ -424,6 +437,7 @@ const ScrollyFeatures = () => {
                       <span className="sm:hidden">Explore</span>
                     </button>
                     <button
+                      onClick={scrollToHeroAndPlayVideo}
                       className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 border-2 border-gray-300 hover:shadow-lg hover:bg-gray-50 font-medium text-sm md:text-base transform text-gray-800 ${
                         index === activeFeature
                           ? 'opacity-100 translate-x-0'
