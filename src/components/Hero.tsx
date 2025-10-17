@@ -154,6 +154,19 @@ const Hero = () => {
     setHoverProgress(0);
   };
 
+  const handleDemoClick = () => {
+    // Scroll to hero section and start playing video
+    const heroSection = document.querySelector('section[class*="hero"]') || document.querySelector('section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Start playing video after scroll animation
+      setTimeout(() => {
+        setIsVideoOpen(true);
+      }, 500);
+    }
+  };
+
   return (
     <section className={`relative min-h-screen flex flex-col justify-center overflow-hidden transition-all duration-500 ${
       theme === 'dark'
@@ -239,12 +252,17 @@ const Hero = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></div>
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className={`py-6 ${
-                theme === 'dark'
-                  ? 'border-gray-700 text-white hover:bg-white/5'
-                  : 'border-gray-400 text-white hover:bg-slate-100'
-              }`}>
-                Free Trial
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={handleDemoClick}
+                className={`py-6 ${
+                  theme === 'dark'
+                    ? 'border-gray-700 text-white hover:bg-white/5'
+                    : 'border-gray-400 text-white hover:bg-slate-100'
+                }`}
+              >
+                Watch Demo
                 <ArrowUpRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
