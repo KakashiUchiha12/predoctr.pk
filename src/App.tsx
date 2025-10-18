@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { handlePWAInstall } from "./utils/pwaInstall";
 import SplashScreen from "./components/SplashScreen";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -47,14 +48,19 @@ const App = () => {
     setShowSplash(false);
   };
 
+  // Initialize PWA install handler on app mount
+  useEffect(() => {
+    handlePWAInstall();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <TooltipProvider>
           {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter basename="/predoctr.pk">
             <Routes>
               {/* Main Landing Page */}
               <Route path="/" element={<Index />} />
@@ -79,8 +85,8 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </ThemeProvider>
-      </TooltipProvider>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };

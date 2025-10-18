@@ -62,7 +62,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-row gap-6 justify-center">
               <img
-                src="/5a902db97f96951c82922874.png"
+                src="/predoctr.pk/5a902db97f96951c82922874.png"
                 alt="Apple App Store - Download preDoctr.pk"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
                 title="Tap to install PWA on iOS devices"
@@ -74,7 +74,7 @@ const Footer = () => {
                 }}
               />
               <img
-                src="/5a902dbf7f96951c82922875.png"
+                src="/predoctr.pk/5a902dbf7f96951c82922875.png"
                 alt="Google Play Store - Download preDoctr.pk"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
                 title="Tap to install PWA on Android devices"
@@ -86,9 +86,7 @@ const Footer = () => {
                 }}
               />
             </div>
-            <p className={`text-xs mt-3 text-center ${theme === 'dark' ? 'text-gray-500' : 'text-slate-500'}`}>
-              Works on iPhone, Android & Desktop - No app store needed!
-            </p>
+
           </div>
 
           <div>

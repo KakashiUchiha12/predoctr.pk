@@ -14,9 +14,9 @@ const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
   if (variant === 'text') {
     return (
       <div className={`animate-pulse ${className}`}>
-        <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-full mb-2"></div>
-        <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-5/6 mb-2"></div>
-        <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-4/6"></div>
+        <div className="h-4 bg-blue-200 dark:bg-blue-800/50 rounded w-full mb-2"></div>
+        <div className="h-4 bg-blue-200 dark:bg-blue-800/50 rounded w-5/6 mb-2"></div>
+        <div className="h-4 bg-blue-200 dark:bg-blue-800/50 rounded w-4/6"></div>
       </div>
     );
   }
@@ -24,10 +24,10 @@ const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
   if (variant === 'avatar') {
     return (
       <div className={`animate-pulse flex items-center space-x-3 ${className}`}>
-        <div className="w-12 h-12 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+        <div className="w-12 h-12 bg-blue-200 dark:bg-blue-800/50 rounded-full"></div>
         <div className="flex-1">
-          <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2 mb-2"></div>
-          <div className="h-3 bg-gray-300 dark:bg-gray-700 rounded w-1/3"></div>
+          <div className="h-4 bg-blue-200 dark:bg-blue-800/50 rounded w-1/2 mb-2"></div>
+          <div className="h-3 bg-blue-200 dark:bg-blue-800/50 rounded w-1/3"></div>
         </div>
       </div>
     );
