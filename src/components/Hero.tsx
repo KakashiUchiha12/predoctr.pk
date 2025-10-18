@@ -218,11 +218,29 @@ const Hero = () => {
       <div className={`container mx-auto px-4 py-20 relative z-10 transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`}>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
-            <div className={`inline-flex items-center backdrop-blur-sm border rounded-full px-4 py-1.5 mb-6 ${
-              theme === 'dark'
-                ? 'bg-white/5 border-white/10'
-                : 'bg-white/80 border-gray-300'
-            }`}>
+            <div
+              className={`inline-flex items-center backdrop-blur-sm border rounded-full px-4 py-1.5 mb-6 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+                theme === 'dark'
+                  ? 'bg-white/5 border-white/10 hover:bg-white/10'
+                  : 'bg-white/80 border-gray-300 hover:bg-white/90 hover:border-gray-400'
+              }`}
+              onClick={() => {
+                // Scroll to pricing section (assuming it has id="pricing")
+                const pricingSection = document.getElementById('pricing');
+                if (pricingSection) {
+                  pricingSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                } else {
+                  // Fallback: scroll to bottom of page where pricing might be
+                  window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
               <span className="text-xs font-medium text-crypto-purple mr-2">For MDCAT 2026</span>
               <span className={`text-xs mr-1 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'}`}>Complete MDCAT Course - All Subjects</span>
               <ChevronRight className={`h-4 w-4 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`} />

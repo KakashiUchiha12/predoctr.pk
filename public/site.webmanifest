@@ -2,8 +2,8 @@
   "name": "preDoctr.pk - MDCAT Preparation Platform",
   "short_name": "preDoctr.pk",
   "description": "Master MDCAT preparation with comprehensive MCQs, video lectures, mock tests, and past papers",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/predoctr.pk/",
+  "scope": "/predoctr.pk/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#8b5cf6",
@@ -13,19 +13,19 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
+      "src": "/predoctr.pk/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
+      "src": "/predoctr.pk/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
+      "src": "/predoctr.pk/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
@@ -36,10 +36,10 @@
       "name": "Start Learning",
       "short_name": "Learn",
       "description": "Begin your MDCAT preparation",
-      "url": "/dashboard",
+      "url": "/predoctr.pk/dashboard",
       "icons": [
         {
-          "src": "/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
+          "src": "/predoctr.pk/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
           "sizes": "192x192"
         }
       ]
@@ -48,10 +48,10 @@
       "name": "Take Test",
       "short_name": "Test",
       "description": "Practice with our MCQs",
-      "url": "/subjects",
+      "url": "/predoctr.pk/subjects",
       "icons": [
         {
-          "src": "/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
+          "src": "/predoctr.pk/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png",
           "sizes": "192x192"
         }
       ]
@@ -59,7 +59,7 @@
   ],
   "screenshots": [
     {
-      "src": "/placeholder.svg",
+      "src": "/predoctr.pk/placeholder.svg",
       "sizes": "1280x720",
       "type": "image/webp",
       "label": "preDoctr.pk LMS Dashboard"
