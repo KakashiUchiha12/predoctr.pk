@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import SplashScreen from "./components/SplashScreen";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
@@ -38,40 +40,49 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <ThemeProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            {/* Main Landing Page */}
-            <Route path="/" element={<Index />} />
-            <Route path="/" element={<Index />} />
+const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
 
-            {/* Educational Platform Pages */}
-            <Route path="/about" element={<About />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/press" element={<Press />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/legal" element={<Legal />} />
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
 
-            {/* LMS Routes */}
-            <Route path="/dashboard" element={<LMSDashboard />} />
-            <Route path="/subjects" element={<SubjectSelection />} />
-            <Route path="/subjects/biology" element={<BiologyTopics />} />
-            <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
-            <Route path="/testresults" element={<TestResults />} />
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <ThemeProvider>
+          {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              {/* Main Landing Page */}
+              <Route path="/" element={<Index />} />
+              <Route path="/" element={<Index />} />
 
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+              {/* Educational Platform Pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/press" element={<Press />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/legal" element={<Legal />} />
+
+              {/* LMS Routes */}
+              <Route path="/dashboard" element={<LMSDashboard />} />
+              <Route path="/subjects" element={<SubjectSelection />} />
+              <Route path="/subjects/biology" element={<BiologyTopics />} />
+              <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
+              <Route path="/testresults" element={<TestResults />} />
+
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
