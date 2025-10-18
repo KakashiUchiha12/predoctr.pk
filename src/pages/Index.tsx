@@ -13,10 +13,27 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import WhatsappContact from '@/components/WhatsappContact';
 import useScrollAnimation from '@/utils/useScrollAnimation';
+import { handlePWAInstall } from '@/utils/pwaInstall';
 
 const Index = () => {
   // Initialize scroll animations
   useScrollAnimation();
+
+  // Initialize PWA install handler
+  useEffect(() => {
+    const pwaInstallHandler = handlePWAInstall();
+
+    // Listen for PWA install clicks from footer
+    const handlePWAInstallClick = () => {
+      pwaInstallHandler.showInstallPrompt();
+    };
+
+    window.addEventListener('pwaInstallClicked', handlePWAInstallClick);
+
+    return () => {
+      window.removeEventListener('pwaInstallClicked', handlePWAInstallClick);
+    };
+  }, []);
 
   // Set page title and meta description
   useEffect(() => {
@@ -26,7 +43,7 @@ const Index = () => {
       metaDescription.setAttribute("content", "Master MDCAT preparation with preDoctr.pk - Pakistan's premier platform for medical students. Practice MCQs, learn clinical knowledge, and excel in medical licensing exams.");
     }
   }, []);
-  
+
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />

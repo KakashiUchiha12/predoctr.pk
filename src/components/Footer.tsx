@@ -55,6 +55,42 @@ const Footer = () => {
             </div>
           </div>
 
+          <div className="block md:block lg:hidden xl:hidden">
+            <h3 className={`font-medium mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>Mobile App</h3>
+            <p className={`text-sm mb-2 leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+              Install our PWA for offline access and push notifications
+            </p>
+            <div className="flex flex-row gap-6 justify-center">
+              <img
+                src="/5a902db97f96951c82922874.png"
+                alt="Apple App Store - Download preDoctr.pk"
+                className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
+                title="Tap to install PWA on iOS devices"
+                onClick={() => {
+                  // Directly trigger native PWA install
+                  if ((window as any).triggerPWAInstall) {
+                    (window as any).triggerPWAInstall();
+                  }
+                }}
+              />
+              <img
+                src="/5a902dbf7f96951c82922875.png"
+                alt="Google Play Store - Download preDoctr.pk"
+                className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
+                title="Tap to install PWA on Android devices"
+                onClick={() => {
+                  // Directly trigger native PWA install
+                  if ((window as any).triggerPWAInstall) {
+                    (window as any).triggerPWAInstall();
+                  }
+                }}
+              />
+            </div>
+            <p className={`text-xs mt-3 text-center ${theme === 'dark' ? 'text-gray-500' : 'text-slate-500'}`}>
+              Works on iPhone, Android & Desktop - No app store needed!
+            </p>
+          </div>
+
           <div>
             <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>resources</h3>
             <ul className="space-y-2">
