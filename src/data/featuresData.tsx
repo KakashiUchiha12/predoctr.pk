@@ -7,7 +7,7 @@ export interface EnhancedFeature {
   title: string;
   subtitle: string;
   description: string;
-  image: string;
+  images: string[];
   keyStatistic: {
     value: string;
     label: string;
@@ -36,7 +36,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "65,000+ Smart MCQ Bank",
     subtitle: "Comprehensive Question Collection",
     description: "Unlock an extensive collection of MCQs across all major subjects, designed to boost your MDCAT preparation. Our comprehensive question bank covers every topic you'll encounter in the MDCAT exam, ensuring you're fully prepared for test day.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "65,000+",
       label: "MCQs Available",
@@ -89,7 +94,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "Comprehensive Study Notes",
     subtitle: "Well-Structured Knowledge Base",
     description: "Access well-structured and in-depth notes to strengthen your conceptual knowledge in every subject. Our comprehensive study materials provide detailed explanations, key concepts, and organized content to help you master every topic in the MDCAT syllabus.",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "2,500+",
       label: "Study Pages",
@@ -130,7 +140,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "Complete Past Paper Archive",
     subtitle: "Historical Exam Collection",
     description: "Explore a rich collection of past papers from multiple universities and boards to familiarize yourself with exam patterns. Our extensive archive includes years of historical data to help you understand question trends, difficulty levels, and exam format variations.",
-    image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1565843708714-52ecf69a98b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1520637836862-4d197d17c13a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1501436513145-30f24e19fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "16",
       label: "Years of Papers",
@@ -189,7 +204,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "Practice Tests",
     subtitle: "Full-Length Mock Exams",
     description: "Take full-length mock tests and challenge yourself to simulate the real exam environment. Our comprehensive practice tests replicate the actual MDCAT experience with timed conditions, realistic question distribution, and detailed performance analysis.",
-    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "9",
       label: "Full Tests",
@@ -224,7 +244,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "Advanced Analytics",
     subtitle: "Performance Insights",
     description: "Gain insights into your performance and track your improvement with detailed analytics. Our intelligent tracking system provides comprehensive feedback on your strengths, weaknesses, and progress patterns to optimize your study strategy.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "100%",
       label: "Performance Tracking",
@@ -265,7 +290,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     title: "Expert Video Lectures",
     subtitle: "Professional Educational Content",
     description: "Learn directly from subject experts with our exclusive video lecture series. Our comprehensive library of educational videos features experienced professors and subject matter experts delivering in-depth explanations of complex topics.",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&h=300",
+    images: [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     keyStatistic: {
       value: "200+",
       label: "Hours Content",
@@ -309,9 +339,9 @@ export const enhancedFeatures: EnhancedFeature[] = [
 ];
 
 // Legacy export for backward compatibility
-export const features = enhancedFeatures.map(({ icon, title, description, image }) => ({
+export const features = enhancedFeatures.map(({ icon, title, description, images }) => ({
   icon,
   title,
   description,
-  image
+  image: images[0] // Use first image for backward compatibility
 }));

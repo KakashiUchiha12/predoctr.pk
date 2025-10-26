@@ -252,8 +252,15 @@ const Hero = () => {
               <span className={`font-bold block mt-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                 starts here with
               </span>
-              <span className={`font-bold block mt-3 bg-gradient-to-r from-crypto-purple to-crypto-light-purple bg-clip-text text-transparent ${theme === 'dark' ? 'drop-shadow-lg' : ''}`}>
-                preDoctr.pk
+              <span className="font-bold block mt-3 flex items-center justify-start">
+                <img
+                  src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+                  alt="preDoctr.pk"
+                  className="h-12 w-auto mr-3 animate-float"
+                />
+                <span className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl">
+                  <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className={`text-crypto-purple ${theme === 'dark' ? 'drop-shadow-lg' : ''}`}>Doctr.pk</span>
+                </span>
               </span>
             </h1>
             <p className={`text-lg mb-8 max-w-lg ${theme === 'dark' ? 'text-gray-300' : 'text-slate-800'}`}>

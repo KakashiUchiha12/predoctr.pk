@@ -3,6 +3,7 @@ import { enhancedFeatures } from '../data/featuresData';
 import { useTheme } from '../contexts/ThemeContext';
 import { ArrowRight, Eye, Download, Users, Clock, TrendingUp, Play, ChevronDown, ChevronUp, PlayCircle, BarChart3, Users as UsersIcon, CheckCircle, Video } from 'lucide-react';
 import ProgressIndicators, { ProgressBar } from './ProgressIndicators';
+import ImageCarousel from './ImageCarousel';
 
 const ScrollyFeatures = () => {
   const { theme } = useTheme();
@@ -305,24 +306,30 @@ const ScrollyFeatures = () => {
                 }}
               >
                 <div className="text-center max-w-4xl">
-                  {/* Feature Image */}
-                  <div className="relative mb-4">
-                    <img
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-64 h-48 object-cover rounded-lg shadow-2xl mx-auto mb-3 transition-all duration-50 transform"
+                  {/* Feature Image Carousel */}
+                  <div className="relative mb-20 md:mb-32 lg:mb-40">
+                    <div className="w-full max-w-xl h-48 md:h-[16rem] mx-auto mb-3 transition-all duration-50 transform"
                       style={{
                         filter: index === activeFeature ? 'blur(0px)' : 'blur(2px)',
                         transform: index === activeFeature ? 'scale(1.05)' : 'scale(0.95)',
                       }}
-                    />
-    <div className={`absolute inset-0 rounded-lg transition-all duration-50 ${
-      feature.bgGradient
-    } opacity-50`} />
+                    >
+                      <ImageCarousel
+                        images={feature.images}
+                        autoScrollInterval={4000}
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className={`absolute inset-0 rounded-lg transition-all duration-50 pointer-events-none ${
+                      feature.bgGradient
+                    } opacity-50`} />
                   </div>
 
+                  {/* Visual Separator */}
+                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-400/50 to-transparent mx-auto mb-8 md:mb-12 lg:mb-16"></div>
+
                   {/* Layered Visual Elements */}
-                  <div className="relative mb-3">
+                  <div className="relative mb-8 md:mb-12 lg:mb-16">
                     <div
                       className={`absolute inset-0 rounded-full transition-all duration-50 ${
                         index === activeFeature ? 'scale-150 opacity-20' : 'scale-100 opacity-10'
