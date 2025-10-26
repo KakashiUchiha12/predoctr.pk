@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => ({
         name: 'preDoctr.pk - MDCAT Preparation Platform',
         short_name: 'preDoctr.pk',
         description: 'Master MDCAT preparation with comprehensive MCQs, video lectures, mock tests, and past papers',
-        theme_color: '#8b5cf6',
+        theme_color: '#1F2937',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
