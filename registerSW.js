@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/predoctr.pk/sw.js', { scope: '/predoctr.pk/' })})}
