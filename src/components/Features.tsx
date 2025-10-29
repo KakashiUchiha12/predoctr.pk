@@ -53,11 +53,8 @@ const Features = () => {
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-crypto-purple/20 rounded-lg w-12 h-12 flex items-center justify-center mb-6 md:mb-8 lg:mb-12 text-crypto-purple group-hover:bg-crypto-purple/30 transition-colors duration-300">
-                {feature.icon}
-              </div>
               {/* Responsive image carousel - larger on laptop, maintain mobile size */}
-              <div className="mb-16 md:mb-24 lg:mb-32">
+              <div className="mb-8 md:mb-12 lg:mb-16">
                 <ImageCarousel
                   images={feature.images}
                   autoScrollInterval={4000}
@@ -65,9 +62,6 @@ const Features = () => {
                   onFullscreenChange={handleFullscreenChange}
                 />
               </div>
-
-              {/* Visual Separator */}
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-300/70 to-transparent mx-auto mb-6 md:mb-8 lg:mb-10"></div>
 
               <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{feature.title}</h3>
               <p className={`text-sm leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>{feature.description}</p>
