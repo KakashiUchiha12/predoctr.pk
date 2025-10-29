@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Activity, Lock, Zap, Compass, LineChart, Shield } from 'lucide-react';
 import { enhancedFeatures } from '../data/featuresData';
 import { useTheme } from '../contexts/ThemeContext';
@@ -7,6 +7,12 @@ import ImageCarousel from './ImageCarousel';
 
 const Features = () => {
   const { theme } = useTheme();
+  const [isImageFullscreen, setIsImageFullscreen] = useState(false);
+
+  const handleFullscreenChange = (isFullscreen: boolean) => {
+    console.log('Feature fullscreen changed:', isFullscreen);
+    setIsImageFullscreen(isFullscreen);
+  };
 
   return (
     <section id="features" className={`py-24 transition-all duration-500 ${
@@ -14,7 +20,19 @@ const Features = () => {
         ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
         : 'bg-gradient-features-light'
     }`}>
-      <div className="container mx-auto px-4">
+      {/* Background blur effect when image fullscreen - similar to video popup */}
+      {isImageFullscreen && (
+        <div
+          className="fixed inset-0 z-[999] overflow-hidden backdrop-blur-md"
+          onClick={() => setIsImageFullscreen(false)}
+        >
+          <div className="absolute top-1/4 left-10 w-72 h-72 bg-crypto-purple/20 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-crypto-light-purple/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+      )}
+
+      <div className={`container mx-auto px-4 relative z-10 transition-all duration-300 ${isImageFullscreen ? 'blur-sm' : ''}`}>
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
             Complete MDCAT Preparation Suite
@@ -44,6 +62,7 @@ const Features = () => {
                   images={feature.images}
                   autoScrollInterval={4000}
                   featureTitle={feature.title}
+                  onFullscreenChange={handleFullscreenChange}
                 />
               </div>
 

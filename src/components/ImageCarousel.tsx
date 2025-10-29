@@ -9,6 +9,7 @@ interface ImageCarouselProps {
   laptopHeight?: string; // e.g., "h-48"
   onImageClick?: (imageIndex: number, featureTitle?: string) => void;
   featureTitle?: string;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
@@ -18,11 +19,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   mobileHeight = 'h-32',
   laptopHeight = 'h-[16rem]',
   onImageClick,
-  featureTitle
+  featureTitle,
+  onFullscreenChange
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showControls, setShowControls] = useState(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -42,6 +45,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   useEffect(() => {
     if (isAutoPlaying && images.length > 1) {
       autoPlayRef.current = setInterval(goToNext, autoScrollInterval);
+    } else {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+        autoPlayRef.current = null;
+      }
     }
 
     return () => {
@@ -62,14 +70,39 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   // Handle individual image clicks for fullscreen modal opening
   const handleImageClick = (index: number) => {
+    console.log('Opening fullscreen for image index:', index);
+    // Explicitly clear any existing auto-play interval
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
     setIsFullscreen(true);
     setCurrentIndex(index);
     setIsAutoPlaying(false);
+    console.log('Auto-play stopped, fullscreen opened');
   };
 
   const closeFullscreen = () => {
     setIsFullscreen(false);
     setIsAutoPlaying(true);
+    setShowControls(false);
+  };
+
+  const handleFullscreenMouseEnter = () => {
+    console.log('Mouse entered fullscreen, showing controls');
+    setShowControls(true);
+  };
+
+  const handleFullscreenMouseLeave = () => {
+    console.log('Mouse left fullscreen, hiding controls');
+    setShowControls(false);
+  };
+
+  const handleFullscreenTouchStart = () => {
+    console.log('Touch started on fullscreen, showing controls');
+    setShowControls(true);
+    // Auto-hide controls after 3 seconds on touch
+    setTimeout(() => setShowControls(false), 3000);
   };
 
 
@@ -109,6 +142,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  // Notify parent component when fullscreen state changes
+  useEffect(() => {
+    if (onFullscreenChange) {
+      onFullscreenChange(isFullscreen);
+    }
+  }, [isFullscreen, onFullscreenChange]);
 
 
 
@@ -268,42 +308,57 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
       {/* Fullscreen Modal */}
       {isFullscreen && (
-        <div className="fixed inset-0 bg-black/90 z-[1000] flex items-center justify-center" onClick={closeFullscreen}>
-          <div className="relative max-w-[90vw] max-h-[90vh]" onClick={e => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 bg-black/90 z-[1000] flex items-center justify-center"
+          onClick={closeFullscreen}
+        >
+          <div
+            className="relative max-w-[90vw] max-h-[90vh]"
+            onClick={e => e.stopPropagation()}
+            onMouseEnter={handleFullscreenMouseEnter}
+            onMouseLeave={handleFullscreenMouseLeave}
+            onTouchStart={handleFullscreenTouchStart}
+          >
             <img
               src={images[currentIndex]}
               alt={`Fullscreen view`}
               className="max-h-[90vh] max-w-[90vw] object-contain"
             />
-            <button
-              className="absolute top-4 right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-              onClick={closeFullscreen}
-            >
-              <X size={24} />
-            </button>
 
-            {/* Fullscreen navigation arrows */}
-            {hasMultipleImages && (
-              <>
+            {/* Controls container - completely hidden by default, shown on hover/touch */}
+            {showControls && (
+              <div className="absolute inset-0">
                 <button
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-                  onClick={goToPrevious}
+                  className="absolute top-4 right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors cursor-pointer"
+                  onClick={closeFullscreen}
                 >
-                  <ChevronLeft size={24} />
+                  <X size={24} />
                 </button>
-                <button
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"
-                  onClick={goToNext}
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </>
-            )}
 
-            {/* Fullscreen image counter */}
-            {hasMultipleImages && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full font-medium">
-                {currentIndex + 1} / {images.length}
+                {/* Fullscreen navigation arrows - hidden by default */}
+                {hasMultipleImages && (
+                  <>
+                    <button
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors cursor-pointer"
+                      onClick={goToPrevious}
+                    >
+                      <ChevronLeft size={24} />
+                    </button>
+                    <button
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors cursor-pointer"
+                      onClick={goToNext}
+                    >
+                      <ChevronRight size={24} />
+                    </button>
+                  </>
+                )}
+
+                {/* Fullscreen image counter - hidden by default */}
+                {hasMultipleImages && (
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full font-medium">
+                    {currentIndex + 1} / {images.length}
+                  </div>
+                )}
               </div>
             )}
           </div>

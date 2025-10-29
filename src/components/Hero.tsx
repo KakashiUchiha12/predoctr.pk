@@ -294,7 +294,7 @@ const Hero = () => {
                 className={`py-6 ${
                   theme === 'dark'
                     ? 'border-gray-700 text-white hover:bg-white/5'
-                    : 'border-gray-400 text-gray-800 hover:bg-gray-50'
+                    : 'border-gray-400 text-white hover:bg-gray-50'
                 }`}
               >
                 Watch Demo

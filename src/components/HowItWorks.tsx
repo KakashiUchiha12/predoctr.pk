@@ -36,8 +36,8 @@ const HowItWorks = () => {
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <span className={`absolute -top-4 -left-4 border rounded-md border-crypto-purple/30 text-crypto-purple font-bold text-xl px-3 py-1 ${
-                theme === 'dark' ? 'bg-crypto-blue' : 'bg-slate-200'
+              <span className={`absolute -top-4 -left-4 border rounded-md border-crypto-purple/30 font-bold text-xl px-3 py-1 ${
+                theme === 'dark' ? 'bg-crypto-blue text-white' : 'bg-slate-200 text-crypto-purple'
               }`}>
                 {step.number}
               </span>

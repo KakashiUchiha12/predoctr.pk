@@ -37,10 +37,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Comprehensive Question Collection",
     description: "Unlock an extensive collection of MCQs across all major subjects, designed to boost your MDCAT preparation. Our comprehensive question bank covers every topic you'll encounter in the MDCAT exam, ensuring you're fully prepared for test day.",
     images: [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "/predoctr.pk/11.png",
+      "/predoctr.pk/22.png",
+      "/predoctr.pk/33.png",
+      "/predoctr.pk/44.png",
+      "/predoctr.pk/55.png",
+      "/predoctr.pk/66.png"
     ],
     keyStatistic: {
       value: "65,000+",
@@ -95,10 +97,10 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Well-Structured Knowledge Base",
     description: "Access well-structured and in-depth notes to strengthen your conceptual knowledge in every subject. Our comprehensive study materials provide detailed explanations, key concepts, and organized content to help you master every topic in the MDCAT syllabus.",
     images: [
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "/predoctr.pk/77.png",
+      "/predoctr.pk/88.png",
+      "/predoctr.pk/99.png",
+      "/predoctr.pk/1010.png"
     ],
     keyStatistic: {
       value: "2,500+",
