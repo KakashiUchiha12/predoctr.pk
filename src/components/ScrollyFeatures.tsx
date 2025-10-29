@@ -307,7 +307,7 @@ const ScrollyFeatures = () => {
               >
                 <div className="text-center max-w-4xl">
                   {/* Feature Image Carousel */}
-                  <div className="relative mb-20 md:mb-32 lg:mb-40">
+                  <div className="relative mb-12 md:mb-20 lg:mb-64">
                     <div className="w-full max-w-xl h-48 md:h-[16rem] mx-auto mb-3 transition-all duration-50 transform"
                       style={{
                         filter: index === activeFeature ? 'blur(0px)' : 'blur(2px)',
@@ -325,24 +325,10 @@ const ScrollyFeatures = () => {
                     } opacity-50`} />
                   </div>
 
-                  {/* Visual Separator */}
-                  <div className="w-32 h-px bg-gradient-to-r from-transparent via-gray-400/50 to-transparent mx-auto mb-8 md:mb-12 lg:mb-16"></div>
 
-                  {/* Layered Visual Elements */}
-                  <div className="relative mb-8 md:mb-12 lg:mb-16">
-                    <div
-                      className={`absolute inset-0 rounded-full transition-all duration-50 ${
-                        index === activeFeature ? 'scale-150 opacity-20' : 'scale-100 opacity-10'
-                      } bg-${feature.color}/30 blur-3xl`}
-                    />
-                    <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-3 bg-${feature.color}/20 ${
-                      theme === 'dark' ? `text-${feature.color}` : 'text-gray-900'
-                    } transition-all duration-50 transform ${
-                      index === activeFeature ? 'scale-110 rotate-0' : 'scale-100 rotate-12'
-                    }`}>
-                      {feature.icon}
-                    </div>
-                  </div>
+
+{/* Visual Separator - Desktop/Laptop Only */}
+                  <div className="hidden md:block w-32 h-px bg-gradient-to-r from-transparent via-gray-400/50 to-transparent mx-auto mb-8 md:mb-12 lg:mb-16"></div>
 
                   {/* Animated Title with Fade-in Effect */}
                   <h3 className={`text-4xl md:text-5xl font-bold mb-3 transition-all duration-50 ${
