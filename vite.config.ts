@@ -20,7 +20,8 @@ export default defineConfig(({ mode }) => ({
         'apple-touch-icon.png',
         'android-chrome-192x192.png',
         'android-chrome-512x512.png',
-        'app-splashscreen.svg'
+        'app-splashscreen.svg',
+        'app-splashscreen.png'
       ],
       manifest: {
         name: 'preDoctr.pk - MDCAT Preparation Platform',
