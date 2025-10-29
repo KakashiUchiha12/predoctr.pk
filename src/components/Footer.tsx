@@ -2,6 +2,21 @@
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
+import { triggerPWAInstall } from '../utils/pwaInstall';
+
+// Fallback install instructions if PWA install fails
+const showInstallInstructions = () => {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isAndroid = /Android/.test(navigator.userAgent);
+
+  if (isIOS) {
+    alert('Install preDoctr.pk PWA:\n\n1. In Safari, tap the Share button\n2. Select "Add to Home Screen"\n3. Tap "Add" to install\n\nGet offline access and push notifications!');
+  } else if (isAndroid) {
+    alert('Install preDoctr.pk PWA:\n\n1. In Chrome, tap the menu (⋯)\n2. Select "Add to Home Screen"\n3. Tap "Add" to install\n\nGet offline access and push notifications!');
+  } else {
+    alert('To install this app:\n\n1. In your browser, look for "Add to Home Screen" or "Install App"\n2. Follow the prompts to install\n\nGet offline access and push notifications!');
+  }
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -63,25 +78,29 @@ const Footer = () => {
             <div className="flex flex-row gap-6 justify-center">
               <img
                 src="/predoctr.pk/5a902db97f96951c82922874.png"
-                alt="Apple App Store - Download preDoctr.pk"
+                alt="Install preDoctr.pk PWA - Apple devices"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
-                title="Tap to install PWA on iOS devices"
-                onClick={() => {
-                  // Directly trigger native PWA install
-                  if ((window as any).triggerPWAInstall) {
-                    (window as any).triggerPWAInstall();
+                title="Click to install PWA directly"
+                onClick={async () => {
+                  try {
+                    await triggerPWAInstall();
+                  } catch (error) {
+                    console.error('PWA install failed:', error);
+                    showInstallInstructions();
                   }
                 }}
               />
               <img
                 src="/predoctr.pk/5a902dbf7f96951c82922875.png"
-                alt="Google Play Store - Download preDoctr.pk"
+                alt="Install preDoctr.pk PWA - Android devices"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
-                title="Tap to install PWA on Android devices"
-                onClick={() => {
-                  // Directly trigger native PWA install
-                  if ((window as any).triggerPWAInstall) {
-                    (window as any).triggerPWAInstall();
+                title="Click to install PWA directly"
+                onClick={async () => {
+                  try {
+                    await triggerPWAInstall();
+                  } catch (error) {
+                    console.error('PWA install failed:', error);
+                    showInstallInstructions();
                   }
                 }}
               />
