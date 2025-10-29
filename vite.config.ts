@@ -15,7 +15,13 @@ export default defineConfig(({ mode }) => ({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'android-chrome-192x192.png', 'android-chrome-512x512.png'],
+      includeAssets: [
+        'favicon.ico',
+        'apple-touch-icon.png',
+        'android-chrome-192x192.png',
+        'android-chrome-512x512.png',
+        'app-splashscreen.svg'
+      ],
       manifest: {
         name: 'preDoctr.pk - MDCAT Preparation Platform',
         short_name: 'preDoctr.pk',
