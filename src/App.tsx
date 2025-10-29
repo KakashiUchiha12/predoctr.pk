@@ -46,6 +46,8 @@ const App = () => {
 
   const handleSplashComplete = () => {
     setShowSplash(false);
+    // Dispatch event to notify other components that splash screen has completed
+    window.dispatchEvent(new Event('splashComplete'));
   };
 
   // Initialize PWA install handler on app mount
