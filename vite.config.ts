@@ -57,7 +57,8 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}']
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024 // 10MB limit for large screenshot files
       }
     }),
     mode === 'development' &&
