@@ -8,7 +8,7 @@ import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
-import CTA from '@/components/CTA';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import WhatsappContact from '@/components/WhatsappContact';
@@ -54,7 +54,7 @@ const Index = () => {
       <Testimonials />
       <Pricing />
       <FAQ />
-      <CTA />
+      <ContactSection />
       <Footer />
       <ScrollToTop />
       <WhatsappContact />

@@ -135,6 +135,23 @@ const Navbar = () => {
               FAQ
             </button>
           </li>
+          <li>
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
+                theme === 'dark'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+              }`}
+            >
+              Contact Us
+            </button>
+          </li>
         </ul>
 
         <div className="hidden lg:flex items-center space-x-4">
@@ -246,6 +263,20 @@ const Navbar = () => {
                   }}
                 >
                   FAQ
+                </button>
+              </li>
+              <li>
+                <button
+                  className={`transition-colors block py-2 text-left ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Contact Us
                 </button>
               </li>
               <li className="pt-4 flex flex-col space-y-3">
