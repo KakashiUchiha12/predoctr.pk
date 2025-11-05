@@ -52,6 +52,9 @@ const Registration = () => {
   const [errors, setErrors] = useState<Partial<StudentFormData>>({});
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [registrationComplete, setRegistrationComplete] = useState(false);
+  const [googleButtonEnabled, setGoogleButtonEnabled] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleInputChange = (field: keyof StudentFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -136,24 +139,50 @@ Looking forward to your response. Thanks!`;
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      setShowConfirmationDialog(true);
+      submitToGoogleSheets();
     }
   };
 
-  const confirmSendWhatsApp = () => {
-    setShowConfirmationDialog(false);
+  const submitToGoogleSheets = async () => {
     setIsSubmitting(true);
 
-    const message = buildWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/03466758830?text=${message}`;
+    try {
+      // Google Apps Script web app URL for form submissions
+      const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyFIFlU8bbGQBO3Slenv8LyYWxuPr-SqX6jYbWqyemiJezU4FqP_VP0p0-frnfGDiSp/exec';
 
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank');
+      // Create URL-encoded form data
+      const formDataToSend = new URLSearchParams();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
 
-    // Navigate back to home after a brief delay
-    setTimeout(() => {
-      navigate('/');
-    }, 1000);
+      const response = await fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formDataToSend.toString(),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Success - show thank you and enable Google button
+        setRegistrationComplete(true);
+        setGoogleButtonEnabled(true);
+        setShowThankYou(true);
+
+        // Keep the success message visible persistently
+      } else {
+        // Handle error
+        alert('Error saving registration: ' + (result.message || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -182,8 +211,10 @@ Looking forward to your response. Thanks!`;
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Show form only if registration is not complete */}
+          {!registrationComplete && (
+            <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Basic Information */}
               <Card className={theme === 'dark' ? 'bg-slate-800 border-slate-600' : 'bg-white'}>
                 <CardHeader>
@@ -440,55 +471,97 @@ Looking forward to your response. Thanks!`;
               </Card>
             </div>
 
+            {/* Already Registered Link */}
+            <div className="text-center mt-6">
+              <button
+                type="button"
+                className={`text-sm underline hover:no-underline transition-all duration-200 ${
+                  theme === 'dark' ? 'text-gray-400 hover:text-gray-300' : 'text-slate-500 hover:text-slate-700'
+                }`}
+                onClick={() => {
+                  // TODO: Add navigation logic here later
+                  alert('Already registered link clicked - will be implemented later');
+                }}
+              >
+                Already registered? Sign in here
+              </button>
+            </div>
+
             {/* Submit Button */}
-            <div className="text-center mt-8">
+            <div className="text-center mt-4">
               <Button
                 type="submit"
                 size="lg"
                 className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-4 text-lg font-semibold"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Submitting...' : 'Submit Registration'}
                 {!isSubmitting && <MessageCircle className="ml-2 h-5 w-5" />}
               </Button>
             </div>
           </form>
+          )}
+
+          {/* Thank You Message with Animation */}
+          {showThankYou && (
+            <div className="text-center mt-8 p-6 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800 animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
+              <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4 animate-in zoom-in-50 duration-300 delay-150" />
+              <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2 animate-in fade-in-0 duration-300 delay-300">
+                Registration Successful!
+              </h3>
+              <p className="text-green-700 dark:text-green-300 animate-in fade-in-0 duration-300 delay-500">
+                Your information has been saved. You can now proceed to sign in with Google.
+              </p>
+            </div>
+          )}
+
+          {/* Google Sign In Button - Always visible but disabled until registration complete */}
+          <div className="text-center mt-8">
+            <div className="w-3/4 sm:w-auto max-w-xs sm:max-w-sm mx-auto">
+              <div className="relative overflow-hidden group/btn transition-all duration-300 hover:scale-105 rounded-lg">
+                <div
+                  className={`flex items-center justify-center px-4 sm:px-6 py-4 bg-white border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer ${
+                    googleButtonEnabled ? '' : 'opacity-50 cursor-not-allowed grayscale'
+                  }`}
+                  style={{
+                    fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    letterSpacing: '0.25px',
+                    color: '#3c4043',
+                    height: '48px'
+                  }}
+                  onClick={() => {
+                    if (googleButtonEnabled) {
+                      // Handle Google OAuth here
+                      alert('Google Sign In would be implemented here');
+                    }
+                  }}
+                >
+                  {/* Google Logo */}
+                  <div className="flex items-center justify-center mr-3">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                  </div>
+                  {/* Button Text */}
+                  <span className="flex-1 text-center">
+                    {googleButtonEnabled ? 'Sign in with Google' : 'Complete registration first'}
+                  </span>
+                </div>
+
+                {/* Gradient overlay for animation */}
+                {googleButtonEnabled && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Confirmation Dialog */}
-      <Dialog open={showConfirmationDialog} onOpenChange={setShowConfirmationDialog}>
-        <DialogContent className={`max-w-md ${theme === 'dark' ? 'bg-slate-800 border-slate-600' : 'bg-white'}`}>
-          <DialogHeader className="text-center">
-            <div className="mx-auto bg-crypto-purple/20 rounded-full p-3 mb-4">
-              <MessageCircle className="h-8 w-8 text-crypto-purple" />
-            </div>
-            <DialogTitle className={`text-xl ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-              Confirm Your Details
-            </DialogTitle>
-            <DialogDescription className={`text-center ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
-              This will open WhatsApp with your registration details. Make sure all information is correct before sending.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="flex gap-3 mt-6">
-            <Button
-              variant="outline"
-              onClick={() => setShowConfirmationDialog(false)}
-              className="flex-1"
-              disabled={isSubmitting}
-            >
-              Review Details
-            </Button>
-            <Button
-              onClick={confirmSendWhatsApp}
-              className="flex-1 bg-crypto-purple hover:bg-crypto-dark-purple"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Opening WhatsApp...' : 'Send on WhatsApp'}
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
 
       <Footer />
     </div>

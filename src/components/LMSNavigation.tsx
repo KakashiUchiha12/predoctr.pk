@@ -102,7 +102,7 @@ const LMSNavigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center group">
               <img
-                src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+                src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
                 alt="preDoctr.pk"
                 className="h-10 w-auto animate-float transition-transform duration-300 group-hover:scale-110"
               />

@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => ({
-    base: "/predoctr.pk/",
+    base: mode === 'production' ? "/predoctr.pk/" : "/",
   server: {
     host: "::",
     port: 8080,

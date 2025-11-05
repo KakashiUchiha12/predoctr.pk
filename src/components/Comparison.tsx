@@ -75,7 +75,7 @@ const Comparison = () => {
               <div className={`p-6 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-100'}`}>
                 <h3 className={`text-xl md:text-2xl font-bold text-center flex items-center justify-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                   <div className="flex items-center gap-2">
-                    <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-8 h-8 object-contain" />
+                    <img src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-8 h-8 object-contain" />
                     <span className="font-bold">
                       <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
                     </span>
@@ -94,7 +94,7 @@ const Comparison = () => {
                       </th>
                       <th className={`px-4 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                         <div className="flex items-center justify-center gap-2">
-                          <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
+                          <img src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
                           <span className="hidden md:inline font-bold">
                             <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
                           </span>
@@ -151,7 +151,7 @@ const Comparison = () => {
             <div className="md:hidden space-y-4">
               <h3 className={`text-lg md:text-xl font-bold text-center mb-6 flex flex-col sm:flex-row items-center justify-center gap-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                 <div className="flex items-center gap-2">
-                  <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
+                  <img src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-6 h-6 object-contain" />
                   <span className="font-bold">
                     <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
                   </span>
@@ -183,7 +183,7 @@ const Comparison = () => {
                       theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
                     }`}>
                         <div className="flex items-center justify-center gap-1 mb-1">
-                        <img src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-5 h-5 object-contain" />
+                        <img src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png" alt="preDoctr.pk" className="w-5 h-5 object-contain" />
                         <span className="text-xs font-bold">
                           <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
                         </span>

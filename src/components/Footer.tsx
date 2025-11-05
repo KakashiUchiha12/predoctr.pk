@@ -34,7 +34,7 @@ const Footer = () => {
             <div className="flex items-center mb-4">
               <Link to="/" className="flex items-center">
                 <img
-                  src="favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+                  src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
                   alt="preDoctr.pk"
                   className="h-10 w-auto mr-2 animate-float"
                 />
@@ -77,7 +77,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-row gap-6 justify-center">
               <img
-                src="/predoctr.pk/5a902db97f96951c82922874.png"
+                src="/5a902db97f96951c82922874.png"
                 alt="Install preDoctr.pk PWA - Apple devices"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
                 title="Click to install PWA directly"
@@ -91,7 +91,7 @@ const Footer = () => {
                 }}
               />
               <img
-                src="/predoctr.pk/5a902dbf7f96951c82922875.png"
+                src="/5a902dbf7f96951c82922875.png"
                 alt="Install preDoctr.pk PWA - Android devices"
                 className="h-24 w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
                 title="Click to install PWA directly"

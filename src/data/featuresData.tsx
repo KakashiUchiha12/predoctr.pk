@@ -37,12 +37,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Comprehensive Question Collection",
     description: "Unlock an extensive collection of MCQs across all major subjects, designed to boost your MDCAT preparation. Our comprehensive question bank covers every topic you'll encounter in the MDCAT exam, ensuring you're fully prepared for test day.",
     images: [
-      "/predoctr.pk/11.png",
-      "/predoctr.pk/22.png",
-      "/predoctr.pk/33.png",
-      "/predoctr.pk/44.png",
-      "/predoctr.pk/55.png",
-      "/predoctr.pk/66.png"
+      "/11.png",
+      "/22.png",
+      "/33.png",
+      "/44.png",
+      "/55.png",
+      "/66.png"
     ],
     keyStatistic: {
       value: "65,000+",
@@ -97,10 +97,10 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Well-Structured Knowledge Base",
     description: "Access well-structured and in-depth notes to strengthen your conceptual knowledge in every subject. Our comprehensive study materials provide detailed explanations, key concepts, and organized content to help you master every topic in the MDCAT syllabus.",
     images: [
-      "/predoctr.pk/77.png",
-      "/predoctr.pk/88.png",
-      "/predoctr.pk/99.png",
-      "/predoctr.pk/1010.png"
+      "/77.png",
+      "/88.png",
+      "/99.png",
+      "/1010.png"
     ],
     keyStatistic: {
       value: "2,500+",
