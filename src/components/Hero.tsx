@@ -254,7 +254,7 @@ const Hero = () => {
               </span>
               <span className="font-bold block mt-3 flex items-center justify-start">
                 <img
-                  src="/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png"
+                  src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
                   alt="preDoctr.pk"
                   className="h-12 w-auto mr-3 animate-float"
                 />
