@@ -1,6 +1,6 @@
 export const testimonials = [
     {
-      quote: "preDoctr.pk was a game changer for me. The study material, mock tests, and personalized coaching helped me improve significantly. I'm proud to say I got into KEMU, and I owe much of that success to Risen Academy!",
+      quote: "preDoctr.pk was a game changer for me. The study material, mock tests, and personalized coaching helped me improve significantly. I'm proud to say I got into KEMU, and I owe much of that success to preDoctr.pk!",
       author: "Sana Khan",
       role: "Admitted to KEMU",
       location: "Lahore",
@@ -39,6 +39,6 @@ export const testimonials = [
       author: "Imran Gul",
       role: "Admitted to Ayub Medical College",
       location: "Peshawar",
-      avatar: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&h=100&w=100&q=80"
+      avatar: "/testimony.jpg"
     }
   ];

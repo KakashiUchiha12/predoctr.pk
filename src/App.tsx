@@ -11,7 +11,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Press from "./pages/Press";
-import Contact from "./pages/Contact";
+
 import Legal from "./pages/Legal";
 import Registration from "./pages/Registration";
 import NotFound from "./pages/NotFound";
@@ -62,7 +62,7 @@ const App = () => {
           {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
           <Toaster />
           <Sonner />
-          <BrowserRouter basename="/predoctr.pk">
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Routes>
               {/* Main Landing Page */}
               <Route path="/" element={<Index />} />
@@ -72,7 +72,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/press" element={<Press />} />
-              <Route path="/contact" element={<Contact />} />
+
               <Route path="/registration" element={<Registration />} />
               <Route path="/legal" element={<Legal />} />
 

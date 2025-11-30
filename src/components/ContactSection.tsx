@@ -9,20 +9,20 @@ const ContactSection = () => {
 
   const contactInfo = {
     email: 'contact@predoctr.pk',
-    whatsapp: '034821566226'
+    whatsapp: '03010903571'
   };
 
   const socialLinks = [
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/predoctr.pk',
+      url: 'https://www.instagram.com/predoctr.pk_/',
       color: 'hover:text-pink-500'
     },
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://facebook.com/predoctr.pk',
+      url: 'https://www.facebook.com/predoctrpk/',
       color: 'hover:text-blue-600'
     },
     {
@@ -34,7 +34,7 @@ const ContactSection = () => {
     {
       name: 'GitHub',
       icon: Github,
-      url: 'https://github.com/predoctr.pk',
+      url: 'https://github.com/KakashiUchiha12',
       color: 'hover:text-gray-300'
     }
   ];

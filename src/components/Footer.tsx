@@ -47,23 +47,15 @@ const Footer = () => {
               The most trusted MDCAT preparation platform, empowering medical students with comprehensive resources and expert guidance.
             </p>
             <div className="flex space-x-4">
-              <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
+              <a href="https://www.facebook.com/predoctrpk/" target="_blank" rel="noopener noreferrer" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
+              <a href="https://www.instagram.com/predoctr.pk_/" target="_blank" rel="noopener noreferrer" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="#!" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
+              <a href="https://github.com/KakashiUchiha12" target="_blank" rel="noopener noreferrer" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
@@ -137,7 +129,7 @@ const Footer = () => {
               <li><Link to="/careers" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Careers</Link></li>
               <li><Link to="/press" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Press</Link></li>
               <li><Link to="/legal" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Legal & Privacy</Link></li>
-              <li><Link to="/contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</Link></li>
+              <li><a href="#contact" className={`hover:text-crypto-purple transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Contact Us</a></li>
             </ul>
           </div>
         </div>

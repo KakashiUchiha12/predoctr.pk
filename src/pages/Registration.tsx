@@ -301,7 +301,6 @@ Looking forward to your response. Thanks!`;
                       <SelectContent>
                         <SelectItem value="11th">11th Grade</SelectItem>
                         <SelectItem value="12th">12th Grade</SelectItem>
-                        <SelectItem value="1st-year">1st Year (Dropped)</SelectItem>
                       </SelectContent>
                     </Select>
                     {errors.currentClass && <p className="text-red-500 text-sm mt-1">{errors.currentClass}</p>}
@@ -473,18 +472,16 @@ Looking forward to your response. Thanks!`;
 
             {/* Already Registered Link */}
             <div className="text-center mt-6">
-              <button
-                type="button"
+              <a
+                href="https://lms.predoctr.pk/student-registration/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`text-sm underline hover:no-underline transition-all duration-200 ${
                   theme === 'dark' ? 'text-gray-400 hover:text-gray-300' : 'text-slate-500 hover:text-slate-700'
                 }`}
-                onClick={() => {
-                  // TODO: Add navigation logic here later
-                  alert('Already registered link clicked - will be implemented later');
-                }}
               >
                 Already registered? Sign in here
-              </button>
+              </a>
             </div>
 
             {/* Submit Button */}
@@ -533,8 +530,8 @@ Looking forward to your response. Thanks!`;
                   }}
                   onClick={() => {
                     if (googleButtonEnabled) {
-                      // Handle Google OAuth here
-                      alert('Google Sign In would be implemented here');
+                      // Redirect to LMS registration page
+                      window.open('https://lms.predoctr.pk/student-registration', '_blank');
                     }
                   }}
                 >

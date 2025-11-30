@@ -17,11 +17,11 @@ export const faqItems = [
   },
   {
     question: "Do you offer any personalized guidance?",
-    answer: "Yes! Risen Academy offers one-on-one personalized coaching to help you identify your strengths and weaknesses, create a tailored study plan, and provide expert guidance throughout your preparation."
+    answer: "Yes! preDoctr.pk offers one-on-one personalized coaching to help you identify your strengths and weaknesses, create a tailored study plan, and provide expert guidance throughout your preparation."
   },
   {
     question: "Can I access preDoctr.pk on mobile?",
-    answer: "Yes, Risen Academy's platform is fully accessible on both desktop and mobile devices, so you can study anytime and anywhere."
+    answer: "Yes, preDoctr.pk's platform is fully accessible on both desktop and mobile devices, so you can study anytime and anywhere."
   },
   {
     question: "How can I contact preDoctr.pk for support?",

@@ -37,12 +37,11 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Comprehensive Question Collection",
     description: "Unlock an extensive collection of MCQs across all major subjects, designed to boost your MDCAT preparation. Our comprehensive question bank covers every topic you'll encounter in the MDCAT exam, ensuring you're fully prepared for test day.",
     images: [
-      `${import.meta.env.BASE_URL}11.png`,
-      `${import.meta.env.BASE_URL}22.png`,
-      `${import.meta.env.BASE_URL}33.png`,
-      `${import.meta.env.BASE_URL}44.png`,
-      `${import.meta.env.BASE_URL}55.png`,
-      `${import.meta.env.BASE_URL}66.png`
+      `${import.meta.env.BASE_URL}Feature 1/Biology MCQs-min.png`,
+      `${import.meta.env.BASE_URL}Feature 1/Chemsitry MCQs-min.png`,
+      `${import.meta.env.BASE_URL}Feature 1/Physics MCQs-min.png`,
+      `${import.meta.env.BASE_URL}Feature 1/English MCQs-min.png`,
+      `${import.meta.env.BASE_URL}Feature 1/Logical Reasoning MCQs-min.png`
     ],
     keyStatistic: {
       value: "65,000+",
@@ -55,32 +54,32 @@ export const enhancedFeatures: EnhancedFeature[] = [
       {
         icon: <Brain className="h-4 w-4" />,
         title: "Biology MCQs",
-        description: "A vast range of biology-related questions covering all topics, from cell biology to ecology. Master every aspect of biological sciences with our comprehensive collection that includes cellular processes, genetics, evolution, human physiology, and ecological systems. • Covers cell structure and function • Detailed genetics and molecular biology • Human anatomy and physiology • Plant biology and taxonomy • Ecology and environmental science • Biotechnology and bioinformatics • Microbiology and immunology • Evolution and biodiversity",
-        metric: "15,000+ questions"
+        description: "Explore a wide range of biology topics with our comprehensive collection of over 11,000 questions: • Acellular Life – Viruses, HIV/AIDS • Bioenergetics – Cellular respiration and energy transfer • Biological Molecules – Carbohydrates, proteins, lipids, RNA, and DNA • Cell Structure & Function – Prokaryotic vs. eukaryotic cells, cytoplasmic organelles • Coordination & Control – Nervous system, reflexes, and hormonal regulation • Enzymes – Structure, function, and action mechanisms • Evolution – Lamarckism, Darwinism, and natural selection • Reproduction – Human reproductive system, menstrual cycle, and STDs • Support & Movement – Skeleton, muscles, joints, and arthritis • Inheritance – Mendel’s laws, gene linkage, and sex-linked traits • Circulation – Human heart, blood vessels, and lymphatic system • Immunity – Specific defense mechanisms • Respiration – Gas exchange, effects of smoking • Digestion – Digestive system functions and disorders • Homeostasis – Kidney function, thermoregulation, and excretion • Biotechnology – Vaccines, disease diagnosis, and treatment products\n\nMaster every aspect of biological sciences and advance your knowledge with detailed MCQs across various fields.",
+        metric: "11000+ MCQs"
       },
       {
         icon: <Target className="h-4 w-4" />,
         title: "Physics MCQs",
-        description: "Comprehensive physics questions to help master concepts from mechanics to electromagnetism. Build a strong foundation in physical principles including classical mechanics, thermodynamics, waves, optics, and modern physics applications. • Mechanics and kinematics • Thermodynamics and heat • Waves and oscillations • Optics and light • Electromagnetism and circuits • Modern physics and quantum mechanics • Nuclear physics basics • Astrophysics fundamentals",
-        metric: "12,000+ questions"
+        description: "Master key concepts in physics with a comprehensive collection of over 10,000 questions: • Vectors & Equilibrium – Vector addition, product of vectors, equilibrium conditions • Force & Motion – Displacement, velocity, projectile motion, Newton’s laws, collisions • Work & Energy – Work-energy theorem, kinetic energy, power, energy losses • Rotational Motion – Angular displacement, velocity, and relation between linear and angular quantities • Fluid Dynamics – Terminal velocity, Bernoulli’s equation, fluid flow • Waves – Wave motion, sound, interference, stationary waves, SHM • Thermodynamics – Heat transfer, specific heat, thermodynamic laws • Electrostatics – Coulomb’s law, electric fields, capacitors • Current Electricity – Ohm’s law, resistance, power transfer • Electromagnetism – Magnetic fields, Faraday’s law, transformers • Alternating Current – AC through resistors, capacitors, and inductors • Electronics – Rectification, PN junction • Modern Physics – Quantum theory, atomic spectra, nuclear physics",
+        metric: "10,000 MCQs"
       },
       {
         icon: <Sparkles className="h-4 w-4" />,
         title: "Chemistry MCQs",
-        description: "In-depth questions on organic, inorganic, and physical chemistry to solidify your understanding. Explore chemical reactions, molecular structures, periodic trends, and laboratory techniques across all branches of chemistry. • Physical chemistry and thermodynamics • Inorganic chemistry and coordination compounds • Organic chemistry and reaction mechanisms • Analytical chemistry techniques • Environmental chemistry • Industrial chemistry applications • Biochemistry basics • Pharmaceutical chemistry",
-        metric: "18,000+ questions"
+        description: "Master fundamental chemistry concepts with over 11,000 questions: • Atomic Structure & Gases – Moles, Avogadro’s number, kinetic theory, ideal gas law • Chemical Equilibrium – Le Chatelier’s principle, solubility products, buffer solutions • Thermodynamics – Exothermic and endothermic reactions, Hess’s law, thermodynamic laws • Electrochemistry – Redox reactions, electrode potentials, electrolysis • Chemical Bonding – VSEPR theory, sigma and pi bonds, hybridization, molecular polarity • Organic Chemistry – Nomenclature, functional groups, isomerism, free radical mechanisms, alkanes, alkenes, alkynes, and benzene chemistry • Reaction Kinetics – Rate equations, activation energy, order of reactions • Macromolecules & Biochemistry – Proteins, enzymes, industrial applications like adhesives, dyes, polymers.",
+        metric: "11000 MCQs"
       },
       {
         icon: <Eye className="h-4 w-4" />,
         title: "English MCQs",
-        description: "Questions designed to test your comprehension, vocabulary, and language skills. Enhance your reading comprehension, grammar knowledge, and language proficiency to excel in the English section of MDCAT. • Reading comprehension passages • Vocabulary building exercises • Grammar and syntax rules • Sentence completion • Error detection and correction • Synonyms and antonyms • Idioms and phrases • Literature analysis",
-        metric: "10,000+ questions"
+        description: "Enhance your English proficiency with over 8,000 questions covering: • Reading & Thinking Skills – Comprehension, context clues, figurative language • Grammar & Vocabulary – Sentence structure, tenses, prepositions, pronouns, active/passive voice, direct/indirect speech, punctuation • Writing Skills – Proofreading, subject-verb agreement, error detection, sentence structure.",
+        metric: "8000+ MCQs"
       },
       {
         icon: <Lightbulb className="h-4 w-4" />,
         title: "Logical Reasoning MCQs",
-        description: "Sharpen your reasoning abilities with questions based on patterns, sequences, and logical deductions. Develop critical thinking skills through analytical reasoning, pattern recognition, and logical problem-solving exercises. • Pattern recognition and series • Logical deduction and inference • Critical thinking problems • Data interpretation • Statement analysis • Syllogism and logical arguments • Puzzle solving • Decision making scenarios",
-        metric: "10,000+ questions"
+        description: "Sharpen critical thinking with over 5,000 questions on: • Critical Thinking – Evaluate beliefs, separate truth from falsehood • Letter & Symbol Series – Develop patterns and sequences using numbers and letters • Logical Deductions – Use structured thinking to make accurate conclusions • Logical Problems – Solve puzzles and reasoning challenges • Course of Action – Make decisions based on given scenarios • Cause & Effect – Analyze the relationship between events and outcomes.",
+        metric: "5000+ MCQs"
       }
     ],
     interactiveData: {
@@ -97,10 +96,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Well-Structured Knowledge Base",
     description: "Access well-structured and in-depth notes to strengthen your conceptual knowledge in every subject. Our comprehensive study materials provide detailed explanations, key concepts, and organized content to help you master every topic in the MDCAT syllabus.",
     images: [
-      `${import.meta.env.BASE_URL}77.png`,
-      `${import.meta.env.BASE_URL}88.png`,
-      `${import.meta.env.BASE_URL}99.png`,
-      `${import.meta.env.BASE_URL}1010.png`
+      `${import.meta.env.BASE_URL}Features 2 Notes/1-min.PNG`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/2-min.PNG`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/3-min.PNG`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/4-min.PNG`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/5-min.PNG`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/6-min.PNG`
     ],
     keyStatistic: {
       value: "2,500+",
@@ -113,19 +114,19 @@ export const enhancedFeatures: EnhancedFeature[] = [
       {
         icon: <Lightbulb className="h-4 w-4" />,
         title: "Biology Notes",
-        description: "Detailed notes covering every major biology topic, from genetics to human physiology. Comprehensive coverage of cellular biology, molecular genetics, human anatomy, plant physiology, and ecological systems with detailed diagrams and explanations. • Cell structure and function • Molecular biology and genetics • Human physiology and anatomy • Plant biology and taxonomy • Ecology and environmental science • Biotechnology and bioinformatics • Microbiology and immunology • Evolution and biodiversity • Neurobiology and endocrinology • Reproductive biology and embryology",
+        description: "Comprehensive study notes covering all MDCAT biology topics with detailed explanations and diagrams. • Acellular Life – Viruses, HIV/AIDS • Bioenergetics – Cellular respiration and energy transfer • Biological Molecules – Carbohydrates, proteins, lipids, RNA, and DNA • Cell Structure & Function – Prokaryotic vs. eukaryotic cells, cytoplasmic organelles • Coordination & Control – Nervous system, reflexes, and hormonal regulation • Enzymes – Structure, function, and action mechanisms • Evolution – Lamarckism, Darwinism, and natural selection • Reproduction – Human reproductive system, menstrual cycle, and STDs • Support & Movement – Skeleton, muscles, joints, and arthritis • Inheritance – Mendel's laws, gene linkage, and sex-linked traits • Circulation – Human heart, blood vessels, and lymphatic system • Immunity – Specific defense mechanisms • Respiration – Gas exchange, effects of smoking • Digestion – Digestive system functions and disorders • Homeostasis – Kidney function, thermoregulation, and excretion • Biotechnology – Vaccines, disease diagnosis, and treatment products",
         metric: "800+ pages"
       },
       {
         icon: <Users className="h-4 w-4" />,
         title: "Physics Notes",
-        description: "Comprehensive explanations of physics concepts, complete with formulas and problem-solving strategies. Master fundamental principles, mathematical derivations, and practical applications across all physics domains. • Mechanics and kinematics • Thermodynamics and heat transfer • Electromagnetism and circuits • Waves and oscillations • Optics and light phenomena • Modern physics and quantum mechanics • Nuclear and particle physics • Astrophysics and cosmology • Fluid mechanics and dynamics • Electronics and semiconductor physics",
+        description: "Detailed physics study notes with formulas, derivations, and problem-solving strategies. • Vectors & Equilibrium – Vector addition, product of vectors, equilibrium conditions • Force & Motion – Displacement, velocity, projectile motion, Newton's laws, collisions • Work & Energy – Work-energy theorem, kinetic energy, power, energy losses • Rotational Motion – Angular displacement, velocity, and relation between linear and angular quantities • Fluid Dynamics – Terminal velocity, Bernoulli's equation, fluid flow • Waves – Wave motion, sound, interference, stationary waves, SHM • Thermodynamics – Heat transfer, specific heat, thermodynamic laws • Electrostatics – Coulomb's law, electric fields, capacitors • Current Electricity – Ohm's law, resistance, power transfer • Electromagnetism – Magnetic fields, Faraday's law, transformers • Alternating Current – AC through resistors, capacitors, and inductors • Electronics – Rectification, PN junction • Modern Physics – Quantum theory, atomic spectra, nuclear physics",
         metric: "600+ pages"
       },
       {
         icon: <Video className="h-4 w-4" />,
         title: "Chemistry Notes",
-        description: "Exhaustive notes covering all areas of chemistry, including organic, inorganic, and physical chemistry. Detailed coverage of chemical reactions, molecular structures, reaction mechanisms, and laboratory techniques. • Physical chemistry and thermodynamics • Inorganic chemistry and coordination compounds • Organic chemistry and reaction mechanisms • Analytical chemistry techniques • Environmental chemistry • Industrial chemistry applications • Biochemistry and molecular biology • Pharmaceutical chemistry • Polymer chemistry • Surface chemistry and colloids",
+        description: "Comprehensive chemistry study notes covering all branches with detailed explanations and examples. • Atomic Structure & Gases – Moles, Avogadro's number, kinetic theory, ideal gas law • Chemical Equilibrium – Le Chatelier's principle, solubility products, buffer solutions • Thermodynamics – Exothermic and endothermic reactions, Hess's law, thermodynamic laws • Electrochemistry – Redox reactions, electrode potentials, electrolysis • Chemical Bonding – VSEPR theory, sigma and pi bonds, hybridization, molecular polarity • Organic Chemistry – Nomenclature, functional groups, isomerism, free radical mechanisms, alkanes, alkenes, alkynes, and benzene chemistry • Reaction Kinetics – Rate equations, activation energy, order of reactions • Macromolecules & Biochemistry – Proteins, enzymes, industrial applications like adhesives, dyes, polymers",
         metric: "1,100+ pages"
       }
     ],
@@ -143,10 +144,11 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Historical Exam Collection",
     description: "Explore a rich collection of past papers from multiple universities and boards to familiarize yourself with exam patterns. Our extensive archive includes years of historical data to help you understand question trends, difficulty levels, and exam format variations.",
     images: [
-      "https://images.unsplash.com/photo-1565843708714-52ecf69a98b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1520637836862-4d197d17c13a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1501436513145-30f24e19fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/1pastpapers-min.png`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/2pastpapers-min.png`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/3pastpapers-min.png`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/4pastpapers-min.png`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/5pastpapers-min.png`
     ],
     keyStatistic: {
       value: "16",
@@ -207,10 +209,20 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Full-Length Mock Exams",
     description: "Take full-length mock tests and challenge yourself to simulate the real exam environment. Our comprehensive practice tests replicate the actual MDCAT experience with timed conditions, realistic question distribution, and detailed performance analysis.",
     images: [
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/1Test.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/8.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/9.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/10.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/11.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/12.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/13.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/14.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/15.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/16.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/17.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/18.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/19.png`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/20.png`
     ],
     keyStatistic: {
       value: "9",
@@ -222,7 +234,7 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subFeatures: [
       {
         icon: <Target className="h-4 w-4" />,
-        title: "9 Full-Length Tests",
+        title: "13 Tests",
         description: "Each test consists of 180 MCQs, carefully curated to test your knowledge across all subjects. Experience the complete MDCAT format with proper subject distribution, time constraints, and difficulty progression that mirrors the actual examination. • Complete MDCAT simulation • 180 MCQs per test • Subject-wise distribution • Time management practice • Difficulty level progression • Real exam interface • Instant score calculation • Detailed performance analysis • Question review system • Retake options available",
         metric: "180 MCQs each"
       },
@@ -247,10 +259,10 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Performance Insights",
     description: "Gain insights into your performance and track your improvement with detailed analytics. Our intelligent tracking system provides comprehensive feedback on your strengths, weaknesses, and progress patterns to optimize your study strategy.",
     images: [
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/1Analytics-min.PNG`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/2Analytics-min.PNG`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/3Analytics-min.PNG`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/4Analytics-min.PNG`
     ],
     keyStatistic: {
       value: "100%",
@@ -293,10 +305,9 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Professional Educational Content",
     description: "Learn directly from subject experts with our exclusive video lecture series. Our comprehensive library of educational videos features experienced professors and subject matter experts delivering in-depth explanations of complex topics.",
     images: [
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/1.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/2.jpg`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/3.jpg`
     ],
     keyStatistic: {
       value: "200+",
