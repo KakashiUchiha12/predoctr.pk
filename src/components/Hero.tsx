@@ -182,7 +182,7 @@ const Hero = () => {
       theme === 'dark'
         ? 'bg-gradient-hero hero-glow'
         : 'bg-gradient-hero-light hero-glow-light'
-    }`} itemScope itemType="https://schema.org/Organization">
+    }`} itemScope itemType="https://schema.org/Organization" style={{ minHeight: '100vh' }}>
       {/* Video Popup Modal */}
       {isVideoOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
@@ -215,9 +215,9 @@ const Hero = () => {
         <div className={`absolute bottom-1/4 right-10 w-96 h-96 bg-crypto-light-purple/10 rounded-full filter blur-3xl animate-pulse-slow transition-all duration-300 ${isVideoOpen ? 'blur-2xl' : ''}`} style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className={`container mx-auto px-4 py-20 relative z-10 transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`}>
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 animate-fade-in-left">
+      <div className={`container mx-auto px-4 py-20 relative z-10 transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`} style={{ minHeight: '600px' }}>
+        <div className="flex flex-col lg:flex-row items-center" style={{ minHeight: '500px' }}>
+          <div className="lg:w-1/2 animate-fade-in-left" style={{ minHeight: '400px' }}>
             <div
               className={`inline-flex items-center backdrop-blur-sm border rounded-full px-4 py-1.5 mb-6 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                 theme === 'dark'
@@ -245,18 +245,21 @@ const Hero = () => {
               <span className={`text-xs mr-1 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'}`}>Complete MDCAT Course - All Subjects</span>
               <ChevronRight className={`h-4 w-4 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`} />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold mb-6 leading-tight">
-              <span className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-800'}`}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold mb-6 leading-tight" style={{ minHeight: '200px' }}>
+              <span className={`font-bold block ${theme === 'dark' ? 'text-white' : 'text-slate-800'}`}>
                 Your Path to Medical College
               </span>
               <span className={`font-bold block mt-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                 starts here with
               </span>
-              <span className="font-bold block mt-3 flex items-center justify-start">
+              <span className="font-bold block mt-3 flex items-center justify-start" style={{ minHeight: '80px' }}>
                 <img
                   src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
                   alt="preDoctr.pk"
                   className="h-12 w-auto mr-3 animate-float"
+                  width="48"
+                  height="48"
+                  loading="eager"
                 />
                 <span className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl">
                   <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className={`text-crypto-purple ${theme === 'dark' ? 'drop-shadow-lg' : ''}`}>Doctr.pk</span>
