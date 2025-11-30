@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const WhatsappContact = () => {
   const [showBadge, setShowBadge] = useState(false);
-  const whatsappNumber = "03466758830";
+  const whatsappNumber = "03010903571";
   const message = "Hello Sir, Kindly provide me details about the session joining procedure.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
