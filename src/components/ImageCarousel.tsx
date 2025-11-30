@@ -210,7 +210,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           {/* Main Image Container - Fixed aspect ratio and height, centered */}
           <div className={`relative overflow-hidden rounded-lg ${mobileHeight} md:${laptopHeight} xl:h-[32rem] w-full max-w-full mx-8 md:mx-8 lg:mx-10`}>
             <div
-              className="flex transition-transform duration-500 ease-in-out h-full"
+              className="flex transition-transform duration-500 ease-in-out h-full will-change-transform"
               style={{
                 width: `${images.length * 100}%`,
                 transform: `translateX(-${currentIndex * (100 / images.length)}%)`
@@ -228,6 +228,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                     className="w-full h-full object-cover rounded-lg transition-all duration-200 cursor-pointer hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
                     style={{ zIndex: 40 }}
                     loading={index === 0 ? "eager" : "lazy"}
+                    width="441"
+                    height="294"
+                    decoding="async"
                     onClick={(e) => {
                       console.log('Image clicked:', index);
                       handleImageClick(index);
