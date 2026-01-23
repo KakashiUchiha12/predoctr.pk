@@ -1,41 +1,31 @@
-# Robots.txt optimized for MDCAT SEO
+# Robots.txt optimized for preDoctr.pk
 
 # Important search engines
 User-agent: Googlebot
-Crawl-delay: 1
 Allow: /
 
 User-agent: Bingbot
 Crawl-delay: 1
 Allow: /
 
-User-agent: Slurp
-Crawl-delay: 1
-Allow: /
-
-# Social media crawlers
+# Social media crawlers (Important for sharing previews)
 User-agent: facebookexternalhit
 Allow: /
-
 User-agent: Twitterbot
 Allow: /
-
 User-agent: LinkedInBot
 Allow: /
 
-# Disallow admin areas and development files
+# Disallow source code and system files (Security)
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /.git/
-Disallow: /dist/
+# Removed /dist/ to ensure Google can render CSS/JS
 
-# Allow all other crawlers
+# Default for all other crawlers
 User-agent: *
 Crawl-delay: 2
 Allow: /
 
-# Sitemap for SEO
+# Sitemap Location
 Sitemap: https://predoctr.pk/sitemap.xml
-
-# Host directive for duplicate content prevention
-Host: https://predoctr.pk

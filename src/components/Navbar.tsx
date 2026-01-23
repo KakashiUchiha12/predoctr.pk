@@ -12,9 +12,9 @@ const Navbar = () => {
 
   // Determine if we're on LMS pages
   const isLMSPage = location.pathname.startsWith('/dashboard') ||
-                   location.pathname.startsWith('/subjects') ||
-                   location.pathname.startsWith('/results') ||
-                   location.pathname.startsWith('/topic');
+    location.pathname.startsWith('/subjects') ||
+    location.pathname.startsWith('/results') ||
+    location.pathname.startsWith('/topic');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +26,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
         ? theme === 'dark'
           ? 'bg-black/40 backdrop-blur-md py-3 shadow-lg'
           : 'bg-white/70 backdrop-blur-md py-3 shadow-lg'
         : 'py-6'
-    }`}>
+      }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
@@ -58,11 +57,10 @@ const Navbar = () => {
                   featuresSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               Features
             </button>
@@ -75,11 +73,10 @@ const Navbar = () => {
                   howItWorksSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               How it works
             </button>
@@ -92,11 +89,10 @@ const Navbar = () => {
                   testimonialsSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               Testimonials
             </button>
@@ -109,11 +105,10 @@ const Navbar = () => {
                   pricingSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               Pricing
             </button>
@@ -126,11 +121,10 @@ const Navbar = () => {
                   faqSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               FAQ
             </button>
@@ -143,11 +137,10 @@ const Navbar = () => {
                   contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${
-                theme === 'dark'
+              className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
-              }`}
+                }`}
             >
               Contact Us
             </button>
@@ -159,42 +152,38 @@ const Navbar = () => {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className={`px-3 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-crypto-purple ${
-              theme === 'dark'
+            className={`px-3 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-crypto-purple ${theme === 'dark'
                 ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
-            }`}
+              }`}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </Button>
-          <a href="https://lms.predoctr.pk/student-registration/" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" className={`px-4 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 ${
-              theme === 'dark'
+          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" className={`px-4 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 ${theme === 'dark'
                 ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
-            }`}>
+              }`}>
               Login
             </Button>
           </a>
-          <Link to="/registration">
+          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
             <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu button */}
-        <button className={`lg:hidden transition-colors duration-300 ${
-          theme === 'dark' ? 'text-white' : 'text-slate-700 hover:text-slate-900'
-        }`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`lg:hidden transition-colors duration-300 ${theme === 'dark' ? 'text-white' : 'text-slate-700 hover:text-slate-900'
+          }`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className={`lg:hidden backdrop-blur-lg absolute top-full left-0 w-full py-4 shadow-lg ${
-          theme === 'dark' ? 'bg-black/60' : 'bg-white/90'
-        }`}>
+        <div className={`lg:hidden backdrop-blur-lg absolute top-full left-0 w-full py-4 shadow-lg ${theme === 'dark' ? 'bg-black/60' : 'bg-white/90'
+          }`}>
           <div className="container mx-auto px-4">
             <ul className="flex flex-col space-y-4">
               <li>
@@ -294,14 +283,14 @@ const Navbar = () => {
                     <span>Toggle Theme</span>
                   </div>
                 </Button>
-                <a href="https://lms.predoctr.pk/student-registration/" target="_blank" rel="noopener noreferrer">
+                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
                   <Button variant="ghost" className={`w-full justify-start ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
                     Login
                   </Button>
                 </a>
-                <Link to="/registration">
+                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

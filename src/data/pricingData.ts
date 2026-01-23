@@ -46,7 +46,7 @@ export const pricingPlans = [
   {
     name: "Full Version",
     subtitle: "All Resources in one Package",
-    price: { monthly: "₨6000", annual: "₨6000" },
+    price: { monthly: "₨8500", annual: "₨8500" },
     description: "",
     badge: "Instant Access",
     features: [

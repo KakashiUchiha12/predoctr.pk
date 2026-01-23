@@ -19,7 +19,7 @@ const ScrollyFeatures = () => {
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-based feature detection - Much more reliable approach
+  // Scroll-based feature detection - Much more reliable approach with variable heights
   useEffect(() => {
     const handleScrollProgress = () => {
       if (!containerRef.current) return;
@@ -34,10 +34,24 @@ const ScrollyFeatures = () => {
       const isInFeatures = scrollY >= containerTop - windowHeight && scrollY <= containerBottom + windowHeight;
 
       if (isInFeatures) {
-        // Calculate which feature should be active based on scroll position
+        // Define custom heights for each feature (features 1,2,3 get more space)
+        const featureHeights = enhancedFeatures.map((_, index) => {
+          // Features 0, 1, 2 (MCQ Bank, Notes, Past Papers) get 500vh, others get 350vh
+          return index <= 2 ? 500 : 350;
+        });
+
+        // Calculate which feature should be active based on scroll position with variable heights
         const scrolledPastTop = scrollY - containerTop;
-        const featureTotalHeight = containerHeight / enhancedFeatures.length;
-        const activeIndex = Math.floor(scrolledPastTop / featureTotalHeight);
+        let accumulatedHeight = 0;
+        let activeIndex = 0;
+
+        for (let i = 0; i < featureHeights.length; i++) {
+          accumulatedHeight += featureHeights[i] * window.innerHeight / 100; // Convert vh to pixels
+          if (scrolledPastTop < accumulatedHeight) {
+            activeIndex = i;
+            break;
+          }
+        }
 
         // Constrain to valid range
         const constrainedIndex = Math.max(0, Math.min(enhancedFeatures.length - 1, activeIndex));
@@ -45,8 +59,8 @@ const ScrollyFeatures = () => {
         if (constrainedIndex !== activeFeature) {
           setActiveFeature(constrainedIndex);
           setIsAnimating(true);
-          // Extended animation duration for better reveal effect
-          setTimeout(() => setIsAnimating(false), 1000);
+          // Extended animation duration for better reveal effect (increased from 1000ms to 1500ms)
+          setTimeout(() => setIsAnimating(false), 1500);
         }
       }
     };
@@ -293,18 +307,22 @@ const ScrollyFeatures = () => {
         <div className="relative z-10">
           {/* Enhanced Scrollable Content Sections with Multimedia - Much Taller Sections */}
           <div className="space-y-16">
-            {enhancedFeatures.map((feature, index) => (
-              <div
-                key={feature.id}
-                ref={(el) => (contentRefs.current[index] = el)}
-                className="feature-section min-h-screen flex items-center justify-center p-8 py-16 transition-all duration-500 ease-out"
-                style={{
-                  minHeight: '300vh',
-                  opacity: index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.8 : 0.3),
-                  transform: `translate3d(0, ${index === activeFeature ? 0 : (index - activeFeature) * 20}px, 0) scale(${index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.95 : 0.9)})`,
-                  willChange: 'transform, opacity',
-                }}
-              >
+            {enhancedFeatures.map((feature, index) => {
+              // Define custom heights for each feature (features 1,2,3 get more space)
+              const featureHeight = index <= 2 ? '500vh' : '350vh';
+
+              return (
+                <div
+                  key={feature.id}
+                  ref={(el) => (contentRefs.current[index] = el)}
+                  className="feature-section min-h-screen flex items-center justify-center p-8 py-16 transition-all duration-700 ease-out"
+                  style={{
+                    minHeight: featureHeight,
+                    opacity: index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.7 : 0.4),
+                    transform: `translate3d(0, ${index === activeFeature ? 0 : (index - activeFeature) * 15}px, 0) scale(${index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.96 : 0.92)})`,
+                    willChange: 'transform, opacity',
+                  }}
+                >
                 <div className="text-center max-w-4xl">
                   {/* Feature Image Carousel */}
                   <div className="relative mb-12 md:mb-20 lg:mb-64">
@@ -448,7 +466,8 @@ const ScrollyFeatures = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </div>

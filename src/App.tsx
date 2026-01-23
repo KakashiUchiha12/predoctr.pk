@@ -13,7 +13,7 @@ import Careers from "./pages/Careers";
 import Press from "./pages/Press";
 
 import Legal from "./pages/Legal";
-import Registration from "./pages/Registration";
+
 import NotFound from "./pages/NotFound";
 
 // LMS Pages
@@ -73,7 +73,7 @@ const App = () => {
               <Route path="/careers" element={<Careers />} />
               <Route path="/press" element={<Press />} />
 
-              <Route path="/registration" element={<Registration />} />
+
               <Route path="/legal" element={<Legal />} />
 
               {/* LMS Routes */}

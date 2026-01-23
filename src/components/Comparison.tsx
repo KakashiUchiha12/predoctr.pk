@@ -21,11 +21,10 @@ const Comparison = () => {
   };
 
   return (
-    <section id="comparison" className={`py-16 md:py-24 transition-all duration-500 ${
-      theme === 'dark'
+    <section id="comparison" className={`py-16 md:py-24 transition-all duration-500 ${theme === 'dark'
         ? 'bg-gradient-to-b from-slate-800 to-slate-900'
         : 'bg-gradient-to-b from-slate-50 to-slate-100'
-    }`}>
+      }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -42,25 +41,23 @@ const Comparison = () => {
           <div className={`inline-flex rounded-lg p-1 ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-200'}`}>
             <button
               onClick={() => setActiveTab('comparison')}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 ${
-                activeTab === 'comparison'
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 ${activeTab === 'comparison'
                   ? 'bg-crypto-purple text-white shadow-lg'
                   : theme === 'dark'
                     ? 'text-gray-300 hover:text-white'
                     : 'text-black hover:text-slate-900'
-              }`}
+                }`}
             >
               📊 Detailed Comparison
             </button>
             <button
               onClick={() => setActiveTab('usp')}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 ${
-                activeTab === 'usp'
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 ${activeTab === 'usp'
                   ? 'bg-crypto-purple text-white shadow-lg'
                   : theme === 'dark'
                     ? 'text-gray-300 hover:text-white'
                     : 'text-black hover:text-slate-900'
-              }`}
+                }`}
             >
               ⭐ Unique Advantages
             </button>
@@ -112,31 +109,28 @@ const Comparison = () => {
                     {comparisonData.map((item, index) => (
                       <tr
                         key={index}
-                        className={`border-t ${theme === 'dark' ? 'border-slate-600' : 'border-slate-200'} hover:${
-                          theme === 'dark' ? 'bg-slate-700' : 'bg-slate-50'
-                        } transition-colors duration-300`}
+                        className={`border-t ${theme === 'dark' ? 'border-slate-600' : 'border-slate-200'} hover:${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-50'
+                          } transition-colors duration-300`}
                       >
                         <td className={`px-4 md:px-6 py-3 md:py-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
                           <div>
                             <div className="font-medium text-sm md:text-base">{item.category}</div>
-                    {item.description && (
-                      <p className={`text-xs mt-1 ${theme === 'dark' ? 'text-gray-400' : 'text-black'}`}>
-                        {item.description}
-                      </p>
-                    )}
+                            {item.description && (
+                              <p className={`text-xs mt-1 ${theme === 'dark' ? 'text-gray-400' : 'text-black'}`}>
+                                {item.description}
+                              </p>
+                            )}
                           </div>
                         </td>
                         <td className="px-4 md:px-6 py-3 md:py-4 text-center">
-                          <div className={`p-2 md:p-3 rounded-lg ${
-                            theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
-                          }`}>
+                          <div className={`p-2 md:p-3 rounded-lg ${theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
+                            }`}>
                             {renderComparisonValue(item.preDoctr)}
                           </div>
                         </td>
                         <td className="px-4 md:px-6 py-3 md:py-4 text-center">
-                          <div className={`p-2 md:p-3 rounded-lg ${
-                            theme === 'dark' ? 'bg-red-900/20' : 'bg-red-50'
-                          }`}>
+                          <div className={`p-2 md:p-3 rounded-lg ${theme === 'dark' ? 'bg-red-900/20' : 'bg-red-50'
+                            }`}>
                             {renderComparisonValue(item.competitors)}
                           </div>
                         </td>
@@ -163,9 +157,8 @@ const Comparison = () => {
               {comparisonData.map((item, index) => (
                 <div
                   key={index}
-                  className={`p-4 rounded-lg border ${
-                    theme === 'dark' ? 'bg-slate-800 border-slate-600' : 'bg-white border-slate-200'
-                  }`}
+                  className={`p-4 rounded-lg border ${theme === 'dark' ? 'bg-slate-800 border-slate-600' : 'bg-white border-slate-200'
+                    }`}
                 >
                   <div className="mb-3">
                     <h4 className={`font-semibold text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
@@ -179,10 +172,9 @@ const Comparison = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
-                    <div className={`text-center p-2 rounded ${
-                      theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
-                    }`}>
-                        <div className="flex items-center justify-center gap-1 mb-1">
+                    <div className={`text-center p-2 rounded ${theme === 'dark' ? 'bg-green-900/20' : 'bg-green-50'
+                      }`}>
+                      <div className="flex items-center justify-center gap-1 mb-1">
                         <img src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`} alt="preDoctr.pk" className="w-5 h-5 object-contain" />
                         <span className="text-xs font-bold">
                           <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
@@ -191,9 +183,8 @@ const Comparison = () => {
                       {renderComparisonValue(item.preDoctr)}
                     </div>
 
-                    <div className={`text-center p-2 rounded ${
-                      theme === 'dark' ? 'bg-red-900/20' : 'bg-red-50'
-                    }`}>
+                    <div className={`text-center p-2 rounded ${theme === 'dark' ? 'bg-red-900/20' : 'bg-red-50'
+                      }`}>
                       <div className="flex items-center justify-center gap-1 mb-1">
                         <Users className="w-3 h-3 text-gray-400" />
                         <span className={`text-xs font-medium ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
@@ -215,11 +206,10 @@ const Comparison = () => {
             {uniqueSellingPoints.map((usp, index) => (
               <div
                 key={index}
-                className={`p-4 md:p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                  theme === 'dark'
+                className={`p-4 md:p-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${theme === 'dark'
                     ? 'bg-slate-800 border border-slate-600 hover:bg-slate-700'
                     : 'bg-white border border-slate-200 hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 <div className="text-2xl md:text-4xl mb-3 md:mb-4">{usp.icon}</div>
                 <h3 className={`text-lg md:text-xl font-bold mb-2 md:mb-3 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
@@ -234,9 +224,8 @@ const Comparison = () => {
         )}
 
         {/* Call to Action */}
-        <div className={`text-center mt-12 md:mt-16 p-6 md:p-8 rounded-2xl ${
-          theme === 'dark' ? 'bg-crypto-purple/10' : 'bg-crypto-purple/5'
-        }`}>
+        <div className={`text-center mt-12 md:mt-16 p-6 md:p-8 rounded-2xl ${theme === 'dark' ? 'bg-crypto-purple/10' : 'bg-crypto-purple/5'
+          }`}>
           <h3 className={`text-xl md:text-2xl font-bold mb-3 md:mb-4 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
             Ready to Experience the Difference?
           </h3>
@@ -245,7 +234,7 @@ const Comparison = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <button
-              onClick={() => navigate('/registration')}
+              onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
               className="bg-crypto-purple hover:bg-crypto-purple/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105"
             >
               Start Free Trial

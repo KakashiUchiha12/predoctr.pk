@@ -24,7 +24,7 @@ const WhatsappContact = () => {
 
   return (
     showBadge && (
-      <div className="fixed bottom-4 left-4 md:bottom-12 md:left-12 z-50">
+      <div className="fixed bottom-24 right-8 z-50">
         <a
           href={whatsappUrl}
           target="_blank"
@@ -54,7 +54,7 @@ const WhatsappContact = () => {
         </a>
 
         {/* Tooltip */}
-        <div className="absolute left-16 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           Contact us on WhatsApp
         </div>
       </div>

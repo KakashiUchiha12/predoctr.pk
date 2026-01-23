@@ -25,11 +25,10 @@ const Pricing = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="pricing" className={`py-24 transition-all duration-500 ${
-      theme === 'dark'
+    <section id="pricing" className={`py-24 transition-all duration-500 ${theme === 'dark'
         ? 'bg-[#12141C]'
         : 'bg-slate-50'
-    }`}>
+      }`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
@@ -44,13 +43,12 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`backdrop-blur-sm border rounded-xl overflow-hidden animate-on-scroll ${
-                plan.highlighted
+              className={`backdrop-blur-sm border rounded-xl overflow-hidden animate-on-scroll ${plan.highlighted
                   ? 'border-crypto-purple relative shadow-xl shadow-crypto-purple/10'
                   : theme === 'dark'
                     ? 'border-white/10'
                     : 'border-gray-200'
-              }`}
+                }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
@@ -58,15 +56,13 @@ const Pricing = () => {
                   {plan.badgeExtra || "Most Popular"}
                 </div>
               )}
-              <div className={`p-8 ${
-                theme === 'dark'
+              <div className={`p-8 ${theme === 'dark'
                   ? 'bg-white/5'
                   : 'bg-white'
-              }`}>
+                }`}>
                 <div className={`text-center mb-4 ${plan.badge ? '' : 'invisible'}`}>
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                    theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
-                  }`}>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
+                    }`}>
                     {plan.badge}
                   </span>
                 </div>
@@ -93,14 +89,13 @@ const Pricing = () => {
                 </p>
 
                 <Button
-                  onClick={() => navigate('/registration')}
-                  className={`w-full mb-6 ${
-                    plan.highlighted
+                  onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
+                  className={`w-full mb-6 ${plan.highlighted
                       ? 'bg-crypto-purple hover:bg-crypto-dark-purple'
                       : theme === 'dark'
                         ? 'bg-white/10 hover:bg-white/20 text-white'
                         : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
-                  }`}
+                    }`}
                 >
                   {plan.buttonText}
                 </Button>

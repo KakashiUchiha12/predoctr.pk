@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDCAT Limited Time Offer Popup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Popup overlay */
+        .mdcat-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Popup container */
+        .mdcat-popup-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.4s ease-out;
+            border: 1px solid rgba(64, 150, 238, 0.1);
+        }
+
+        /* Close button */
+        .mdcat-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(64, 150, 238, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .mdcat-popup-close:hover {
+            background: rgba(64, 150, 238, 0.2);
+            transform: scale(1.1);
+        }
+
+        .mdcat-popup-close svg {
+            width: 20px;
+            height: 20px;
+            color: #4096EE;
+        }
+
+        /* Header section */
+        .mdcat-popup-header {
+            background: linear-gradient(135deg, #4096EE 0%, #7ABCFF 100%);
+            padding: 30px 25px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mdcat-popup-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .mdcat-popup-urgency-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .mdcat-popup-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .mdcat-popup-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        /* Countdown timer */
+        .mdcat-countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 12px;
+            min-width: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            display: block;
+        }
+
+        .countdown-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content section */
+        .mdcat-popup-content {
+            padding: 25px;
+        }
+
+        /* Features grid */
+        .mdcat-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .mdcat-feature-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .mdcat-feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(64, 150, 238, 0.15);
+        }
+
+        .mdcat-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4096EE, #7ABCFF);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .mdcat-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .mdcat-feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .mdcat-feature-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        /* Social proof */
+        .mdcat-social-proof {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .mdcat-proof-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .mdcat-proof-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mdcat-proof-icon {
+            width: 16px;
+            height: 16px;
+            color: #4096EE;
+        }
+
+        .mdcat-proof-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #0f172a;
+            font-weight: 500;
+        }
+
+        /* Pricing section */
+        .mdcat-pricing {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .mdcat-pricing-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .mdcat-pricing-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #4096EE;
+            margin-bottom: 5px;
+        }
+
+        .mdcat-pricing-original {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .mdcat-pricing-save {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #059669;
+            background: #dcfce7;
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        /* CTA buttons */
+        .mdcat-popup-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mdcat-btn-primary {
+            background: linear-gradient(135deg, #4096EE 0%, #60ABF8 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(64, 150, 238, 0.3);
+        }
+
+        .mdcat-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(64, 150, 238, 0.4);
+        }
+
+        .mdcat-btn-secondary {
+            background: white;
+            color: #4096EE;
+            border: 2px solid #4096EE;
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .mdcat-btn-secondary:hover {
+            background: #4096EE;
+            color: white;
+        }
+
+        /* Circular progress timer */
+        .circular-timer {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+        }
+
+        .circular-timer svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .circular-timer circle {
+            fill: none;
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        .circular-timer-bg {
+            stroke: rgba(255, 255, 255, 0.2);
+        }
+
+        .circular-timer-progress {
+            stroke: white;
+            stroke-dasharray: 226;
+            stroke-dashoffset: 226;
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .timer-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .timer-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 8px;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .mdcat-popup-container {
+                margin: 20px;
+                max-height: calc(100vh - 40px);
+            }
+
+            .mdcat-popup-header {
+                padding: 25px 20px 20px;
+            }
+
+            .mdcat-popup-title {
+                font-size: 20px;
+            }
+
+            .mdcat-popup-content {
+                padding: 20px;
+            }
+
+            .mdcat-features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .mdcat-countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 50px;
+                padding: 10px;
+            }
+
+            .countdown-number {
+                font-size: 20px;
+            }
+        }
+
+        /* Hide scrollbar for mobile */
+        @media (max-width: 640px) {
+            .mdcat-popup-container {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .mdcat-popup-container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MDCAT Limited Time Offer Popup -->
+    <div id="mdcat-popup-overlay" class="mdcat-popup-overlay">
+        <div class="mdcat-popup-container">
+            <!-- Close Button -->
+            <button class="mdcat-popup-close" onclick="closeMdcatPopup()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Header Section -->
+            <div class="mdcat-popup-header">
+                <div class="mdcat-popup-urgency-badge">⚡ Limited Time Offer</div>
+                <h1 class="mdcat-popup-title">Get Full Year MDCAT 2026 Access for Just ₹2400</h1>
+                <p class="mdcat-popup-subtitle">Complete preparation package - Only a few slots left!</p>
+
+                <!-- Circular Timer -->
+                <div class="circular-timer">
+                    <svg>
+                        <circle class="circular-timer-bg" cx="40" cy="40" r="36"></circle>
+                        <circle class="circular-timer-progress" cx="40" cy="40" r="36" id="timer-circle"></circle>
+                    </svg>
+                    <div class="timer-text">
+                        <span class="timer-number" id="timer-days">02</span>
+                        <span class="timer-label">DAYS</span>
+                    </div>
+                </div>
+
+                <!-- Countdown -->
+                <div class="mdcat-countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">02</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">14</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">35</span>
+                        <span class="countdown-label">Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">42</span>
+                        <span class="countdown-label">Sec</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="mdcat-popup-content">
+                <!-- Features Grid -->
+                <div class="mdcat-features-grid">
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 11H5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 00-2-2h-4m-4 0V9a2 2 0 012-2h4a2 2 0 012 2v2m-4 0v2">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">65,000+ MCQs</div>
+                        <div class="mdcat-feature-desc">Smart question bank across all subjects</div>
+                    </div>
+
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">2,500+ Study Notes</div>
+                        <div class="mdcat-feature-desc">Comprehensive theory materials</div>
+                    </div>
+
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">16 Years Past Papers</div>
+                        <div class="mdcat-feature-desc">Complete historical archive</div>
+                    </div>
+
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">9 Practice Tests</div>
+                        <div class="mdcat-feature-desc">Full-length mock exams</div>
+                    </div>
+
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">Advanced Analytics</div>
+                        <div class="mdcat-feature-desc">Performance tracking & insights</div>
+                    </div>
+
+                    <div class="mdcat-feature-item">
+                        <div class="mdcat-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="mdcat-feature-title">200+ Hours Videos</div>
+                        <div class="mdcat-feature-desc">Expert video lectures</div>
+                    </div>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="mdcat-social-proof">
+                    <div class="mdcat-proof-item">
+                        <svg class="mdcat-proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                        <span class="mdcat-proof-text">10,000+ students already enrolled</span>
+                    </div>
+                    <div class="mdcat-proof-item">
+                        <svg class="mdcat-proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="mdcat-proof-text">Only 50 slots remaining at this price</span>
+                    </div>
+                    <div class="mdcat-proof-item">
+                        <svg class="mdcat-proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="mdcat-proof-text">15+ students joining every hour</span>
+                    </div>
+                    <div class="mdcat-proof-item">
+                        <svg class="mdcat-proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="mdcat-proof-text">95% success rate in MDCAT</span>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="mdcat-pricing">
+                    <div class="mdcat-pricing-label">Limited Time Offer</div>
+                    <div class="mdcat-pricing-value">
+                        <span class="mdcat-pricing-original">₹5000</span>
+                        ₹2400
+                    </div>
+                    <div class="mdcat-pricing-save">Save ₹2600 (52% off)</div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="mdcat-popup-actions">
+                    <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank"
+                        class="mdcat-btn-primary animate-pulse" onclick="trackConversion('primary_cta')">
+                        🔥 Claim Your Spot Now - ₹2400
+                    </a>
+                    <a href="https://predoctr.pk/pricing" class="mdcat-btn-secondary"
+                        onclick="trackConversion('secondary_cta')">
+                        View Full Package Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // MDCAT Popup JavaScript
+        let countdownInterval;
+        let circularProgressInterval;
+        const popupOverlay = document.getElementById('mdcat-popup-overlay');
+
+        // Countdown target date (2 days from now for demo)
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 2);
+
+        // Check if popup was already dismissed
+        function hasPopupBeenDismissed() {
+            return localStorage.getItem('mdcat-popup-dismissed') === 'true';
+        }
+
+        // Mark popup as dismissed
+        function dismissPopup() {
+            localStorage.setItem('mdcat-popup-dismissed', 'true');
+            closeMdcatPopup();
+        }
+
+        // Show popup
+        function showMdcatPopup() {
+            if (hasPopupBeenDismissed()) return;
+
+            popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            startCountdown();
+            startCircularProgress();
+
+            // Track popup impression
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'popup_impression', {
+                    event_category: 'engagement',
+                    event_label: 'mdcat_offer_popup'
+                });
+            }
+        }
+
+        // Close popup
+        function closeMdcatPopup() {
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+            clearInterval(countdownInterval);
+            clearInterval(circularProgressInterval);
+        }
+
+        // Start countdown timer
+        function startCountdown() {
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate.getTime() - now;
+
+                if (distance <= 0) {
+                    // Timer expired
+                    clearInterval(countdownInterval);
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    document.querySelector('.timer-number').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                // Update circular timer display
+                document.querySelector('.timer-number').textContent = days.toString().padStart(2, '0');
+                document.querySelector('.timer-label').textContent = days === 1 ? 'DAY' : 'DAYS';
+            }
+
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Start circular progress animation
+        function startCircularProgress() {
+            const circle = document.getElementById('timer-circle');
+            const radius = 36;
+            const circumference = 2 * Math.PI * radius;
+
+            circle.style.strokeDasharray = circumference;
+
+            function updateProgress() {
+                const now = new Date().getTime();
+                const distance = targetDate.getTime() - now;
+                const totalDuration = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+                const progress = Math.max(0, Math.min(1, distance / totalDuration));
+
+                const offset = circumference * (1 - progress);
+                circle.style.strokeDashoffset = offset;
+            }
+
+            updateProgress();
+            circularProgressInterval = setInterval(updateProgress, 1000);
+        }
+
+        // Track conversions
+        function trackConversion(type) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'popup_conversion', {
+                    event_category: 'engagement',
+                    event_label: `mdcat_offer_${type}`
+                });
+            }
+            dismissPopup(); // Close popup after conversion
+        }
+
+        // Exit intent detection
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0 && !exitIntentTriggered && !hasPopupBeenDismissed()) {
+                exitIntentTriggered = true;
+                setTimeout(() => {
+                    showMdcatPopup();
+                }, 100);
+            }
+        });
+
+        // Close on overlay click
+        popupOverlay.addEventListener('click', function (e) {
+            if (e.target === popupOverlay) {
+                closeMdcatPopup();
+            }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && popupOverlay.style.display === 'flex') {
+                closeMdcatPopup();
+            }
+        });
+
+        // Show popup after page load (with delay)
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                showMdcatPopup();
+            }, 3000); // Show after 3 seconds
+        });
+
+        // Prevent close button from triggering overlay click
+        document.querySelector('.mdcat-popup-close').addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>

@@ -10,11 +10,10 @@ const HowItWorks = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="how-it-works" className={`py-24 transition-all duration-500 ${
-      theme === 'dark'
+    <section id="how-it-works" className={`py-24 transition-all duration-500 ${theme === 'dark'
         ? 'bg-gradient-to-b from-[#12141C] to-[#1a1f2e]'
         : 'bg-gradient-howitworks-light'
-    }`}>
+      }`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
@@ -29,16 +28,14 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className={`relative backdrop-blur-sm border rounded-xl p-8 animate-on-scroll ${
-                theme === 'dark'
+              className={`relative backdrop-blur-sm border rounded-xl p-8 animate-on-scroll ${theme === 'dark'
                   ? 'bg-white/5 border-white/10'
                   : 'bg-white border-gray-200'
-              }`}
+                }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <span className={`absolute -top-4 -left-4 border rounded-md border-crypto-purple/30 font-bold text-xl px-3 py-1 ${
-                theme === 'dark' ? 'bg-crypto-blue text-white' : 'bg-slate-200 text-crypto-purple'
-              }`}>
+              <span className={`absolute -top-4 -left-4 border rounded-md border-crypto-purple/30 font-bold text-xl px-3 py-1 ${theme === 'dark' ? 'bg-crypto-blue text-white' : 'bg-slate-200 text-crypto-purple'
+                }`}>
                 {step.number}
               </span>
               <div className="bg-crypto-purple/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-crypto-purple">
@@ -57,12 +54,12 @@ const HowItWorks = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
           <Button
             size="lg"
             className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8"
-            onClick={() => navigate('/registration')}
+            onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
           >
             Try Free Today
           </Button>

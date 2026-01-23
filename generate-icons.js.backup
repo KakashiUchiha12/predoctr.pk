@@ -1,0 +1,99 @@
+import sharp from 'sharp';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+async function generateAndroidIcons() {
+  const sourceLogo = path.join(__dirname, 'public/favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png');
+
+  try {
+    // Read the source logo to get its dimensions
+    const metadata = await sharp(sourceLogo).metadata();
+    console.log(`Source logo dimensions: ${metadata.width}x${metadata.height}`);
+
+    // For 192x192 icon: safe zone is ~66x66 pixels (about 34% of 192)
+    // We'll make the logo fit within 64x64 pixels to be safe
+    const icon192Size = 192;
+    const safeZone192 = 64;
+
+    // For 512x512 icon: safe zone is ~170x170 pixels (about 33% of 512)
+    const icon512Size = 512;
+    const safeZone512 = 170;
+
+    // Calculate resize dimensions maintaining aspect ratio
+    const aspectRatio = metadata.width / metadata.height;
+
+    let resizeWidth192, resizeHeight192;
+    if (aspectRatio > 1) {
+      // Landscape
+      resizeWidth192 = safeZone192;
+      resizeHeight192 = Math.round(safeZone192 / aspectRatio);
+    } else {
+      // Portrait or square
+      resizeHeight192 = safeZone192;
+      resizeWidth192 = Math.round(safeZone192 * aspectRatio);
+    }
+
+    let resizeWidth512, resizeHeight512;
+    if (aspectRatio > 1) {
+      // Landscape
+      resizeWidth512 = safeZone512;
+      resizeHeight512 = Math.round(safeZone512 / aspectRatio);
+    } else {
+      // Portrait or square
+      resizeHeight512 = safeZone512;
+      resizeWidth512 = Math.round(safeZone512 * aspectRatio);
+    }
+
+    console.log(`192x192 icon - Logo will be resized to: ${resizeWidth192}x${resizeHeight192}`);
+    console.log(`512x512 icon - Logo will be resized to: ${resizeWidth512}x${resizeHeight512}`);
+
+    // Generate 192x192 icon
+    await sharp(sourceLogo)
+      .resize(resizeWidth192, resizeHeight192, {
+        fit: 'inside',
+        withoutEnlargement: true
+      })
+      .png()
+      .extend({
+        top: Math.round((icon192Size - resizeHeight192) / 2),
+        bottom: Math.round((icon192Size - resizeHeight192) / 2),
+        left: Math.round((icon192Size - resizeWidth192) / 2),
+        right: Math.round((icon192Size - resizeWidth192) / 2),
+        background: { r: 0, g: 0, b: 0, alpha: 0 } // Transparent background
+      })
+      .toFile(path.join(__dirname, 'public/favicon/icon-192-new.png'));
+
+    // Generate 512x512 icon
+    await sharp(sourceLogo)
+      .resize(resizeWidth512, resizeHeight512, {
+        fit: 'inside',
+        withoutEnlargement: true
+      })
+      .png()
+      .extend({
+        top: Math.round((icon512Size - resizeHeight512) / 2),
+        bottom: Math.round((icon512Size - resizeHeight512) / 2),
+        left: Math.round((icon512Size - resizeWidth512) / 2),
+        right: Math.round((icon512Size - resizeWidth512) / 2),
+        background: { r: 0, g: 0, b: 0, alpha: 0 } // Transparent background
+      })
+      .toFile(path.join(__dirname, 'public/favicon/icon-512-new.png'));
+
+    console.log('✅ Successfully generated new Android icons with proper padding!');
+    console.log('📁 Files created:');
+    console.log('   - public/favicon/icon-192-new.png');
+    console.log('   - public/favicon/icon-512-new.png');
+    console.log('🔄 Next steps:');
+    console.log('   1. Replace icon-192.png with icon-192-new.png');
+    console.log('   2. Replace icon-512.png with icon-512-new.png');
+    console.log('   3. Clear browser cache and reinstall PWA on device');
+
+  } catch (error) {
+    console.error('❌ Error generating icons:', error);
+  }
+}
+
+generateAndroidIcons();

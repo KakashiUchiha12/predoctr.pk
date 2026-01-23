@@ -37,11 +37,11 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Comprehensive Question Collection",
     description: "Unlock an extensive collection of MCQs across all major subjects, designed to boost your MDCAT preparation. Our comprehensive question bank covers every topic you'll encounter in the MDCAT exam, ensuring you're fully prepared for test day.",
     images: [
-      `${import.meta.env.BASE_URL}Feature 1/Biology MCQs-min.png`,
-      `${import.meta.env.BASE_URL}Feature 1/Chemsitry MCQs-min.png`,
-      `${import.meta.env.BASE_URL}Feature 1/Physics MCQs-min.png`,
-      `${import.meta.env.BASE_URL}Feature 1/English MCQs-min.png`,
-      `${import.meta.env.BASE_URL}Feature 1/Logical Reasoning MCQs-min.png`
+      `${import.meta.env.BASE_URL}Feature 1/Biology MCQs-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 1/Chemsitry MCQs-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 1/Physics MCQs-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 1/English MCQs-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 1/Logical Reasoning MCQs-min.webp`
     ],
     keyStatistic: {
       value: "65,000+",
@@ -96,12 +96,12 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Well-Structured Knowledge Base",
     description: "Access well-structured and in-depth notes to strengthen your conceptual knowledge in every subject. Our comprehensive study materials provide detailed explanations, key concepts, and organized content to help you master every topic in the MDCAT syllabus.",
     images: [
-      `${import.meta.env.BASE_URL}Features 2 Notes/1-min.PNG`,
-      `${import.meta.env.BASE_URL}Features 2 Notes/2-min.PNG`,
-      `${import.meta.env.BASE_URL}Features 2 Notes/3-min.PNG`,
-      `${import.meta.env.BASE_URL}Features 2 Notes/4-min.PNG`,
-      `${import.meta.env.BASE_URL}Features 2 Notes/5-min.PNG`,
-      `${import.meta.env.BASE_URL}Features 2 Notes/6-min.PNG`
+      `${import.meta.env.BASE_URL}Features 2 Notes/1-min.webp`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/2-min.webp`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/3-min.webp`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/4-min.webp`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/5-min.webp`,
+      `${import.meta.env.BASE_URL}Features 2 Notes/6-min.webp`
     ],
     keyStatistic: {
       value: "2,500+",
@@ -144,11 +144,11 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Historical Exam Collection",
     description: "Explore a rich collection of past papers from multiple universities and boards to familiarize yourself with exam patterns. Our extensive archive includes years of historical data to help you understand question trends, difficulty levels, and exam format variations.",
     images: [
-      `${import.meta.env.BASE_URL}Features 3 PastPapers/1pastpapers-min.png`,
-      `${import.meta.env.BASE_URL}Features 3 PastPapers/2pastpapers-min.png`,
-      `${import.meta.env.BASE_URL}Features 3 PastPapers/3pastpapers-min.png`,
-      `${import.meta.env.BASE_URL}Features 3 PastPapers/4pastpapers-min.png`,
-      `${import.meta.env.BASE_URL}Features 3 PastPapers/5pastpapers-min.png`
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/1pastpapers-min.webp`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/2pastpapers-min.webp`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/3pastpapers-min.webp`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/4pastpapers-min.webp`,
+      `${import.meta.env.BASE_URL}Features 3 PastPapers/5pastpapers-min.webp`
     ],
     keyStatistic: {
       value: "16",
@@ -209,20 +209,20 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Full-Length Mock Exams",
     description: "Take full-length mock tests and challenge yourself to simulate the real exam environment. Our comprehensive practice tests replicate the actual MDCAT experience with timed conditions, realistic question distribution, and detailed performance analysis.",
     images: [
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/1Test.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/8.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/9.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/10.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/11.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/12.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/13.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/14.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/15.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/16.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/17.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/18.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/19.png`,
-      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/20.png`
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/1Test.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/8.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/9.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/10.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/11.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/12.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/13.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/14.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/15.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/16.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/17.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/18.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/19.webp`,
+      `${import.meta.env.BASE_URL}Feature 4 Full Length Test/20.webp`
     ],
     keyStatistic: {
       value: "9",
@@ -259,10 +259,10 @@ export const enhancedFeatures: EnhancedFeature[] = [
     subtitle: "Performance Insights",
     description: "Gain insights into your performance and track your improvement with detailed analytics. Our intelligent tracking system provides comprehensive feedback on your strengths, weaknesses, and progress patterns to optimize your study strategy.",
     images: [
-      `${import.meta.env.BASE_URL}Feature 5 Analytics/1Analytics-min.PNG`,
-      `${import.meta.env.BASE_URL}Feature 5 Analytics/2Analytics-min.PNG`,
-      `${import.meta.env.BASE_URL}Feature 5 Analytics/3Analytics-min.PNG`,
-      `${import.meta.env.BASE_URL}Feature 5 Analytics/4Analytics-min.PNG`
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/1Analytics-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/2Analytics-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/3Analytics-min.webp`,
+      `${import.meta.env.BASE_URL}Feature 5 Analytics/4Analytics-min.webp`
     ],
     keyStatistic: {
       value: "100%",
@@ -306,8 +306,8 @@ export const enhancedFeatures: EnhancedFeature[] = [
     description: "Learn directly from subject experts with our exclusive video lecture series. Our comprehensive library of educational videos features experienced professors and subject matter experts delivering in-depth explanations of complex topics.",
     images: [
       `${import.meta.env.BASE_URL}Feature6 VideoLectures/1.webp`,
-      `${import.meta.env.BASE_URL}Feature6 VideoLectures/2.jpg`,
-      `${import.meta.env.BASE_URL}Feature6 VideoLectures/3.jpg`
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/2.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/3.webp`
     ],
     keyStatistic: {
       value: "200+",
