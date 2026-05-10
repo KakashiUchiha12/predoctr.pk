@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { trackLMSRedirect } from '@/utils/metaPixel';
 import { useNavigate } from 'react-router-dom';
 
 const CTA = () => {
@@ -10,8 +11,8 @@ const CTA = () => {
 
   return (
     <section className={`py-24 relative overflow-hidden transition-all duration-500 ${theme === 'dark'
-        ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
-        : 'bg-gradient-cta-light'
+      ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
+      : 'bg-gradient-cta-light'
       }`}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -21,8 +22,8 @@ const CTA = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-4xl mx-auto backdrop-blur-lg border rounded-2xl p-8 md:p-12 text-center ${theme === 'dark'
-            ? 'bg-white/5 border-white/10'
-            : 'bg-white border-gray-200'
+          ? 'bg-white/5 border-white/10'
+          : 'bg-white border-gray-200'
           }`}>
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 animate-fade-in ${theme === 'dark' ? 'text-white' : 'text-slate-900'
             }`}>
@@ -36,7 +37,7 @@ const CTA = () => {
             <Button
               size="lg"
               className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6"
-              onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
+              onClick={() => { trackLMSRedirect('Start Free Trial'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
             >
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -45,8 +46,8 @@ const CTA = () => {
               variant="outline"
               size="lg"
               className={`py-6 ${theme === 'dark'
-                  ? 'border-white/20 text-white hover:bg-white/5'
-                  : 'border-gray-300 text-slate-700 hover:bg-gray-50'
+                ? 'border-white/20 text-white hover:bg-white/5'
+                : 'border-gray-300 text-slate-700 hover:bg-gray-50'
                 }`}
               onClick={() => {
                 const pricingSection = document.getElementById('pricing');

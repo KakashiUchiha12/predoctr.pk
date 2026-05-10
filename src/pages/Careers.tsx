@@ -14,7 +14,7 @@ const Careers = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
-            Join Our <span className="text-gradient">Mission</span>
+            Join Our <span className="text-[#4096EE]">Mission</span>
           </h1>
 
           <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 mb-8 ${
@@ -27,7 +27,7 @@ const Careers = () => {
               At preDoctr.pk, we're always looking for passionate educators, content creators, and tech professionals who share our vision of transforming medical education in Pakistan.
             </p>
 
-            <h3 className="text-xl font-bold mb-4 text-crypto-purple">Current Openings</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#4096EE]">Current Openings</h3>
             <div className="space-y-4">
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
                 <h4 className="text-lg font-semibold mb-2">Medical Content Writer</h4>
@@ -69,8 +69,8 @@ const Careers = () => {
               </p>
               <button className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                 theme === 'dark'
-                  ? 'bg-crypto-purple hover:bg-crypto-dark-purple text-white'
-                  : 'bg-crypto-purple hover:bg-crypto-dark-purple text-white'
+                  ? 'bg-[#4096EE] hover:bg-[#4096EE]/90 text-white'
+                  : 'bg-[#4096EE] hover:bg-[#4096EE]/90 text-white'
               }`}>
                 Send Us Your Resume
               </button>
@@ -85,25 +85,25 @@ const Careers = () => {
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gradient">Why Join preDoctr.pk?</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Impact Lives</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Impact Lives</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   Help thousands of aspiring doctors achieve their dreams and contribute to healthcare in Pakistan.
                 </p>
               </div>
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Flexible Work</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Flexible Work</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   Many of our positions offer remote work options and flexible scheduling to fit your lifestyle.
                 </p>
               </div>
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Continuous Learning</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Continuous Learning</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   Stay updated with the latest educational technology and medical curriculum developments.
                 </p>
               </div>
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Competitive Compensation</h3>
+                <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Competitive Compensation</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   We offer competitive salaries and benefits for remote and freelance opportunities.
                 </p>

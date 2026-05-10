@@ -32,7 +32,7 @@ const Features = () => {
         </div>
       )}
 
-      <div className={`container mx-auto px-4 relative z-10 transition-all duration-300 ${isImageFullscreen ? 'blur-sm' : ''}`}>
+      <div className={`container mx-auto px-6 md:px-8 relative z-10 transition-all duration-300 ${isImageFullscreen ? 'blur-sm' : ''}`}>
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
             Complete MDCAT Preparation Suite

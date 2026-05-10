@@ -15,7 +15,7 @@ const About = () => {
       <div className="container mx-auto px-4 py-16 pt-24">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
-            <span className="text-gradient">About</span> preDoctr.pk
+            <span className="text-[#4096EE]">About</span> preDoctr.pk
           </h1>
 
           <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 mb-8 ${

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { steps } from "../data/howItWorks";
 import { useTheme } from '../contexts/ThemeContext';
+import { trackLMSRedirect } from '@/utils/metaPixel';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -11,8 +12,8 @@ const HowItWorks = () => {
 
   return (
     <section id="how-it-works" className={`py-24 transition-all duration-500 ${theme === 'dark'
-        ? 'bg-gradient-to-b from-[#12141C] to-[#1a1f2e]'
-        : 'bg-gradient-howitworks-light'
+      ? 'bg-gradient-to-b from-[#12141C] to-[#1a1f2e]'
+      : 'bg-gradient-howitworks-light'
       }`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -29,16 +30,16 @@ const HowItWorks = () => {
             <div
               key={index}
               className={`relative backdrop-blur-sm border rounded-xl p-8 animate-on-scroll ${theme === 'dark'
-                  ? 'bg-white/5 border-white/10'
-                  : 'bg-white border-gray-200'
+                ? 'bg-white/5 border-white/10'
+                : 'bg-white border-gray-200'
                 }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <span className={`absolute -top-4 -left-4 border rounded-md border-crypto-purple/30 font-bold text-xl px-3 py-1 ${theme === 'dark' ? 'bg-crypto-blue text-white' : 'bg-slate-200 text-crypto-purple'
+              <span className={`absolute -top-4 -left-4 border rounded-md border-[#4096EE]/30 font-bold text-xl px-3 py-1 ${theme === 'dark' ? 'bg-[#4096EE] text-white' : 'bg-slate-200 text-[#4096EE]'
                 }`}>
                 {step.number}
               </span>
-              <div className="bg-crypto-purple/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-crypto-purple">
+              <div className="bg-[#4096EE]/20 rounded-xl w-12 h-12 flex items-center justify-center mb-6 text-[#4096EE]">
                 {step.icon}
               </div>
               <img
@@ -58,8 +59,8 @@ const HowItWorks = () => {
         <div className="mt-16 text-center">
           <Button
             size="lg"
-            className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8"
-            onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
+            className="bg-[#4096EE] hover:bg-[#4096EE]/90 text-white px-8"
+            onClick={() => { trackLMSRedirect('Try Free Today'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
           >
             Try Free Today
           </Button>

@@ -31,6 +31,73 @@ export interface EnhancedFeature {
 
 export const enhancedFeatures: EnhancedFeature[] = [
   {
+    id: "video-lectures",
+    icon: <PlayCircle className="h-6 w-6" />,
+    title: "Expert Video Lectures",
+    subtitle: "Professional Educational Content",
+    description: "Learn directly from subject experts with our exclusive video lecture series. Our comprehensive library of educational videos features experienced professors and subject matter experts delivering in-depth explanations of complex topics.",
+    images: [
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/1.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/2.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/3.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/4.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/5.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/6.webp`,
+      `${import.meta.env.BASE_URL}Feature6 VideoLectures/7.webp`
+    ],
+    keyStatistic: {
+      value: "200+",
+      label: "Hours Content",
+      trend: "+20 weekly"
+    },
+    color: "crypto-indigo",
+    bgGradient: "from-indigo-500/20 to-purple-500/20",
+    subFeatures: [
+      {
+        icon: <Award className="h-4 w-4" />,
+        title: "Exclusive Access to Recorded Lectures",
+        description: "Gain access to hours of expert-led lectures tailored for MDCAT preparation. Premium educational content featuring the most qualified and experienced medical educators in Pakistan delivering structured, comprehensive lessons. • High-quality video production • Professional audio clarity • Interactive visual aids • Downloadable lecture notes • Bookmark favorite sections • Speed control options • Mobile-friendly viewing • Offline access capability • Progress tracking • Certificate of completion",
+        metric: "Premium content"
+      },
+      {
+        icon: <PlayCircle className="h-4 w-4" />,
+        title: "Biology Lectures",
+        description: "Detailed lectures on all biology topics, taught by experienced educators. Comprehensive coverage of biological sciences including detailed explanations of complex processes, visual demonstrations, and practical applications. • Cell biology fundamentals • Genetics and molecular biology • Human anatomy systems • Physiology and homeostasis • Plant biology and taxonomy • Ecology and environmental science • Biotechnology applications • Microbiology and immunology • Evolution and biodiversity • Neurobiology and endocrinology",
+        metric: "Comprehensive coverage"
+      },
+      {
+        icon: <Users className="h-4 w-4" />,
+        title: "Physics Lectures",
+        description: "In-depth video lectures covering all essential physics concepts. Master fundamental principles through visual demonstrations, mathematical derivations, and real-world applications explained by expert physicists. • Mechanics and kinematics • Thermodynamics and heat • Electromagnetism principles • Waves and oscillations • Optics and light phenomena • Modern physics concepts • Nuclear and particle physics • Astrophysics fundamentals • Fluid mechanics applications • Electronics and circuits",
+        metric: "Complete syllabus"
+      },
+      {
+        icon: <Sparkles className="h-4 w-4" />,
+        title: "Chemistry Lectures",
+        description: "Learn complex chemistry topics through clear and concise video lessons. Detailed explanations of chemical reactions, molecular structures, and laboratory techniques delivered by experienced chemistry professors. • Physical chemistry principles • Inorganic chemistry concepts • Organic chemistry mechanisms • Analytical chemistry techniques • Environmental chemistry • Industrial chemistry applications • Biochemistry fundamentals • Pharmaceutical chemistry • Polymer chemistry basics • Surface chemistry and colloids",
+        metric: "Expert instruction"
+      },
+      {
+        icon: <Eye className="h-4 w-4" />,
+        title: "English Lectures",
+        description: "Master English proficiency with our structured video lectures covering all essential communication and grammar skills. Comprehensive lessons tailored for MDCAT success. • Key Vocabulary • Tenses • Passage Comprehension • Sentence Structure and Types of Sentences • Parts of Speech • Infinitive and Gerunds • Punctuation • Active and Passive Voice • Direct and Indirect Speech • Fill in the Blanks • Identify Errors in Sentences • Grammar • Figurative Language - Irony, Parody etc",
+        metric: "Language proficiency"
+      },
+      {
+        icon: <Lightbulb className="h-4 w-4" />,
+        title: "Logical Reasoning Lectures",
+        description: "Develop strong analytical skills with targeted logical reasoning lessons. Expert guidance to help you recognize patterns, evaluate arguments, and solve complex problems efficiently. • Critical Thinking • Letter and Symbol Series • Logical Deductions • Logical Problems • Course of Action • Cause and Effect",
+        metric: "Analytical skills"
+      }
+    ],
+    interactiveData: {
+      downloads: "22,000+",
+      activeUsers: "11,200+",
+      successRate: "94%",
+      timeSpent: "5.2hrs/week"
+    }
+  },
+  {
     id: "mcq-bank",
     icon: <FileQuestion className="h-6 w-6" />,
     title: "65,000+ Smart MCQ Bank",
@@ -296,57 +363,6 @@ export const enhancedFeatures: EnhancedFeature[] = [
       activeUsers: "7,500+",
       successRate: "89%",
       timeSpent: "2.9hrs/week"
-    }
-  },
-  {
-    id: "video-lectures",
-    icon: <PlayCircle className="h-6 w-6" />,
-    title: "Expert Video Lectures",
-    subtitle: "Professional Educational Content",
-    description: "Learn directly from subject experts with our exclusive video lecture series. Our comprehensive library of educational videos features experienced professors and subject matter experts delivering in-depth explanations of complex topics.",
-    images: [
-      `${import.meta.env.BASE_URL}Feature6 VideoLectures/1.webp`,
-      `${import.meta.env.BASE_URL}Feature6 VideoLectures/2.webp`,
-      `${import.meta.env.BASE_URL}Feature6 VideoLectures/3.webp`
-    ],
-    keyStatistic: {
-      value: "200+",
-      label: "Hours Content",
-      trend: "+20 weekly"
-    },
-    color: "crypto-indigo",
-    bgGradient: "from-indigo-500/20 to-purple-500/20",
-    subFeatures: [
-      {
-        icon: <Award className="h-4 w-4" />,
-        title: "Exclusive Access to Recorded Lectures",
-        description: "Gain access to hours of expert-led lectures tailored for MDCAT preparation. Premium educational content featuring the most qualified and experienced medical educators in Pakistan delivering structured, comprehensive lessons. • High-quality video production • Professional audio clarity • Interactive visual aids • Downloadable lecture notes • Bookmark favorite sections • Speed control options • Mobile-friendly viewing • Offline access capability • Progress tracking • Certificate of completion",
-        metric: "Premium content"
-      },
-      {
-        icon: <PlayCircle className="h-4 w-4" />,
-        title: "Biology Lectures",
-        description: "Detailed lectures on all biology topics, taught by experienced educators. Comprehensive coverage of biological sciences including detailed explanations of complex processes, visual demonstrations, and practical applications. • Cell biology fundamentals • Genetics and molecular biology • Human anatomy systems • Physiology and homeostasis • Plant biology and taxonomy • Ecology and environmental science • Biotechnology applications • Microbiology and immunology • Evolution and biodiversity • Neurobiology and endocrinology",
-        metric: "Comprehensive coverage"
-      },
-      {
-        icon: <Users className="h-4 w-4" />,
-        title: "Physics Lectures",
-        description: "In-depth video lectures covering all essential physics concepts. Master fundamental principles through visual demonstrations, mathematical derivations, and real-world applications explained by expert physicists. • Mechanics and kinematics • Thermodynamics and heat • Electromagnetism principles • Waves and oscillations • Optics and light phenomena • Modern physics concepts • Nuclear and particle physics • Astrophysics fundamentals • Fluid mechanics applications • Electronics and circuits",
-        metric: "Complete syllabus"
-      },
-      {
-        icon: <Sparkles className="h-4 w-4" />,
-        title: "Chemistry Lectures",
-        description: "Learn complex chemistry topics through clear and concise video lessons. Detailed explanations of chemical reactions, molecular structures, and laboratory techniques delivered by experienced chemistry professors. • Physical chemistry principles • Inorganic chemistry concepts • Organic chemistry mechanisms • Analytical chemistry techniques • Environmental chemistry • Industrial chemistry applications • Biochemistry fundamentals • Pharmaceutical chemistry • Polymer chemistry basics • Surface chemistry and colloids",
-        metric: "Expert instruction"
-      }
-    ],
-    interactiveData: {
-      downloads: "22,000+",
-      activeUsers: "11,200+",
-      successRate: "94%",
-      timeSpent: "5.2hrs/week"
     }
   }
 ];

@@ -56,11 +56,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className={`py-24 relative overflow-hidden transition-all duration-500 ${
-      theme === 'dark'
+    <section id="contact" className={`py-24 relative overflow-hidden transition-all duration-500 ${theme === 'dark'
         ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
         : 'bg-gradient-cta-light'
-    }`}>
+      }`}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-crypto-purple/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
@@ -68,11 +67,10 @@ const ContactSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`max-w-6xl mx-auto backdrop-blur-lg border rounded-2xl p-8 md:p-12 text-center ${
-          theme === 'dark'
+        <div className={`max-w-6xl mx-auto backdrop-blur-lg border rounded-2xl p-8 md:p-12 text-center ${theme === 'dark'
             ? 'bg-white/5 border-white/10'
             : 'bg-white border-gray-200'
-        }`}>
+          }`}>
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 animate-fade-in ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
             Get in <span className="text-gradient">Touch</span>
           </h2>
@@ -83,11 +81,10 @@ const ContactSection = () => {
           {/* Contact Information Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {/* Email */}
-            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 ${
-              theme === 'dark'
+            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 ${theme === 'dark'
                 ? 'bg-white/5 border border-white/10 hover:bg-white/10'
                 : 'bg-gray-50 border border-gray-200 hover:bg-white'
-            }`}>
+              }`}>
               <div className="flex items-center justify-center mb-4">
                 <div className="p-3 bg-crypto-purple/10 rounded-full">
                   <Mail className="h-6 w-6 text-crypto-purple" />
@@ -110,19 +107,18 @@ const ContactSection = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => copyToClipboard(contactInfo.email, 'Email address')}
-                  className={`p-1 h-6 w-6 ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
+                  className={`p-1 h-8 w-8 ${theme === 'dark' ? 'hover:bg-white/10 text-gray-400' : 'hover:bg-gray-100 text-slate-500'}`}
                 >
-                  <Copy className="h-3 w-3" />
+                  <Copy className="h-4 w-4" />
                 </Button>
               </div>
             </div>
 
             {/* WhatsApp */}
-            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 ${
-              theme === 'dark'
+            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 ${theme === 'dark'
                 ? 'bg-white/5 border border-white/10 hover:bg-white/10'
                 : 'bg-gray-50 border border-gray-200 hover:bg-white'
-            }`}>
+              }`}>
               <div className="flex items-center justify-center mb-4">
                 <div className="p-3 bg-green-500/10 rounded-full">
                   <MessageCircle className="h-6 w-6 text-green-500" />
@@ -147,19 +143,18 @@ const ContactSection = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => copyToClipboard(contactInfo.whatsapp, 'WhatsApp number')}
-                  className={`p-1 h-6 w-6 ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
+                  className={`p-1 h-8 w-8 ${theme === 'dark' ? 'hover:bg-white/10 text-gray-400' : 'hover:bg-gray-100 text-slate-500'}`}
                 >
-                  <Copy className="h-3 w-3" />
+                  <Copy className="h-4 w-4" />
                 </Button>
               </div>
             </div>
 
             {/* Phone */}
-            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 md:col-span-2 lg:col-span-1 ${
-              theme === 'dark'
+            <div className={`backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 md:col-span-2 lg:col-span-1 ${theme === 'dark'
                 ? 'bg-white/5 border border-white/10 hover:bg-white/10'
                 : 'bg-gray-50 border border-gray-200 hover:bg-white'
-            }`}>
+              }`}>
               <div className="flex items-center justify-center mb-4">
                 <div className="p-3 bg-blue-500/10 rounded-full">
                   <Phone className="h-6 w-6 text-blue-500" />
@@ -182,9 +177,9 @@ const ContactSection = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => copyToClipboard(contactInfo.whatsapp, 'Phone number')}
-                  className={`p-1 h-6 w-6 ${theme === 'dark' ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
+                  className={`p-1 h-8 w-8 ${theme === 'dark' ? 'hover:bg-white/10 text-gray-400' : 'hover:bg-gray-100 text-slate-500'}`}
                 >
-                  <Copy className="h-3 w-3" />
+                  <Copy className="h-4 w-4" />
                 </Button>
               </div>
             </div>
@@ -204,19 +199,16 @@ const ContactSection = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group relative p-3 rounded-full transition-all duration-300 hover:scale-110 ${
-                      theme === 'dark'
+                    className={`group relative p-3 rounded-full transition-all duration-300 hover:scale-110 ${theme === 'dark'
                         ? 'bg-white/5 hover:bg-white/10 border border-white/10'
                         : 'bg-gray-50 hover:bg-white border border-gray-200'
-                    } ${social.color}`}
+                      } ${social.color}`}
                     style={{ animationDelay: `${0.8 + index * 0.1}s` }}
                   >
-                    <IconComponent className={`h-6 w-6 ${
-                      theme === 'dark' ? 'text-gray-300' : 'text-slate-700'
-                    }`} />
-                    <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
-                      theme === 'dark' ? 'bg-gray-700' : 'bg-gray-800'
-                    }`}>
+                    <IconComponent className={`h-6 w-6 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'
+                      }`} />
+                    <div className={`absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-800'
+                      }`}>
                       {social.name}
                     </div>
                   </a>

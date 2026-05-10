@@ -1,104 +1,65 @@
-// Enhanced PWA Install Prompt Handler
+// ─── Module-level capture (runs immediately when the JS module loads) ──────────
+// This MUST be at the top level — not inside a useEffect — so that the
+// beforeinstallprompt event is never missed, even if it fires before React mounts.
 let deferredPrompt: any = null;
 let isInstalled = false;
 
-export const handlePWAInstall = () => {
-  // Check if already installed
+if (typeof window !== 'undefined') {
+  // Capture the install prompt the instant the browser offers it
+  window.addEventListener('beforeinstallprompt', (e: Event) => {
+    e.preventDefault(); // Prevent the mini-infobar from appearing automatically
+    deferredPrompt = e;
+    console.log('[PWA] beforeinstallprompt captured ✓');
+  });
+
+  // Mark as installed once the user accepts
+  window.addEventListener('appinstalled', () => {
+    isInstalled = true;
+    deferredPrompt = null;
+    console.log('[PWA] App installed successfully ✓');
+  });
+
+  // Also check if already running in standalone mode (already installed)
   if (window.matchMedia('(display-mode: standalone)').matches) {
     isInstalled = true;
-    return;
   }
-
-  // Listen for the 'beforeinstallprompt' event
-  const handleBeforeInstallPrompt = (e: Event) => {
-    // Prevent the mini-infobar from appearing on mobile
-    e.preventDefault();
-    // Stash the event so it can be triggered later
-    deferredPrompt = e;
-    console.log('PWA install prompt captured');
-  };
-
-  // Listen for the 'appinstalled' event
-  const handleAppInstalled = () => {
-    isInstalled = true;
-    console.log('PWA was installed successfully');
-    // Clear the deferredPrompt
-    deferredPrompt = null;
-  };
-
-  // Add event listeners
-  window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-  window.addEventListener('appinstalled', handleAppInstalled);
-
-  return {
-    showInstallPrompt: async () => {
-      if (isInstalled) {
-        console.log('PWA is already installed');
-        return;
-      }
-
-      if (deferredPrompt) {
-        try {
-          // Show the native install prompt
-          deferredPrompt.prompt();
-          // Wait for the user to respond to the prompt
-          const { outcome } = await deferredPrompt.userChoice;
-
-          if (outcome === 'accepted') {
-            console.log('User accepted the PWA install prompt');
-          } else {
-            console.log('User dismissed the PWA install prompt');
-          }
-
-          // Clear the deferredPrompt
-          deferredPrompt = null;
-        } catch (error) {
-          console.error('Error showing install prompt:', error);
-          showInstallInstructions();
-        }
-      } else {
-        console.log('No deferred prompt available, showing instructions');
-        // Fallback: Show instructions
-        showInstallInstructions();
-      }
-    }
-  };
-};
-
-// Function to trigger PWA install without any alert
-export const triggerPWAInstall = async () => {
-  if (deferredPrompt) {
-    // Directly trigger the browser's install prompt
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User installed PWA: ${outcome}`);
-    deferredPrompt = null;
-  } else {
-    // If no deferred prompt available, show instructions
-    showInstallInstructions();
-  }
-};
-
-// Fallback install instructions
-const showInstallInstructions = () => {
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const isAndroid = /Android/.test(navigator.userAgent);
-
-  if (isIOS) {
-    alert('Install preDoctr.pk PWA:\n\n1. In Safari, tap the Share button\n2. Select "Add to Home Screen"\n3. Tap "Add" to install\n\nGet offline access and push notifications!');
-  } else if (isAndroid) {
-    alert('Install preDoctr.pk PWA:\n\n1. In Chrome, tap the menu (⋯)\n2. Select "Add to Home Screen"\n3. Tap "Add" to install\n\nGet offline access and push notifications!');
-  } else {
-    alert('To install this app:\n\n1. In your browser, look for "Add to Home Screen" or "Install App"\n2. Follow the prompts to install\n\nGet offline access and push notifications!');
-  }
-};
-
-// Initialize global PWA trigger function
-if (typeof window !== 'undefined') {
-  (window as any).triggerPWAInstall = triggerPWAInstall;
 }
 
-// Hook for components to use
-export const usePWAInstall = () => {
-  return handlePWAInstall();
+// ─── Trigger the native Android install prompt ─────────────────────────────────
+export const triggerPWAInstall = async (): Promise<'accepted' | 'dismissed' | 'unavailable'> => {
+  if (isInstalled) {
+    console.log('[PWA] Already installed');
+    return 'unavailable';
+  }
+
+  if (!deferredPrompt) {
+    console.warn('[PWA] No deferred prompt available — either not Android/Chrome, already installed, or prompt was not captured');
+    return 'unavailable';
+  }
+
+  try {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`[PWA] User choice: ${outcome}`);
+    deferredPrompt = null;
+    return outcome === 'accepted' ? 'accepted' : 'dismissed';
+  } catch (err) {
+    console.error('[PWA] Error showing install prompt:', err);
+    return 'unavailable';
+  }
 };
+
+// ─── Check whether a native install prompt is available ───────────────────────
+export const isPWAInstallAvailable = () => !isInstalled && deferredPrompt !== null;
+
+// ─── Legacy function kept for backward compatibility (App.tsx / Index.tsx) ────
+export const handlePWAInstall = () => {
+  // The actual event listeners are already registered at module level above.
+  // This function is a no-op now but kept so existing callers don't break.
+  return {
+    showInstallPrompt: triggerPWAInstall,
+  };
+};
+
+// ─── Hook alias ────────────────────────────────────────────────────────────────
+export const usePWAInstall = handlePWAInstall;

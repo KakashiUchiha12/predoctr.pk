@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from '@/contexts/ThemeContext';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { trackLMSRedirect } from '@/utils/metaPixel';
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -179,8 +180,8 @@ const Hero = () => {
 
   return (
     <section className={`relative min-h-screen flex flex-col justify-center overflow-hidden transition-all duration-500 ${theme === 'dark'
-        ? 'bg-gradient-hero hero-glow'
-        : 'bg-gradient-hero-light hero-glow-light'
+      ? 'bg-gradient-hero hero-glow'
+      : 'bg-gradient-hero-light hero-glow-light'
       }`} itemScope itemType="https://schema.org/Organization">
       {/* Video Popup Modal */}
       {isVideoOpen && (
@@ -214,13 +215,13 @@ const Hero = () => {
         <div className={`absolute bottom-1/4 right-10 w-96 h-96 bg-crypto-light-purple/10 rounded-full filter blur-3xl animate-pulse-slow transition-all duration-300 ${isVideoOpen ? 'blur-2xl' : ''}`} style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className={`container mx-auto px-4 py-20 relative z-10 transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`}>
+      <div className={`container mx-auto px-6 md:px-8 py-20 relative z-10 transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`}>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 animate-fade-in-left">
             <div
               className={`inline-flex items-center backdrop-blur-sm border rounded-full px-4 py-1.5 mb-6 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg ${theme === 'dark'
-                  ? 'bg-white/5 border-white/10 hover:bg-white/10'
-                  : 'bg-white/80 border-gray-300 hover:bg-white/90 hover:border-gray-400'
+                ? 'bg-white/5 border-white/10 hover:bg-white/10'
+                : 'bg-white/80 border-gray-300 hover:bg-white/90 hover:border-gray-400'
                 }`}
               onClick={() => {
                 // Scroll to pricing section (assuming it has id="pricing")
@@ -239,7 +240,7 @@ const Hero = () => {
                 }
               }}
             >
-              <span className="text-xs font-medium text-crypto-purple mr-2">For MDCAT 2026</span>
+              <span className="text-xs font-medium text-[#4096EE] mr-2">For MDCAT 2026</span>
               <span className={`text-xs mr-1 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'}`}>Complete MDCAT Course - All Subjects</span>
               <ChevronRight className={`h-4 w-4 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`} />
             </div>
@@ -253,11 +254,13 @@ const Hero = () => {
               <span className="font-bold block mt-3 flex items-center justify-start">
                 <img
                   src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
-                  alt="preDoctr.pk"
+                  alt="preDoctr.pk logo"
                   className="h-12 w-auto mr-3 animate-float"
+                  width="48"
+                  height="48"
                 />
                 <span className="text-4xl md:text-5xl lg:text-6xl xl:text-6xl">
-                  <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className={`text-crypto-purple ${theme === 'dark' ? 'drop-shadow-lg' : ''}`}>Doctr.pk</span>
+                  <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className={`text-[#4096EE] ${theme === 'dark' ? 'drop-shadow-lg' : ''}`}>Doctr.pk</span>
                 </span>
               </span>
             </h1>
@@ -266,7 +269,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-3/4 sm:w-auto max-w-xs sm:max-w-none">
-                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Sign in with Google')}>
                   <div
                     className="relative overflow-hidden group/btn transition-all duration-300 hover:scale-105 rounded-lg"
                     style={{
@@ -314,15 +317,15 @@ const Hero = () => {
                 size="lg"
                 onClick={handleDemoClick}
                 className={`py-6 ${theme === 'dark'
-                    ? 'border-gray-700 text-white hover:bg-white/5'
-                    : 'border-gray-400 text-white hover:bg-gray-50'
+                  ? 'border-gray-700 text-white hover:bg-white/5'
+                  : 'border-gray-400 text-white hover:bg-gray-50'
                   }`}
               >
                 Watch Demo
                 <ArrowUpRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
-            <div ref={statsRef} className="mt-8 flex items-center space-x-6">
+            <div ref={statsRef} className="mt-8 flex items-center space-x-3 sm:space-x-6">
               <div>
                 <p className={`text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>{counters.colleges.toLocaleString()}+</p>
                 <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>Students</p>
@@ -353,6 +356,8 @@ const Hero = () => {
                   src="https://img.youtube.com/vi/lAaRSWVoCgI/maxresdefault.jpg"
                   alt="Medical College Preparation Video Thumbnail"
                   className="rounded-xl shadow-2xl border border-white/10 w-full h-auto"
+                  width="1280"
+                  height="720"
                 />
 
                 {/* Play Button Overlay with Circular Progress */}
@@ -400,8 +405,8 @@ const Hero = () => {
 
                   {/* Play Button - Middle Layer */}
                   <div className={`relative backdrop-blur-sm rounded-full p-6 shadow-lg transition-all duration-300 z-20 ${isHovering
-                      ? 'bg-crypto-purple/70 scale-90'
-                      : 'bg-crypto-purple/90 group-hover:bg-crypto-purple group-hover:scale-110'
+                    ? 'bg-crypto-purple/70 scale-90'
+                    : 'bg-crypto-purple/90 group-hover:bg-crypto-purple group-hover:scale-110'
                     }`}>
                     <Play className="h-10 w-10 text-white ml-1" fill="currentColor" />
                   </div>
@@ -415,8 +420,8 @@ const Hero = () => {
 
               {/* Notice/Warning Message */}
               <div className={`mt-6 p-4 rounded-lg border backdrop-blur-sm shadow-lg ${theme === 'dark'
-                  ? 'bg-yellow-500/10 border-yellow-500/20'
-                  : 'bg-yellow-50 border-yellow-200'
+                ? 'bg-yellow-500/10 border-yellow-500/20'
+                : 'bg-yellow-50 border-yellow-200'
                 }`}>
                 <div className="flex items-start space-x-3">
                   <AlertTriangle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600'

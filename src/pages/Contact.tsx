@@ -39,7 +39,7 @@ const Contact = () => {
                       <p className={`mb-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                         Get quick responses to your questions
                       </p>
-                      <a href="mailto:support@preDoctr.pk" className="text-crypto-purple hover:text-crypto-dark-purple transition-colors">
+                      <a href="mailto:support@preDoctr.pk" className="text-[#4096EE] hover:text-[#4096EE]/80 transition-colors">
                         support@preDoctr.pk
                       </a>
                     </div>

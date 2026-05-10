@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { trackLMSRedirect } from '@/utils/metaPixel';
 import { useNavigate } from 'react-router-dom';
 
 interface PricingPlan {
@@ -26,8 +27,8 @@ const Pricing = () => {
 
   return (
     <section id="pricing" className={`py-24 transition-all duration-500 ${theme === 'dark'
-        ? 'bg-[#12141C]'
-        : 'bg-slate-50'
+      ? 'bg-[#12141C]'
+      : 'bg-slate-50'
       }`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -44,21 +45,21 @@ const Pricing = () => {
             <div
               key={index}
               className={`backdrop-blur-sm border rounded-xl overflow-hidden animate-on-scroll ${plan.highlighted
-                  ? 'border-crypto-purple relative shadow-xl shadow-crypto-purple/10'
-                  : theme === 'dark'
-                    ? 'border-white/10'
-                    : 'border-gray-200'
+                ? 'border-[#4096EE] relative shadow-xl shadow-[#4096EE]/10'
+                : theme === 'dark'
+                  ? 'border-white/10'
+                  : 'border-gray-200'
                 }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {plan.highlighted && (
-                <div className="bg-crypto-purple text-white text-center py-1 text-sm font-medium">
+                <div className="bg-[#4096EE] text-white text-center py-1 text-sm font-medium">
                   {plan.badgeExtra || "Most Popular"}
                 </div>
               )}
               <div className={`p-8 ${theme === 'dark'
-                  ? 'bg-white/5'
-                  : 'bg-white'
+                ? 'bg-white/5'
+                : 'bg-white'
                 }`}>
                 <div className={`text-center mb-4 ${plan.badge ? '' : 'invisible'}`}>
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
@@ -89,12 +90,12 @@ const Pricing = () => {
                 </p>
 
                 <Button
-                  onClick={() => window.open('https://lms.predoctr.pk/student-dashboard/', '_blank')}
+                  onClick={() => { trackLMSRedirect(plan.buttonText); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
                   className={`w-full mb-6 ${plan.highlighted
-                      ? 'bg-crypto-purple hover:bg-crypto-dark-purple'
-                      : theme === 'dark'
-                        ? 'bg-white/10 hover:bg-white/20 text-white'
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
+                    ? 'bg-[#4096EE] hover:bg-[#4096EE]/90'
+                    : theme === 'dark'
+                      ? 'bg-white/10 hover:bg-white/20 text-white'
+                      : 'bg-black/10 hover:bg-black/20 text-slate-900'
                     }`}
                 >
                   {plan.buttonText}
@@ -107,7 +108,7 @@ const Pricing = () => {
                   <ul className="space-y-3">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <Check className="h-5 w-5 text-crypto-purple mr-3 shrink-0" />
+                        <Check className="h-5 w-5 text-[#4096EE] mr-3 shrink-0" />
                         <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
                           {feature}
                         </span>

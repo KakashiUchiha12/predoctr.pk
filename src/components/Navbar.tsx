@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '@/contexts/ThemeContext';
+import { trackLMSRedirect } from '@/utils/metaPixel';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,21 +28,23 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
-        ? theme === 'dark'
-          ? 'bg-black/40 backdrop-blur-md py-3 shadow-lg'
-          : 'bg-white/70 backdrop-blur-md py-3 shadow-lg'
-        : 'py-6'
+      ? theme === 'dark'
+        ? 'bg-black/40 backdrop-blur-md py-3 shadow-lg'
+        : 'bg-white/70 backdrop-blur-md py-3 shadow-lg'
+      : 'py-6'
       }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img
               src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
-              alt="preDoctr.pk"
+              alt="preDoctr.pk logo"
               className="h-10 w-auto mr-2 animate-float"
+              width="40"
+              height="40"
             />
             <h1 className="text-2xl font-bold">
-              <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-[#4096EE]">Doctr.pk</span>
               {isLMSPage && <span className="text-lg ml-2 opacity-75">LMS</span>}
             </h1>
           </Link>
@@ -58,8 +61,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               Features
@@ -74,8 +77,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               How it works
@@ -90,8 +93,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               Testimonials
@@ -106,8 +109,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               Pricing
@@ -122,8 +125,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               FAQ
@@ -138,8 +141,8 @@ const Navbar = () => {
                 }
               }}
               className={`relative px-4 py-2 transition-all duration-300 ease-in-out ${theme === 'dark'
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
+                ? 'text-gray-300 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm hover:border hover:border-white/20'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-black/5 hover:backdrop-blur-sm hover:border hover:border-black/10'
                 }`}
             >
               Contact Us
@@ -152,30 +155,34 @@ const Navbar = () => {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className={`px-3 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-crypto-purple ${theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
+            className={`px-3 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-crypto-blue ${theme === 'dark'
+              ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
               }`}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </Button>
-          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Login')}>
             <Button variant="ghost" className={`px-4 py-2 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 ${theme === 'dark'
-                ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
+              ? 'text-gray-300 hover:text-white hover:bg-gray-700/60'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70 hover:shadow-sm'
               }`}>
               Login
             </Button>
           </a>
-          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+          <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Join Now')}>
             <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
           </a>
         </div>
 
         {/* Mobile menu button */}
-        <button className={`lg:hidden transition-colors duration-300 ${theme === 'dark' ? 'text-white' : 'text-slate-700 hover:text-slate-900'
-          }`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          className={`lg:hidden transition-colors duration-300 ${theme === 'dark' ? 'text-white' : 'text-slate-700 hover:text-slate-900'
+            }`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -283,12 +290,12 @@ const Navbar = () => {
                     <span>Toggle Theme</span>
                   </div>
                 </Button>
-                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Login')}>
                   <Button variant="ghost" className={`w-full justify-start ${theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
                     Login
                   </Button>
                 </a>
-                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer">
+                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Join Now')}>
                   <Button className="bg-crypto-purple hover:bg-crypto-dark-purple text-white w-full">Join Now</Button>
                 </a>
               </li>

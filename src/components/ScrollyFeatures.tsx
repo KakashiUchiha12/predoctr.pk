@@ -176,11 +176,10 @@ const ScrollyFeatures = () => {
     <section
       ref={containerRef}
       id="features"
-      className={`min-h-screen py-24 transition-all duration-500 ${
-        theme === 'dark'
-          ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
-          : 'bg-gradient-features-light'
-      }`}
+      className={`min-h-screen py-24 transition-all duration-500 ${theme === 'dark'
+        ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
+        : 'bg-gradient-features-light'
+        }`}
     >
       {/* Enhanced Progress Bar */}
       <ProgressBar progress={progress} isVisible={isInFeaturesSection} />
@@ -188,11 +187,10 @@ const ScrollyFeatures = () => {
       {/* Progress Indicators */}
       <ProgressIndicators activeFeature={activeFeature} onFeatureClick={scrollToFeature} />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${
-            theme === 'light' ? 'text-gray-900' : ''
-          }`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-gray-900' : ''
+            }`}>
             Complete MDCAT Preparation Suite
           </h2>
           <p className={`text-gray-400 max-w-2xl mx-auto ${theme === 'light' ? 'text-gray-700' : ''}`}>
@@ -312,164 +310,146 @@ const ScrollyFeatures = () => {
               const featureHeight = index <= 2 ? '500vh' : '350vh';
 
               return (
-                <div
-                  key={feature.id}
-                  ref={(el) => (contentRefs.current[index] = el)}
-                  className="feature-section min-h-screen flex items-center justify-center p-8 py-16 transition-all duration-700 ease-out"
-                  style={{
-                    minHeight: featureHeight,
-                    opacity: index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.7 : 0.4),
-                    transform: `translate3d(0, ${index === activeFeature ? 0 : (index - activeFeature) * 15}px, 0) scale(${index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.96 : 0.92)})`,
-                    willChange: 'transform, opacity',
-                  }}
-                >
-                <div className="text-center max-w-4xl">
-                  {/* Feature Image Carousel */}
-                  <div className="relative mb-12 md:mb-20 lg:mb-64">
-                    <div className="w-full max-w-xl h-48 md:h-[16rem] mx-auto mb-3 transition-all duration-50 transform"
-                      style={{
-                        filter: index === activeFeature ? 'blur(0px)' : 'blur(2px)',
-                        transform: index === activeFeature ? 'scale(1.05)' : 'scale(0.95)',
-                      }}
-                    >
-                      <ImageCarousel
-                        images={feature.images}
-                        autoScrollInterval={4000}
-                        className="w-full h-full"
-                      />
+                <div key={feature.id} style={{ minHeight: featureHeight }} className="relative w-full">
+                  <div
+                    ref={(el) => (contentRefs.current[index] = el)}
+                    className="feature-section min-h-screen sticky top-0 flex items-center justify-center p-8 py-16 transition-all duration-700 ease-out"
+                    style={{
+                      opacity: index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.7 : 0.4),
+                      transform: `translate3d(0, ${index === activeFeature ? 0 : (index - activeFeature) * 15}px, 0) scale(${index === activeFeature ? 1.0 : (Math.abs(index - activeFeature) === 1 ? 0.96 : 0.92)})`,
+                      willChange: 'transform, opacity',
+                    }}
+                  >
+                    <div className="text-center max-w-4xl">
+                    {/* Feature Image Carousel */}
+                    <div className="relative mb-12 md:mb-20 lg:mb-64">
+                      <div className="w-full max-w-2xl mx-auto mb-3 transition-all duration-50 transform"
+                        style={{
+                          filter: index === activeFeature ? 'blur(0px)' : 'blur(2px)',
+                          transform: index === activeFeature ? 'scale(1.05)' : 'scale(0.95)',
+                        }}
+                      >
+                        <ImageCarousel
+                          images={feature.images}
+                          autoScrollInterval={4000}
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div className={`absolute inset-0 rounded-lg transition-all duration-50 pointer-events-none ${feature.bgGradient
+                        } opacity-50`} />
                     </div>
-                    <div className={`absolute inset-0 rounded-lg transition-all duration-50 pointer-events-none ${
-                      feature.bgGradient
-                    } opacity-50`} />
-                  </div>
 
 
 
-{/* Visual Separator - Desktop/Laptop Only */}
-                  <div className="hidden md:block w-32 h-px bg-gradient-to-r from-transparent via-gray-400/50 to-transparent mx-auto mb-8 md:mb-12 lg:mb-16"></div>
+                    {/* Visual Separator - Desktop/Laptop Only */}
+                    <div className="hidden md:block w-32 h-px bg-gradient-to-r from-transparent via-gray-400/50 to-transparent mx-auto mb-8 md:mb-12 lg:mb-16"></div>
 
-                  {/* Animated Title with Fade-in Effect */}
-                  <h3 className={`text-4xl md:text-5xl font-bold mb-3 transition-all duration-50 ${
-                    theme === 'dark' ? 'text-white' : 'text-gray-900'
-                  } ${
-                    index === activeFeature
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-8'
-                  }`}>
-                    {feature.title}
-                  </h3>
+                    {/* Animated Title with Fade-in Effect */}
+                    <h3 className={`text-4xl md:text-5xl font-bold mb-3 transition-all duration-50 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      } ${index === activeFeature
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-8'
+                      }`}>
+                      {feature.title}
+                    </h3>
 
-                  {/* Subtitle Animation */}
-                  <p className={`text-xl font-medium mb-3 transition-all duration-50 ${
-                    theme === 'dark' ? feature.color : 'text-gray-800'
-                  } ${
-                    index === activeFeature
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-4'
-                  }`}>
-                    {feature.subtitle}
-                  </p>
+                    {/* Subtitle Animation */}
+                    <p className={`text-xl font-medium mb-3 transition-all duration-50 ${theme === 'dark' ? feature.color : 'text-gray-800'
+                      } ${index === activeFeature
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4'
+                      }`}>
+                      {feature.subtitle}
+                    </p>
 
-                  {/* Description with Stagger Animation */}
-                  <p className={`${
-                    theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
-                  } text-lg mb-6 leading-relaxed transition-all duration-50 ${
-                    index === activeFeature
+                    {/* Description with Stagger Animation */}
+                    <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'
+                      } text-lg mb-6 leading-relaxed transition-all duration-50 ${index === activeFeature
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4'
+                      }`}>
+                      {feature.description}
+                    </p>
+
+                    {/* Detailed Sub-Features with Bullet Points */}
+                    <div className={`mb-6 transition-all duration-50 ${index === activeFeature
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
-                  }`}>
-                    {feature.description}
-                  </p>
-
-                  {/* Detailed Sub-Features with Bullet Points */}
-                  <div className={`mb-6 transition-all duration-50 ${
-                    index === activeFeature
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-4'
-                  }`}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl mx-auto">
-                      {feature.subFeatures.map((subFeature, subIndex) => (
-                        <div
-                          key={subIndex}
-                          className={`text-left p-3 rounded-lg transition-all duration-300 ${
-                            theme === 'dark'
+                      }`}>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-4xl mx-auto">
+                        {feature.subFeatures.map((subFeature, subIndex) => (
+                          <div
+                            key={subIndex}
+                            className={`text-left p-3 rounded-lg transition-all duration-300 ${theme === 'dark'
                               ? 'bg-white/5 border border-white/10'
                               : 'bg-gray-50 border border-gray-200'
-                          }`}
-                          style={{
-                            animationDelay: `${subIndex * 100}ms`
-                          }}
-                        >
-                          <div className="flex items-start space-x-3">
-                            <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 ${
-                              theme === 'dark' ? 'bg-white/10' : 'bg-gray-200'
-                            }`}>
-                              <div className={`w-2 h-2 rounded-full ${
-                                theme === 'dark' ? 'bg-white/60' : 'bg-gray-600'
-                              }`} />
-                            </div>
-                            <div className="flex-1">
-                              <h4 className={`font-semibold text-sm mb-1 ${
-                                theme === 'dark' ? 'text-white' : 'text-gray-900'
-                              }`}>
-                                {subFeature.title}
-                              </h4>
-                              <p className={`text-xs leading-relaxed ${
-                                theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                              }`}>
-                                {subFeature.description}
-                              </p>
-                              {subFeature.metric && (
-                                <span className={`inline-block mt-1 text-xs font-medium ${
-                                  theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                              }`}
+                            style={{
+                              animationDelay: `${subIndex * 100}ms`
+                            }}
+                          >
+                            <div className="flex items-start space-x-3">
+                              <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 ${theme === 'dark' ? 'bg-white/10' : 'bg-gray-200'
                                 }`}>
-                                  {subFeature.metric}
-                                </span>
-                              )}
+                                <div className={`w-2 h-2 rounded-full ${theme === 'dark' ? 'bg-white/60' : 'bg-gray-600'
+                                  }`} />
+                              </div>
+                              <div className="flex-1">
+                                <h4 className={`font-semibold text-sm mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'
+                                  }`}>
+                                  {subFeature.title}
+                                </h4>
+                                <p className={`text-xs leading-relaxed ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                                  }`}>
+                                  {subFeature.description}
+                                </p>
+                                {subFeature.metric && (
+                                  <span className={`inline-block mt-1 text-xs font-medium ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
+                                    }`}>
+                                    {subFeature.metric}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Call to Action with Hover Effects */}
-                  <div className="flex justify-center gap-2 md:gap-4 transition-all duration-50">
-                    <button
-                      onClick={scrollToPricing}
-                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 hover:shadow-lg bg-crypto-purple text-white font-medium text-sm md:text-base transform ${
-                        index === activeFeature
+                    {/* Call to Action with Hover Effects */}
+                    <div className="flex justify-center gap-2 md:gap-4 transition-all duration-50">
+                      <button
+                        onClick={scrollToPricing}
+                        className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 hover:shadow-lg bg-crypto-purple text-white font-medium text-sm md:text-base transform ${index === activeFeature
                           ? 'opacity-100 translate-x-0'
                           : 'opacity-0 -translate-x-4'
-                      }`}
-                    >
-                      <PlayCircle className="w-4 h-4 md:w-5 md:h-5" />
-                      <span className="hidden sm:inline">Explore {feature.title}</span>
-                      <span className="sm:hidden">Explore</span>
-                    </button>
-                    <button
-                      onClick={scrollToHeroAndPlayVideo}
-                      className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 border-2 font-medium text-sm md:text-base transform ${
-                        theme === 'dark'
+                          }`}
+                      >
+                        <PlayCircle className="w-4 h-4 md:w-5 md:h-5" />
+                        <span className="hidden sm:inline">Explore {feature.title}</span>
+                        <span className="sm:hidden">Explore</span>
+                      </button>
+                      <button
+                        onClick={scrollToHeroAndPlayVideo}
+                        className={`inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-lg transition-all duration-50 hover:scale-105 border-2 font-medium text-sm md:text-base transform ${theme === 'dark'
                           ? 'border-gray-600 bg-gray-700 text-white hover:bg-gray-600'
                           : 'border-gray-300 bg-gray-100 text-gray-800 hover:bg-gray-50'
-                      } ${
-                        index === activeFeature
-                          ? 'opacity-100 translate-x-0'
-                          : 'opacity-0 translate-x-4'
-                      }`}
-                    >
-                      <Video className="w-4 h-4 md:w-5 md:h-5" />
-                      <span className="hidden sm:inline">Watch Demo</span>
-                      <span className="sm:hidden">Demo</span>
-                    </button>
+                          } ${index === activeFeature
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-0 translate-x-4'
+                          }`}
+                      >
+                        <Video className="w-4 h-4 md:w-5 md:h-5" />
+                        <span className="hidden sm:inline">Watch Demo</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             );
-            })}
-          </div>
+          })}
         </div>
+      </div>
       </div>
     </section>
   );

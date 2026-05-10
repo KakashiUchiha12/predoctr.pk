@@ -107,8 +107,8 @@ const LMSNavigation = () => {
                 className="h-10 w-auto animate-float transition-transform duration-300 group-hover:scale-110"
               />
               <h1 className="text-2xl font-bold">
-                <span className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
-                <span className="text-lg ml-2 opacity-75 text-crypto-purple">LMS</span>
+                <span className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>pre</span><span className="text-[#4096EE]">Doctr.pk</span>
+                <span className="text-lg ml-2 opacity-75 text-[#4096EE]">LMS</span>
               </h1>
             </Link>
           </div>

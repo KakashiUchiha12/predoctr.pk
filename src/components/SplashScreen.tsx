@@ -61,7 +61,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         {/* Brand text */}
         <div className="inline-flex items-center">
           <h1 className="text-3xl font-bold">
-            <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-crypto-purple">Doctr.pk</span>
+            <span className={`${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>pre</span><span className="text-[#4096EE]">Doctr.pk</span>
           </h1>
         </div>
 

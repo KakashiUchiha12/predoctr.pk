@@ -208,7 +208,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           onBlur={(e) => { e.currentTarget.style.outline = '2px solid transparent'; }}
         >
           {/* Main Image Container - Fixed aspect ratio and height, centered */}
-          <div className={`relative overflow-hidden rounded-lg ${mobileHeight} md:${laptopHeight} xl:h-[32rem] w-full max-w-full mx-8 md:mx-8 lg:mx-10`}>
+          <div className={`relative overflow-hidden rounded-lg w-full max-w-full`} style={{ aspectRatio: '16/9' }}>
             <div
               className="flex transition-transform duration-500 ease-in-out h-full will-change-transform"
               style={{
@@ -227,7 +227,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                     alt={`Feature screenshot ${index + 1} - Click to view full screen`}
                     className="w-full h-full object-cover rounded-lg transition-all duration-200 cursor-pointer hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
                     style={{ zIndex: 40 }}
-                    loading={index === 0 ? "eager" : "lazy"}
+                    loading="lazy"
                     width="441"
                     height="294"
                     decoding="async"
@@ -293,18 +293,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
       {/* Dot Indicators - positioned below the entire carousel */}
       {hasMultipleImages && (
-        <div className="flex justify-center space-x-2 mt-4 mb-2">
+        <div className="flex flex-wrap justify-center gap-2 mt-4 mb-2 px-2">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentIndex === index
-                  ? 'bg-slate-600 scale-125'
-                  : 'bg-slate-400 hover:bg-slate-500'
-              }`}
+              className={`rounded-full transition-opacity duration-300 p-1.5 ${currentIndex === index
+                ? 'opacity-100'
+                : 'opacity-50 hover:opacity-75'
+                }`}
               aria-label={`Go to image ${index + 1}`}
-            />
+            >
+              <span className={`block w-2 h-2 rounded-full ${currentIndex === index
+                ? 'bg-slate-600 scale-125'
+                : 'bg-slate-400'
+                }`}></span>
+            </button>
           ))}
         </div>
       )}

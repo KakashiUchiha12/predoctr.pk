@@ -1,0 +1,31 @@
+# Robots.txt optimized for preDoctr.pk
+
+# Important search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
+# Social media crawlers (Important for sharing previews)
+User-agent: facebookexternalhit
+Allow: /
+User-agent: Twitterbot
+Allow: /
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow source code and system files (Security)
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+# Removed /dist/ to ensure Google can render CSS/JS
+
+# Default for all other crawlers
+User-agent: *
+Crawl-delay: 2
+Allow: /
+
+# Sitemap Location
+Sitemap: https://predoctr.pk/sitemap.xml

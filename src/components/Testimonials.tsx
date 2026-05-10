@@ -40,11 +40,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className={`py-24 transition-all duration-500 ${
-      theme === 'dark'
+    <section id="testimonials" className={`py-24 transition-all duration-500 ${theme === 'dark'
         ? 'bg-gradient-to-b from-[#2A3A5C] to-[#111827]'
         : 'bg-gradient-testimonials-light'
-    }`}>
+      }`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 text-gradient ${theme === 'light' ? 'text-slate-900' : ''}`}>
@@ -67,11 +66,10 @@ const Testimonials = () => {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="min-w-full px-4">
-                  <div className={`backdrop-blur-sm border rounded-xl p-8 md:p-10 ${
-                    theme === 'dark'
+                  <div className={`backdrop-blur-sm border rounded-xl p-8 md:p-10 ${theme === 'dark'
                       ? 'bg-white/5 border-white/10'
                       : 'bg-white border-gray-200'
-                  }`}>
+                    }`}>
                     <div className="flex mb-6">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className={`h-5 w-5 text-yellow-500 fill-yellow-500 ${theme === 'light' ? 'text-yellow-600' : ''}`} />
@@ -106,11 +104,12 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentIndex === index ? 'w-8 bg-crypto-purple' : `w-2 ${theme === 'dark' ? 'bg-gray-500' : 'bg-slate-400'}`
-                }`}
+                className={`rounded-full transition-all duration-300 p-1 ${currentIndex === index ? 'w-10 bg-crypto-purple' : `w-4 ${theme === 'dark' ? 'bg-gray-500' : 'bg-slate-400'}`
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
-              ></button>
+              >
+                <span className={`block rounded-full ${currentIndex === index ? 'h-1.5' : 'h-1.5'}`}></span>
+              </button>
             ))}
           </div>
         </div>

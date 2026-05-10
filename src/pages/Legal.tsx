@@ -15,7 +15,7 @@ const Legal = () => {
       <div className="container mx-auto px-4 py-16 pt-24">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
-            <span className="text-gradient">Legal & Privacy</span> Policy
+            <span className="text-[#4096EE]">Legal & Privacy</span> Policy
           </h1>
 
           <div className={`backdrop-blur-lg rounded-2xl p-8 md:p-12 mb-8 ${
@@ -31,7 +31,7 @@ const Legal = () => {
                   At preDoctr.pk, we are committed to protecting your privacy and ensuring that your personal information is handled responsibly. This Privacy Policy outlines how we collect, use, and safeguard your information.
                 </p>
 
-                <h3 className="text-xl font-bold mb-4 text-crypto-purple">Information We Collect</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#4096EE]">Information We Collect</h3>
                 <ul className={`mb-6 text-base space-y-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   <li>• Registration information (name, email, phone number)</li>
                   <li>• Payment information (processed securely through third-party providers)</li>
@@ -39,7 +39,7 @@ const Legal = () => {
                   <li>• Device information (IP address, browser type, operating system)</li>
                 </ul>
 
-                <h3 className="text-xl font-bold mb-4 text-crypto-purple">How We Use Your Information</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#4096EE]">How We Use Your Information</h3>
                 <ul className={`mb-6 text-base space-y-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   <li>• Provide and personalize our educational services</li>
                   <li>• Process payments and manage subscriptions</li>
@@ -71,25 +71,25 @@ const Legal = () => {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div className={`p-4 rounded-lg ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                    <h4 className="font-semibold mb-2 text-crypto-purple">Essential Cookies</h4>
+                    <h4 className="font-semibold mb-2 text-[#4096EE]">Essential Cookies</h4>
                     <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                       Required for basic platform functionality, security, and user authentication.
                     </p>
                   </div>
                   <div className={`p-4 rounded-lg ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                    <h4 className="font-semibold mb-2 text-crypto-purple">Analytics Cookies</h4>
+                    <h4 className="font-semibold mb-2 text-[#4096EE]">Analytics Cookies</h4>
                     <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                       Help us understand user behavior to improve our services.
                     </p>
                   </div>
                   <div className={`p-4 rounded-lg ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                    <h4 className="font-semibold mb-2 text-crypto-purple">Functional Cookies</h4>
+                    <h4 className="font-semibold mb-2 text-[#4096EE]">Functional Cookies</h4>
                     <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                       Remember your preferences and provide personalized features.
                     </p>
                   </div>
                   <div className={`p-4 rounded-lg ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                    <h4 className="font-semibold mb-2 text-crypto-purple">Marketing Cookies</h4>
+                    <h4 className="font-semibold mb-2 text-[#4096EE]">Marketing Cookies</h4>
                     <p className={`text-sm ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                       Used to deliver relevant advertisements and track campaign effectiveness.
                     </p>
@@ -100,7 +100,7 @@ const Legal = () => {
               <section>
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gradient">Terms of Service</h2>
 
-                <h3 className="text-xl font-bold mb-4 text-crypto-purple">User Responsibilities</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#4096EE]">User Responsibilities</h3>
                 <ul className={`mb-6 text-base space-y-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   <li>• Use the platform only for MDCAT preparation purposes</li>
                   <li>• Maintain account security and not share login credentials</li>
@@ -109,7 +109,7 @@ const Legal = () => {
                   <li>• Comply with all applicable laws and regulations</li>
                 </ul>
 
-                <h3 className="text-xl font-bold mb-4 text-crypto-purple">Service Availability</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#4096EE]">Service Availability</h3>
                 <p className={`text-lg mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   While we strive for 99.9% uptime, we cannot guarantee uninterrupted access to our services. We reserve the right to perform maintenance and make improvements that may temporarily affect service availability.
                 </p>
@@ -119,7 +119,7 @@ const Legal = () => {
                   Our content is available for personal educational use only. Redistribution, commercial use, or sharing access with unauthorized users is strictly prohibited. Academic institutions may contact us directly for licensing agreements.
                 </p>
 
-                <h3 className="text-xl font-bold mb-4 text-crypto-purple">Payment Terms</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#4096EE]">Payment Terms</h3>
                 <ul className={`mb-6 text-base space-y-2 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   <li>• All prices are in Pakistani Rupees (PKR) and include applicable taxes</li>
                   <li>• Payments are processed securely through certified providers</li>
@@ -138,14 +138,14 @@ const Legal = () => {
                 <div className={`p-6 rounded-lg ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="font-semibold text-crypto-purple mb-2">Legal Inquiries</h4>
+                      <h4 className="font-semibold text-[#4096EE] mb-2">Legal Inquiries</h4>
                       <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                         legal@preDoctr.pk<br/>
                         For privacy and legal matters
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-crypto-purple mb-2">General Support</h4>
+                      <h4 className="font-semibold text-[#4096EE] mb-2">General Support</h4>
                       <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                         support@preDoctr.pk<br/>
                         For technical and account issues

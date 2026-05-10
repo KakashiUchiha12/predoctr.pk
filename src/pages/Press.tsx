@@ -30,21 +30,21 @@ const Press = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Brand Assets</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Brand Assets</h3>
                 <p className={`mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   Logos, brand colors, fonts, and usage guidelines.
                 </p>
-                <button className="px-4 py-2 bg-crypto-purple hover:bg-crypto-dark-purple text-white rounded-lg transition-colors">
+                <button className="px-4 py-2 bg-[#4096EE] hover:bg-[#4096EE]/90 text-white rounded-lg transition-colors">
                   Download PDF
                 </button>
               </div>
 
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Company Facts</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Company Facts</h3>
                 <p className={`mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}`}>
                   Statistics, milestones, and key company information.
                 </p>
-                <button className="px-4 py-2 bg-crypto-purple hover:bg-crypto-dark-purple text-white rounded-lg transition-colors">
+                <button className="px-4 py-2 bg-[#4096EE] hover:bg-[#4096EE]/90 text-white rounded-lg transition-colors">
                   Download PDF
                 </button>
               </div>
@@ -109,7 +109,7 @@ const Press = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">General Media Inquiries</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">General Media Inquiries</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   press@preDoctr.pk<br/>
                   +92 XXX XXXXXXX
@@ -117,7 +117,7 @@ const Press = () => {
               </div>
 
               <div className={`p-6 rounded-xl ${theme === 'dark' ? 'bg-white/5' : 'bg-slate-50'}`}>
-                <h3 className="text-lg font-semibold mb-3 text-crypto-purple">Partnerships & Collaborations</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#4096EE]">Partnerships & Collaborations</h3>
                 <p className={theme === 'dark' ? 'text-gray-300' : 'text-slate-600'}>
                   partnerships@preDoctr.pk<br/>
                   For business development opportunities
