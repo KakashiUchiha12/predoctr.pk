@@ -14,7 +14,7 @@ export const testimonials = [
       avatar: "https://images.unsplash.com/photo-1587854680352-936b22b91030?auto=format&fit=crop&h=100&w=100&q=80"
     },
     {
-      quote: "I joined preDoctr.pk for MDCAT prep, and the resources are top-notch. The question bank is extensive, and the free demo account gave me a good start. I'm now fully prepared and confident to take on the exam!",
+      quote: "I joined preDoctr.pk for MDCAT prep, and the resources are top-notch. The question bank is extensive, and the Starter Pack gave me a good start. I'm now fully prepared and confident to take on the exam!",
       author: "Romaisa Niaz",
       role: "Currently Preparing for MDCAT",
       location: "Islamabad",

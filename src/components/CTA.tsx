@@ -37,9 +37,9 @@ const CTA = () => {
             <Button
               size="lg"
               className="bg-crypto-purple hover:bg-crypto-dark-purple text-white px-8 py-6"
-              onClick={() => { trackLMSRedirect('Start Free Trial'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
+              onClick={() => { trackLMSRedirect('Get Starter Pack'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
             >
-              Start Free Trial
+              Get Starter Pack
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -61,7 +61,7 @@ const CTA = () => {
           </div>
           <p className={`mt-6 text-sm animate-fade-in ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'
             }`} style={{ animationDelay: '0.6s' }}>
-            No credit card required. Explore our resources freely.
+            Trial access valid until MDCAT Test Day. No credit card required.
           </p>
         </div>
       </div>

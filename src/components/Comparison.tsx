@@ -235,10 +235,10 @@ const Comparison = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <button
-              onClick={() => { trackLMSRedirect('Start Free Trial'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
+              onClick={() => { trackLMSRedirect('Get Starter Pack'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
               className="bg-crypto-purple hover:bg-crypto-purple/90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105"
             >
-              Start Free Trial
+              Get Starter Pack
             </button>
             <button
               onClick={() => {

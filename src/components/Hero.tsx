@@ -267,9 +267,9 @@ const Hero = () => {
             <p className={`text-lg mb-8 max-w-lg ${theme === 'dark' ? 'text-gray-300' : 'text-slate-800'}`}>
               Our Students don't just prepare for MDCAT - they get into medical colleges with admissions to Top Medical colleges across the country
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="w-3/4 sm:w-auto max-w-xs sm:max-w-none">
-                <a href="https://lms.predoctr.pk/student-dashboard/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Sign in with Google')}>
+            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+              <div className="w-3/4 sm:w-auto max-w-xs sm:max-w-none relative">
+                <a href="https://lms.predoctr.pk/" target="_blank" rel="noopener noreferrer" onClick={() => trackLMSRedirect('Sign in with Google')}>
                   <div
                     className="relative overflow-hidden group/btn transition-all duration-300 hover:scale-105 rounded-lg"
                     style={{
@@ -309,6 +309,22 @@ const Hero = () => {
 
                     {/* Gradient overlay for animation */}
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                  </div>
+                </a>
+
+                {/* Free Account Sticker */}
+                <a 
+                  href="https://lms.predoctr.pk/"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute -top-3 -right-3 z-10 animate-bounce cursor-pointer group/sticker"
+                >
+                  <div className={`px-2 py-1 text-[10px] font-bold tracking-widest rounded shadow-md transform rotate-6 transition-all duration-300 group-hover/sticker:rotate-0 group-hover/sticker:scale-110 flex items-center gap-1.5 ${theme === 'dark' ? 'bg-[#4096EE] text-white' : 'bg-[#4096EE] text-white'}`}>
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                    ₨150 TRIAL ACCESS
                   </div>
                 </a>
               </div>

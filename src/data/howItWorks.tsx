@@ -13,8 +13,8 @@ export const steps = [
     {
       number: "02",
       icon: <Gift className="h-6 w-6" />,
-      title: "Free Trial Experience",
-      description: "Get instant free account access to explore our platform. Try sample MCQs, browse comprehensive notes, and experience our interactive learning approach.",
+      title: "Starter Pack Trial",
+      description: "Get trial access for just ₨150 valid until MDCAT Test Day. Try the first 2 chapters of all video lectures, MCQs, and board books, plus the first 2 Full-Length Tests.",
       image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&h=200"
     },
     {

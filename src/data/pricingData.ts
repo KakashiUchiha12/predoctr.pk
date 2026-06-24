@@ -2,23 +2,29 @@
 
 export const pricingPlans = [
   {
-    name: "Free",
-    subtitle: "Limited and Less",
-    price: { monthly: "₨0", annual: "₨0" },
-    description: "",
-    badge: "Instant Access",
+    name: "Starter Pack",
+    subtitle: "Trial Access",
+    price: { monthly: "₨150", annual: "₨150" },
+    duration: "Valid until MDCAT Test Day (August 16th, 2026)",
+    description: "The primary trial/demo option offered to students to test the platform.",
+    badge: "Trial Access",
     features: [
-      "Practice MCQs",
-      "Notes",
-      "Board Book based MCQs",
-      "Limited Access 48 Hours only"
+      "Video Lectures: Access to the first 2 chapters of all lecture-based subjects",
+      "MCQs: Access to the first 2 chapters of all MCQ subjects",
+      "Test Series: Access to the first 2 tests of the preDoctr.pk Full Length Test Series",
+      "Board Books: Complete Board Book MCQs for the first 2 chapters",
+      "Analytics: Performance tracking, dashboards, and detailed answers/explanations for the allowed chapters"
+    ],
+    excludedFeatures: [
+      "All past papers remain locked on the Starter Pack",
+      "All chapters beyond the first 2 are locked"
     ],
     buttonText: "Select package"
   },
   {
     name: "Only MCQs",
     subtitle: "Good for Practice",
-    price: { monthly: "₨3000", annual: "₨3000" },
+    price: { monthly: "₨3500", annual: "₨3500" },
     description: "",
     badge: "Instant Access",
     features: [
@@ -46,7 +52,7 @@ export const pricingPlans = [
   {
     name: "Full Version",
     subtitle: "All Resources in one Package",
-    price: { monthly: "₨8500", annual: "₨8500" },
+    price: { monthly: "₨10000", annual: "₨10000" },
     description: "",
     badge: "Instant Access",
     features: [

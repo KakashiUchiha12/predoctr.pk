@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { trackLMSRedirect } from '@/utils/metaPixel';
 import { useNavigate } from 'react-router-dom';
@@ -10,8 +10,10 @@ interface PricingPlan {
   name: string;
   subtitle?: string;
   price: { monthly: string; annual: string };
+  duration?: string;
   description: string;
   features: string[];
+  excludedFeatures?: string[];
   highlighted?: boolean;
   badge?: string;
   badgeExtra?: string;
@@ -57,64 +59,87 @@ const Pricing = () => {
                   {plan.badgeExtra || "Most Popular"}
                 </div>
               )}
-              <div className={`p-8 ${theme === 'dark'
+              <div className={`p-8 flex flex-col justify-between h-full ${theme === 'dark'
                 ? 'bg-white/5'
                 : 'bg-white'
                 }`}>
-                <div className={`text-center mb-4 ${plan.badge ? '' : 'invisible'}`}>
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
-                    }`}>
-                    {plan.badge}
-                  </span>
-                </div>
-                <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                  {plan.name}
-                </h3>
-                {plan.subtitle && (
-                  <p className={`text-sm mb-2 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
-                    {plan.subtitle}
-                  </p>
-                )}
-                <div className="mb-4">
-                  <span className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                    {plan.price.monthly}
-                  </span>
-                  {plan.name !== "Free" && (
+                <div>
+                  <div className={`text-center mb-4 ${plan.badge ? '' : 'invisible'}`}>
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${theme === 'dark' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-100 text-blue-800 border border-blue-200'
+                      }`}>
+                      {plan.badge}
+                    </span>
+                  </div>
+                  <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                    {plan.name}
+                  </h3>
+                  {plan.subtitle && (
+                    <p className={`text-sm mb-2 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+                      {plan.subtitle}
+                    </p>
+                  )}
+                  <div className="mb-4">
+                    <span className={`text-3xl md:text-4xl font-bold ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                      {plan.price.monthly}
+                    </span>
                     <span className={`ml-1 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'} text-sm`}>
                       PKR
                     </span>
-                  )}
-                </div>
-                <p className={`mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
-                  {plan.description}
-                </p>
-
-                <Button
-                  onClick={() => { trackLMSRedirect(plan.buttonText); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
-                  className={`w-full mb-6 ${plan.highlighted
-                    ? 'bg-[#4096EE] hover:bg-[#4096EE]/90'
-                    : theme === 'dark'
-                      ? 'bg-white/10 hover:bg-white/20 text-white'
-                      : 'bg-black/10 hover:bg-black/20 text-slate-900'
-                    }`}
-                >
-                  {plan.buttonText}
-                </Button>
-
-                <div>
-                  <p className={`text-sm font-medium mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'}`}>
-                    What's included:
+                    {plan.duration && (
+                      <div className={`text-xs mt-1.5 font-medium ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>
+                        {plan.duration}
+                      </div>
+                    )}
+                  </div>
+                  <p className={`mb-6 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+                    {plan.description}
                   </p>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <Check className="h-5 w-5 text-[#4096EE] mr-3 shrink-0" />
-                        <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <Button
+                    onClick={() => { trackLMSRedirect(plan.buttonText); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
+                    className={`w-full mb-6 ${plan.highlighted
+                      ? 'bg-[#4096EE] hover:bg-[#4096EE]/90'
+                      : theme === 'dark'
+                        ? 'bg-white/10 hover:bg-white/20 text-white'
+                        : 'bg-black/10 hover:bg-black/20 text-slate-900'
+                      }`}
+                  >
+                    {plan.buttonText}
+                  </Button>
+
+                  <div>
+                    <p className={`text-sm font-medium mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-slate-700'}`}>
+                      What's included:
+                    </p>
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <Check className="h-5 w-5 text-[#4096EE] mr-3 shrink-0" />
+                          <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-slate-600'}`}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {plan.excludedFeatures && plan.excludedFeatures.length > 0 && (
+                    <div className="mt-6 border-t border-dashed border-gray-500/20 pt-6">
+                      <p className={`text-sm font-medium mb-4 ${theme === 'dark' ? 'text-red-400' : 'text-red-600'}`}>
+                        What is Locked/Excluded:
+                      </p>
+                      <ul className="space-y-3">
+                        {plan.excludedFeatures.map((feature, i) => (
+                          <li key={i} className="flex items-start">
+                            <X className="h-5 w-5 text-red-500 mr-3 shrink-0" />
+                            <span className={`text-sm ${theme === 'dark' ? 'text-gray-400/80' : 'text-slate-600/80'}`}>
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

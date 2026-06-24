@@ -4,8 +4,8 @@ export const faqItems = [
     answer: "preDoctr.pk is an online platform dedicated to helping students prepare for the MDCAT exam through comprehensive resources, including MCQs, practice tests, recorded lectures, and personalized guidance."
   },
   {
-    question: "What resources are available in the free version?",
-    answer: "In the free version, you get access to a limited number of MCQs, quizzes, and practice tests to help you get started with your MDCAT preparation."
+    question: "What resources are available in the Starter Pack (Trial Access)?",
+    answer: "The Starter Pack (₨150, valid until MDCAT Test Day on August 16th, 2026) includes video lectures and MCQs for the first 2 chapters of all subjects, the first 2 Full-Length Tests, complete Board Book MCQs for the first 2 chapters, and performance analytics. Past papers and chapters beyond the first 2 are excluded."
   },
   {
     question: "What's included in the full version?",
@@ -13,7 +13,7 @@ export const faqItems = [
   },
   {
     question: "How can I get started with preDoctr.pk?",
-    answer: "Simply visit our website and sign up for a free demo account. You can then explore our resources before upgrading to the full version for complete access."
+    answer: "Simply visit our website and sign up for a Starter Pack trial account for just ₨150. You can then explore our resources before upgrading to one of our full packages for complete access."
   },
   {
     question: "Do you offer any personalized guidance?",

@@ -60,9 +60,9 @@ const HowItWorks = () => {
           <Button
             size="lg"
             className="bg-[#4096EE] hover:bg-[#4096EE]/90 text-white px-8"
-            onClick={() => { trackLMSRedirect('Try Free Today'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
+            onClick={() => { trackLMSRedirect('Get Starter Pack'); window.open('https://lms.predoctr.pk/student-dashboard/', '_blank'); }}
           >
-            Try Free Today
+            Get Starter Pack
           </Button>
         </div>
       </div>
