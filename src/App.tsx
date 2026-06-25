@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,21 +7,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { handlePWAInstall } from "./utils/pwaInstall";
 import SplashScreen from "./components/SplashScreen";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Careers from "./pages/Careers";
-import Press from "./pages/Press";
+import PageLoader from "./components/PageLoader";
 
-import Legal from "./pages/Legal";
-
-import NotFound from "./pages/NotFound";
+// Lazy load page components for code-splitting and faster initial load
+const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
+const Careers = lazy(() => import("./pages/Careers"));
+const Press = lazy(() => import("./pages/Press"));
+const Legal = lazy(() => import("./pages/Legal"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // LMS Pages
-import LMSDashboard from "./pages/LMSDashboard";
-import SubjectSelection from "./pages/SubjectSelection";
-import BiologyTopics from "./pages/BiologyTopics";
-import MCQTest from "./pages/MCQTest";
-import TestResults from "./pages/TestResults";
+const LMSDashboard = lazy(() => import("./pages/LMSDashboard"));
+const SubjectSelection = lazy(() => import("./pages/SubjectSelection"));
+const BiologyTopics = lazy(() => import("./pages/BiologyTopics"));
+const MCQTest = lazy(() => import("./pages/MCQTest"));
+const TestResults = lazy(() => import("./pages/TestResults"));
 
 // Performance-optimized QueryClient with better defaults
 const queryClient = new QueryClient({
@@ -63,29 +64,28 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter basename={import.meta.env.BASE_URL}>
-            <Routes>
-              {/* Main Landing Page */}
-              <Route path="/" element={<Index />} />
-              <Route path="/" element={<Index />} />
+            <Suspense fallback={<PageLoader variant="minimal" message="" />}>
+              <Routes>
+                {/* Main Landing Page */}
+                <Route path="/" element={<Index />} />
 
-              {/* Educational Platform Pages */}
-              <Route path="/about" element={<About />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/press" element={<Press />} />
+                {/* Educational Platform Pages */}
+                <Route path="/about" element={<About />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/press" element={<Press />} />
+                <Route path="/legal" element={<Legal />} />
 
+                {/* LMS Routes */}
+                <Route path="/dashboard" element={<LMSDashboard />} />
+                <Route path="/subjects" element={<SubjectSelection />} />
+                <Route path="/subjects/biology" element={<BiologyTopics />} />
+                <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
+                <Route path="/testresults" element={<TestResults />} />
 
-              <Route path="/legal" element={<Legal />} />
-
-              {/* LMS Routes */}
-              <Route path="/dashboard" element={<LMSDashboard />} />
-              <Route path="/subjects" element={<SubjectSelection />} />
-              <Route path="/subjects/biology" element={<BiologyTopics />} />
-              <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
-              <Route path="/testresults" element={<TestResults />} />
-
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

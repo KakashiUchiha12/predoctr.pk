@@ -44,7 +44,7 @@ export const comparisonData: ComparisonItem[] = [
   },
   {
     category: "Past Papers",
-    preDoctr: "✅ 2020-2025 Complete",
+    preDoctr: "✅ 2021-2025 Complete",
     competitors: "❌ Limited Years",
     description: "Complete archive with detailed solutions"
   },
@@ -98,7 +98,7 @@ export const uniqueSellingPoints = [
   },
   {
     title: "Lower Price Point",
-    description: "We charge only 6,000 PKR for complete MDCAT preparation, while academies charge up to 30,000 PKR",
+    description: "We charge only 10,000 PKR for complete MDCAT preparation, while academies charge up to 30,000 PKR",
     icon: "💰"
   },
   {

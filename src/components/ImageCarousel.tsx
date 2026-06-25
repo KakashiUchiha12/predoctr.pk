@@ -10,6 +10,8 @@ interface ImageCarouselProps {
   onImageClick?: (imageIndex: number, featureTitle?: string) => void;
   featureTitle?: string;
   onFullscreenChange?: (isFullscreen: boolean) => void;
+  objectFit?: 'cover' | 'contain';
+  marginClass?: string;
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
@@ -20,7 +22,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   laptopHeight = 'h-[16rem]',
   onImageClick,
   featureTitle,
-  onFullscreenChange
+  onFullscreenChange,
+  objectFit = 'cover',
+  marginClass = 'mb-8 md:mb-48 lg:mb-64'
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -164,7 +168,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const hasMultipleImages = images.length > 1;
 
   return (
-    <div className={`${className} relative z-10 mb-8 md:mb-48 lg:mb-64`}>
+    <div className={`${className} relative z-10 ${marginClass}`}>
       <div className="relative flex items-center justify-center">
         {/* Left Navigation Arrow - Completely outside image container */}
         {hasMultipleImages && (
@@ -225,7 +229,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   <img
                     src={image}
                     alt={`Feature screenshot ${index + 1} - Click to view full screen`}
-                    className="w-full h-full object-cover rounded-lg transition-all duration-200 cursor-pointer hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
+                    className={`w-full h-full ${objectFit === 'contain' ? 'object-contain bg-slate-950/40' : 'object-cover'} rounded-lg transition-all duration-200 cursor-pointer hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]`}
                     style={{ zIndex: 40 }}
                     loading="lazy"
                     width="441"

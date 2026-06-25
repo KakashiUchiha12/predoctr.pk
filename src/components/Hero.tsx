@@ -5,6 +5,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { trackLMSRedirect } from '@/utils/metaPixel';
+import HeroGradientBackground from './HeroGradientBackground';
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -211,6 +212,7 @@ const Hero = () => {
 
       {/* Animated Background Elements */}
       <div className={`absolute inset-0 overflow-hidden transition-all duration-300 ${isVideoOpen ? 'blur-sm' : ''}`}>
+        <HeroGradientBackground />
         <div className={`absolute top-1/4 left-10 w-72 h-72 bg-crypto-purple/10 rounded-full filter blur-3xl animate-pulse-slow transition-all duration-300 ${isVideoOpen ? 'blur-2xl' : ''}`}></div>
         <div className={`absolute bottom-1/4 right-10 w-96 h-96 bg-crypto-light-purple/10 rounded-full filter blur-3xl animate-pulse-slow transition-all duration-300 ${isVideoOpen ? 'blur-2xl' : ''}`} style={{ animationDelay: '1s' }}></div>
       </div>

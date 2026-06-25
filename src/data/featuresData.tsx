@@ -209,7 +209,7 @@ export const enhancedFeatures: EnhancedFeature[] = [
     icon: <Archive className="h-6 w-6" />,
     title: "Complete Past Paper Archive",
     subtitle: "Historical Exam Collection",
-    description: "Explore a rich collection of past papers from multiple universities and boards to familiarize yourself with exam patterns. Our extensive archive includes years of historical data to help you understand question trends, difficulty levels, and exam format variations.",
+    description: "Explore a rich collection of past papers from multiple universities and boards to familiarize yourself with exam patterns. Our collection includes five years of data (2021 to 2025) to help you understand question trends, difficulty levels, and exam format variations.",
     images: [
       `${import.meta.env.BASE_URL}Features 3 PastPapers/1pastpapers-min.webp`,
       `${import.meta.env.BASE_URL}Features 3 PastPapers/2pastpapers-min.webp`,
@@ -218,18 +218,18 @@ export const enhancedFeatures: EnhancedFeature[] = [
       `${import.meta.env.BASE_URL}Features 3 PastPapers/5pastpapers-min.webp`
     ],
     keyStatistic: {
-      value: "16",
+      value: "5",
       label: "Years of Papers",
-      trend: "+2 per year"
+      trend: "+1 per year"
     },
     color: "crypto-teal",
     bgGradient: "from-teal-500/20 to-green-500/20",
     subFeatures: [
       {
         icon: <TrendingUp className="h-4 w-4" />,
-        title: "Past Papers (2020-2025)",
-        description: "Access a full archive of past MDCAT papers from 2020 to 2025 to track changes in question formats and difficulty. Analyze six years of exam patterns to understand evolving trends and question styles. • Complete question papers with answers • Detailed solution explanations • Topic-wise analysis • Difficulty level assessment • Question pattern recognition • Marking scheme insights • Time management strategies • Comparative year analysis",
-        metric: "6 years"
+        title: "Past Papers (2021-2025)",
+        description: "Access a full archive of past MDCAT papers from 2021 to 2025 to track changes in question formats and difficulty. Analyze five years of exam patterns to understand evolving trends and question styles. • Complete question papers with answers • Detailed solution explanations • Topic-wise analysis • Difficulty level assessment • Question pattern recognition • Marking scheme insights • Time management strategies • Comparative year analysis",
+        metric: "5 years"
       },
       {
         icon: <BarChart3 className="h-4 w-4" />,

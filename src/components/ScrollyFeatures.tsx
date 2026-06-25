@@ -19,26 +19,62 @@ const ScrollyFeatures = () => {
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-based feature detection - Much more reliable approach with variable heights
+  const containerDimensions = useRef({ top: 0, height: 0, bottom: 0 });
+
+  // Update container dimensions on mount, resize, or orientation change
   useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        const top = containerRef.current.offsetTop;
+        const height = containerRef.current.scrollHeight || containerRef.current.offsetHeight;
+        containerDimensions.current = {
+          top,
+          height,
+          bottom: top + height
+        };
+      }
+    };
+
+    updateDimensions();
+    // Delay slightly to ensure fonts, styles, and other elements are loaded and settled
+    const timer = setTimeout(updateDimensions, 500);
+
+    window.addEventListener('resize', updateDimensions);
+    window.addEventListener('orientationchange', updateDimensions);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', updateDimensions);
+      window.removeEventListener('orientationchange', updateDimensions);
+    };
+  }, []);
+
+  // Single consolidated and optimized scroll event listener
+  useEffect(() => {
+    let ticking = false;
+
     const handleScrollProgress = () => {
-      if (!containerRef.current) return;
-
-      const containerTop = containerRef.current.offsetTop;
-      const containerHeight = containerRef.current.offsetHeight;
-      const containerBottom = containerTop + containerHeight;
       const scrollY = window.scrollY;
+      setScrollY(scrollY);
 
-      // Check if we're in the features section
+      // Detect scroll direction
+      setLastScrollY(prevLast => {
+        if (scrollY > prevLast && scrollDirection !== 'down') {
+          setScrollDirection('down');
+        } else if (scrollY < prevLast && scrollDirection !== 'up') {
+          setScrollDirection('up');
+        }
+        return scrollY;
+      });
+
+      const { top: containerTop, height: containerHeight, bottom: containerBottom } = containerDimensions.current;
+      if (containerHeight === 0) return;
+
       const windowHeight = window.innerHeight;
       const isInFeatures = scrollY >= containerTop - windowHeight && scrollY <= containerBottom + windowHeight;
 
       if (isInFeatures) {
         // Define custom heights for each feature (features 1,2,3 get more space)
-        const featureHeights = enhancedFeatures.map((_, index) => {
-          // Features 0, 1, 2 (MCQ Bank, Notes, Past Papers) get 500vh, others get 350vh
-          return index <= 2 ? 500 : 350;
-        });
+        const featureHeights = enhancedFeatures.map((_, index) => (index <= 2 ? 500 : 350));
 
         // Calculate which feature should be active based on scroll position with variable heights
         const scrolledPastTop = scrollY - containerTop;
@@ -46,7 +82,7 @@ const ScrollyFeatures = () => {
         let activeIndex = 0;
 
         for (let i = 0; i < featureHeights.length; i++) {
-          accumulatedHeight += featureHeights[i] * window.innerHeight / 100; // Convert vh to pixels
+          accumulatedHeight += (featureHeights[i] * windowHeight) / 100; // Convert vh to pixels
           if (scrolledPastTop < accumulatedHeight) {
             activeIndex = i;
             break;
@@ -59,14 +95,21 @@ const ScrollyFeatures = () => {
         if (constrainedIndex !== activeFeature) {
           setActiveFeature(constrainedIndex);
           setIsAnimating(true);
-          // Extended animation duration for better reveal effect (increased from 1000ms to 1500ms)
           setTimeout(() => setIsAnimating(false), 1500);
         }
       }
+
+      // Check if user is within features section
+      const isInFeaturesExact = scrollY >= containerTop && scrollY <= containerBottom;
+      setIsInFeaturesSection(isInFeaturesExact);
+
+      const heightScrollable = containerHeight - windowHeight;
+      if (heightScrollable > 0) {
+        const progressVal = Math.min(Math.max((scrollY - containerTop) / heightScrollable, 0), 1);
+        setProgress(progressVal * 100);
+      }
     };
 
-    // Throttle scroll events for better performance
-    let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -81,41 +124,7 @@ const ScrollyFeatures = () => {
     handleScrollProgress(); // Initial call
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeFeature]); // Added activeFeature dependency
-
-  // Enhanced scroll handling with parallax, section detection, and direction tracking
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setScrollY(scrollY);
-
-      // Detect scroll direction
-      if (scrollY > lastScrollY && scrollDirection !== 'down') {
-        setScrollDirection('down');
-      } else if (scrollY < lastScrollY && scrollDirection !== 'up') {
-        setScrollDirection('up');
-      }
-      setLastScrollY(scrollY);
-
-      if (!containerRef.current) return;
-
-      const containerTop = containerRef.current.offsetTop;
-      const containerHeight = containerRef.current.scrollHeight;
-      const containerBottom = containerTop + containerHeight;
-
-      // Check if user is within features section
-      const isInFeatures = scrollY >= containerTop && scrollY <= containerBottom;
-      setIsInFeaturesSection(isInFeatures);
-
-      const height = containerRef.current.scrollHeight - window.innerHeight;
-      const progress = Math.min(Math.max((scrollY - containerTop) / height, 0), 1);
-      setProgress(progress * 100);
-    };
-
-    // Attach event listener with passive for better performance
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, scrollDirection]);
+  }, [activeFeature, scrollDirection]);
 
   // Auto-scroll to feature function
   const scrollToFeature = (index: number) => {
@@ -145,32 +154,6 @@ const ScrollyFeatures = () => {
       window.dispatchEvent(playVideoEvent);
     }, 800);
   };
-
-
-
-
-  // Mobile optimizations and additional enhancements
-  useEffect(() => {
-    const handleOrientationChange = () => {
-      // Recalculate positions on orientation change for mobile
-      setTimeout(() => {
-        if (containerRef.current) {
-          const handleScroll = () => {
-            if (!containerRef.current) return;
-            const scrollTop = window.scrollY;
-            const offsetTop = containerRef.current.offsetTop;
-            const height = containerRef.current.scrollHeight - window.innerHeight;
-            const progress = Math.min(Math.max((scrollTop - offsetTop) / height, 0), 1);
-            setProgress(progress * 100);
-          };
-          handleScroll();
-        }
-      }, 100);
-    };
-
-    window.addEventListener('orientationchange', handleOrientationChange);
-    return () => window.removeEventListener('orientationchange', handleOrientationChange);
-  }, []);
 
   return (
     <section

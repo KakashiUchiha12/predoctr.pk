@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import ScrollyFeatures from '@/components/ScrollyFeatures';
+import FeaturesShowcase from '@/components/FeaturesShowcase';
 import Comparison from '@/components/Comparison';
 import HowItWorks from '@/components/HowItWorks';
 import Testimonials from '@/components/Testimonials';
@@ -48,7 +48,7 @@ const Index = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <ScrollyFeatures />
+      <FeaturesShowcase />
       <Comparison />
       <HowItWorks />
       <Testimonials />
