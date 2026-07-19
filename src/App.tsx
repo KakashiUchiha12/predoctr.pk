@@ -3,11 +3,24 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { handlePWAInstall } from "./utils/pwaInstall";
 import SplashScreen from "./components/SplashScreen";
 import PageLoader from "./components/PageLoader";
+
+// Redirect component: sends users to the LMS login page
+const LoginRedirect = () => {
+  useNavigate(); // ensures router context is available
+  useEffect(() => {
+    window.location.replace("https://lms.predoctr.pk/login");
+  }, []);
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', fontFamily: 'sans-serif', color: '#6b7280' }}>
+      Redirecting to login…
+    </div>
+  );
+};
 
 // Lazy load page components for code-splitting and faster initial load
 const Index = lazy(() => import("./pages/Index"));
@@ -81,6 +94,9 @@ const App = () => {
                 <Route path="/subjects/biology" element={<BiologyTopics />} />
                 <Route path="/subjects/biology/:topicId/:testId" element={<MCQTest />} />
                 <Route path="/testresults" element={<TestResults />} />
+
+                {/* Login redirect → lms.predoctr.pk/login */}
+                <Route path="/login" element={<LoginRedirect />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
