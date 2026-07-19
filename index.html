@@ -257,7 +257,20 @@
     fbq('init', '1461961581841663');
     fbq('track', 'PageView');
   </script>
-  <script type="module" crossorigin src="/assets/index-BFdm8siS.js"></script>
+  <!-- GitHub Pages SPA routing: restore path encoded by 404.html -->
+  <script>
+    (function() {
+      var p = window.location.search.slice(1).split('&').reduce(function(acc, s) {
+        var parts = s.split('=');
+        if (parts[0] === 'p') acc = decodeURIComponent(parts[1]);
+        return acc;
+      }, null);
+      if (p) {
+        window.history.replaceState(null, null, p);
+      }
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-Gr8ZaMI1.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/vendor-icons-BBcn98AM.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor-router-7TiDZ00U.js">
   <link rel="stylesheet" crossorigin href="/assets/index-ZAkrOtRk.css">
