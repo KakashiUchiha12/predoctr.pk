@@ -153,9 +153,9 @@ const Footer = () => {
                 &copy; {currentYear} preDoctr.pk. All rights reserved.
               </p>
               <div className="flex space-x-6">
-                <a href="#!" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Terms of Service</a>
-                <a href="#!" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Privacy Policy</a>
-                <a href="#!" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Cookie Policy</a>
+                <Link to="/legal" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Terms of Service</Link>
+                <Link to="/legal" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Privacy Policy</Link>
+                <Link to="/legal" className={`text-sm hover:text-crypto-blue transition-colors ${theme === 'dark' ? 'text-gray-400' : 'text-slate-500'}`}>Cookie Policy</Link>
               </div>
             </div>
           </div>

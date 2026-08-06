@@ -87,6 +87,11 @@ const App = () => {
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/press" element={<Press />} />
                 <Route path="/legal" element={<Legal />} />
+                <Route path="/privacy" element={<Legal />} />
+                <Route path="/privacy.html" element={<Legal />} />
+                <Route path="/privacy-policy" element={<Legal />} />
+                <Route path="/terms" element={<Legal />} />
+                <Route path="/cookies" element={<Legal />} />
 
                 {/* LMS Routes */}
                 <Route path="/dashboard" element={<LMSDashboard />} />
