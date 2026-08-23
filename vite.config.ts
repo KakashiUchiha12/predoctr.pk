@@ -83,6 +83,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    target: ['es2015', 'safari12'],
     sourcemap: true,
     rollupOptions: {
       output: {
