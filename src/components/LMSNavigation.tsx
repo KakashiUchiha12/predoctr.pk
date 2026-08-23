@@ -102,9 +102,9 @@ const LMSNavigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center group">
               <img
-                src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
+                src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png?v=2`}
                 alt="preDoctr.pk"
-                className="h-10 w-auto animate-float transition-transform duration-300 group-hover:scale-110"
+                className="h-8 w-auto mr-2 transition-transform duration-300 group-hover:scale-110"
               />
               <h1 className="text-2xl font-bold">
                 <span className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>pre</span><span className="text-[#4096EE]">Doctr.pk</span>

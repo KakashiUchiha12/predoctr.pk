@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img
-              src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
+              src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png?v=2`}
               alt="preDoctr.pk logo"
               className="h-10 w-auto mr-2 animate-float"
               width="40"

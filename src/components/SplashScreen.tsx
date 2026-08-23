@@ -52,7 +52,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         {/* Logo */}
         <div className="relative mb-6">
                 <img
-            src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png`}
+            src={`${import.meta.env.BASE_URL}favicon/cropped-Blue-Stethoscope-Medical-Logo-3-1-1.png?v=2`}
             alt="preDoctr.pk"
             className="h-16 w-auto mx-auto animate-float"
           />
